@@ -1,0 +1,10 @@
+{
+  "Adapter": "D:\\GTAVI\\GTA6.Xbox.v1.0.2.1-CYBERLEEK\\compat\\bin\\XCRDAPI.dll",
+  "AdapterSha256": "332913F00DBD9012B97E9D65198B7992D1588A999735BD8E3DA8A81B45705085",
+  "InputFile": "D:\\GTAVI\\GTA6.Xbox.v1.0.2.1-CYBERLEEK\\xbs_splash.png",
+  "BytesComparedPerTransfer": 4096,
+  "ExitCode": -1,
+  "Passed": false,
+  "AdapterLog": "D:\\GTAVI\\GTA6.Xbox.v1.0.2.1-CYBERLEEK\\compat\\runs\\storage-selftest-20261125-103040-65ab6750\\storage.log",
+  "TestLog": "D:\\GTAVI\\GTA6.Xbox.v1.0.2.1-CYBERLEEK\\compat\\runs\\storage-selftest-20261125-103040-65ab6750\\selftest.log"
+}

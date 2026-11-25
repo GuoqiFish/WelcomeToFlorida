@@ -1,0 +1,27 @@
+{
+  "RunId": "20261125-101527-1093f0f5",
+  "StartedUtc": "2026-11-25T02:15:27.7980177Z",
+  "Executable": "D:\\GTAVI\\GTA6.Xbox.v1.0.2.1-CYBERLEEK\\game_scarlett_master.exe",
+  "OriginalExeSha256": "E95020B2FA4A721DB3DF59FDECF75621730AC559D8835252F6C3B658D5A08993",
+  "TimeoutSeconds": 20,
+  "BreakRva": [
+    "xgameruntime.dll!0x23d17c",
+    "xgameruntime.dll!0x23d188"
+  ],
+  "DebuggerExitCode": 11,
+  "CleanupSucceeded": true,
+  "RestoredFiles": [
+    "xmem.dll",
+    "d3d12_xs.dll",
+    "GameInput.dll",
+    "chad.dll",
+    "xg_xs.dll",
+    "XCRDAPI.dll",
+    "xapu.dll",
+    "AcpHal.dll"
+  ],
+  "Error": null,
+  "CleanupErrors": [],
+  "ExecutableUnchanged": true,
+  "FinishedUtc": "2026-11-25T02:15:29.9665354Z"
+}

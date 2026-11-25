@@ -1,0 +1,80 @@
+{
+  "RunId": "20261125-104556-077f76f5",
+  "StartedUtc": "2026-11-25T02:45:56.6813116Z",
+  "Executable": "D:\\GTAVI\\GTA6.Xbox.v1.0.2.1-CYBERLEEK\\game_scarlett_master.exe",
+  "OriginalExeSha256": "E95020B2FA4A721DB3DF59FDECF75621730AC559D8835252F6C3B658D5A08993",
+  "TimeoutSeconds": 30,
+  "BreakRva": [
+    "0x1e1cfe0",
+    "0x1e1cfe5",
+    "0x24784d5",
+    "0x247853a",
+    "0x2478553",
+    "0x24785b7",
+    "0x2478698",
+    "0x24786b9",
+    "0x24786dc",
+    "0x247870d",
+    "0x2478731",
+    "0x2478758",
+    "0x247878a",
+    "0x5a91bdd"
+  ],
+  "StorageLog": "D:\\GTAVI\\GTA6.Xbox.v1.0.2.1-CYBERLEEK\\compat\\runs\\20261125-104556-077f76f5\\storage.log",
+  "DeployedDlls": [
+    {
+      "Name": "xmem.dll",
+      "Sha256": "CABA14915979B8458FB0AFBAACACB0877A5A30E71B64192AFA9D4708413576AA"
+    },
+    {
+      "Name": "d3d12_xs.dll",
+      "Sha256": "47EC4B2BB6156285E2AF55E301A5798C0E30B37B217F4E75093B129B732C5F04"
+    },
+    {
+      "Name": "chad.dll",
+      "Sha256": "F9E59E1C92186D8C75D06CB8A9326FED310F5CC8671621DA780534AD63C9B30A"
+    },
+    {
+      "Name": "xg_xs.dll",
+      "Sha256": "B99C1E2C4F47CA392BAC7CDFDFE55A6C2104C805D9FEA16FD661234D619B50E2"
+    },
+    {
+      "Name": "XCRDAPI.dll",
+      "Sha256": "7837FF0A887CFC5CE995D865F59F2FAD601C37D27AF2F72D1DDFFB24990FDBDD"
+    },
+    {
+      "Name": "dstorage.dll",
+      "Sha256": "CAE65787F61514BEC6F012F44546E68B19E39D8854A9AB52AF813370D44B272A"
+    },
+    {
+      "Name": "dstoragecore.dll",
+      "Sha256": "CF85B19A92A8276F8BACA0DB9BBCD60735BAD50768DEB303D310E84D5F4FDD11"
+    },
+    {
+      "Name": "xapu.dll",
+      "Sha256": "A3A02BA49FDA7D68B227B5F79CF79BE8C41AD2338EEB66B9593DBDDE68350B86"
+    },
+    {
+      "Name": "AcpHal.dll",
+      "Sha256": "FF4D7919423323788F50E34E8528D9E28AE0038C7C838312A1E7A7519288ACE2"
+    }
+  ],
+  "DebuggerExitCode": 11,
+  "CleanupSucceeded": true,
+  "RestoredFiles": [
+    "xmem.dll",
+    "d3d12_xs.dll",
+    "chad.dll",
+    "xg_xs.dll",
+    "XCRDAPI.dll",
+    "dstorage.dll",
+    "dstoragecore.dll",
+    "xapu.dll",
+    "AcpHal.dll"
+  ],
+  "Error": null,
+  "CleanupErrors": [],
+  "ExecutableUnchanged": true,
+  "FinishedUtc": "2026-11-25T02:45:56.9754941Z",
+  "StorageLogExists": false
+}

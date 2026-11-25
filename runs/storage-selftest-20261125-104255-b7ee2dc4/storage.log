@@ -1,0 +1,35 @@
+[storage tid=50316] DStorageGetFactory IID=62959d11-d45f-4884-a0a3-f7862ea243ae
+[storage tid=50316] PC DStorageGetFactory HRESULT=0x00000000
+[storage tid=50316] Factory.SetStagingBufferSize bytes=33554432 HRESULT=0x00000000
+[storage tid=50316] Factory.OpenFile IID=43704f9f-27c6-4a9f-8815-d16527894df4
+[storage tid=50316] Factory.OpenFile path=D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\xbs_splash.png
+[storage tid=50316] File.GetHandle path=D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\xbs_splash.png handle=0000000000000204 error=0
+[storage tid=50316] Factory.OpenFile IID=43704f9f-27c6-4a9f-8815-d16527894df4
+[storage tid=50316] Factory.OpenFile path=D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\xbs_splash.png.storage-selftest-missing-35216
+[storage tid=50316] Factory.OpenFile HRESULT=0x80070002
+[storage tid=50316] Factory.CreateQueue1 IID=3c02cb0c-c050-4195-99a1-a1ce94ba33c5
+[storage tid=50316] Factory.CreateQueue1 source=0 capacity=128 priority=0 name=selftest.file options=0x1
+[storage tid=50316] Factory.CreateQueue1 native HRESULT=0x00000000
+[storage tid=50316] Factory.CreateStatusArray IID=cd66d752-2786-44f7-9070-e2a6fdad3f1b
+[storage tid=50316] Factory.CreateStatusArray capacity=1 name=selftest.file
+[storage tid=50316] Factory.OpenFile IID=43704f9f-27c6-4a9f-8815-d16527894df4
+[storage tid=50316] Factory.OpenFile path=D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\xbs_splash.png
+[storage tid=50316] Queue.EnqueueRequest name=selftest.file count=1 options=0x0 source=0000025F82145700 offset=0x0 dest=0000025F81B60000 bytes=4096
+[storage tid=50316] Queue.Submit name=selftest.file pending=3 total_requests=1
+[storage tid=50316] Queue.Close name=selftest.file
+[storage tid=50316] Factory.CreateQueue1 IID=3c02cb0c-c050-4195-99a1-a1ce94ba33c5
+[storage tid=50316] Factory.CreateQueue1 source=1 capacity=128 priority=2 name=selftest.memory options=0x1
+[storage tid=50316] Factory.CreateQueue1 native HRESULT=0x00000000
+[storage tid=50316] Factory.CreateStatusArray IID=cd66d752-2786-44f7-9070-e2a6fdad3f1b
+[storage tid=50316] Factory.CreateStatusArray capacity=1 name=selftest.memory
+[storage tid=50316] Queue.EnqueueRequest name=selftest.memory count=1 options=0x400000 source=0000025F81B50000 offset=0x0 dest=0000025F81B60000 bytes=4096
+[storage tid=50316] Queue.Submit name=selftest.memory pending=3 total_requests=1
+[storage tid=50316] Queue.Close name=selftest.memory
+[storage tid=50316] Factory.CreateQueue1 IID=3c02cb0c-c050-4195-99a1-a1ce94ba33c5
+[storage tid=50316] Factory.CreateQueue1 source=1 capacity=128 priority=2 name=selftest.close-before-submit options=0x1
+[storage tid=50316] Factory.CreateQueue1 native HRESULT=0x00000000
+[storage tid=50316] Factory.CreateStatusArray IID=cd66d752-2786-44f7-9070-e2a6fdad3f1b
+[storage tid=50316] Factory.CreateStatusArray capacity=1 name=selftest.close-before-submit
+[storage tid=50316] Queue.EnqueueRequest name=selftest.close-before-submit count=1 options=0x400000 source=0000025F81B50000 offset=0x0 dest=0000025F81B60000 bytes=4096
+[storage tid=50316] Queue.Close name=selftest.close-before-submit
+[storage tid=50316] File.Close D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\xbs_splash.png

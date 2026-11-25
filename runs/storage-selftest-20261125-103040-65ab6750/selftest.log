@@ -1,0 +1,4 @@
+Testing Xbox-facing adapter: D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\compat\bin\XCRDAPI.dll
+Read-only reference: D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\xbs_splash.png
+PASS File.GetHandle: ReadFile matched and owned handle closed
+PASS missing file returns native failure HRESULT=0x80070002

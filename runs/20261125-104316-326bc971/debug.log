@@ -1,0 +1,141 @@
+[      15 ms] START pid=30076 timeout=30
+[      15 ms] MODULE base=0x7ff7192a0000 size=0xb06d000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\game_scarlett_master.exe
+[      15 ms] BREAK_ARMED module=game_scarlett_master.exe rva=0x1e1cfe0 original=e8
+[      15 ms] BREAK_ARMED module=game_scarlett_master.exe rva=0x1e1cfe5 original=85
+[      15 ms] BREAK_ARM_FAILED rva=0x1e1d3a7 error=0
+[      15 ms] BREAK_ARMED module=game_scarlett_master.exe rva=0x24785b7 original=e8
+[      15 ms] BREAK_ARMED module=game_scarlett_master.exe rva=0x2478698 original=ff
+[      15 ms] BREAK_ARMED module=game_scarlett_master.exe rva=0x24786b9 original=e8
+[      15 ms] BREAK_ARMED module=game_scarlett_master.exe rva=0x24786dc original=e8
+[      15 ms] BREAK_ARMED module=game_scarlett_master.exe rva=0x247870d original=ff
+[      15 ms] BREAK_ARMED module=game_scarlett_master.exe rva=0x2478731 original=ff
+[      15 ms] BREAK_ARMED module=game_scarlett_master.exe rva=0x2478758 original=ff
+[      15 ms] BREAK_ARMED module=game_scarlett_master.exe rva=0x247878a original=ff
+[      15 ms] BREAK_ARMED module=game_scarlett_master.exe rva=0x5a91bdd original=85
+[      15 ms] MODULE base=0x7ffb9f580000 size=0x267000 path=\\?\C:\Windows\System32\ntdll.dll
+[      94 ms] MODULE base=0x7ffb9e7f0000 size=0xc9000 path=\\?\C:\Windows\System32\kernel32.dll
+[      94 ms] MODULE base=0x7ffb9c230000 size=0x3f7000 path=\\?\C:\Windows\System32\KernelBase.dll
+[      94 ms] MODULE base=0x7ffb9d340000 size=0xb6000 path=\\?\C:\Windows\System32\advapi32.dll
+[      94 ms] MODULE base=0x7ffb9f240000 size=0xa9000 path=\\?\C:\Windows\System32\msvcrt.dll
+[      94 ms] MODULE base=0x7ffac0060000 size=0x8d000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\msvcp140.dll
+[      94 ms] MODULE base=0x7ffad4dc0000 size=0x26000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\xmem.dll
+[      94 ms] MODULE base=0x7ffb95fa0000 size=0x24e000 path=\\?\C:\Windows\System32\twinapi.appcore.dll
+[      94 ms] MODULE base=0x7ffb9f490000 size=0xa7000 path=\\?\C:\Windows\System32\sechost.dll
+[      94 ms] MODULE base=0x198c69d0000 size=0x14b000 path=\\?\C:\Windows\System32\ucrtbase.dll
+[      94 ms] MODULE base=0x7ffb9c0e0000 size=0x14b000 path=\\?\C:\Windows\System32\ucrtbase.dll
+[      94 ms] MODULE base=0x7ffad2310000 size=0x26000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\d3d12_xs.dll
+[      94 ms] MODULE base=0x7ffb9e640000 size=0x118000 path=\\?\C:\Windows\System32\rpcrt4.dll
+[      94 ms] MODULE base=0x7ffb9e0c0000 size=0x383000 path=\\?\C:\Windows\System32\combase.dll
+[      94 ms] MODULE base=0x7ffb002e0000 size=0xc000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\vcruntime140_1.dll
+[      94 ms] MODULE base=0x7ffad9810000 size=0x1b000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\vcruntime140.dll
+[      94 ms] MODULE base=0x7ffb9f070000 size=0x1c6000 path=\\?\C:\Windows\System32\user32.dll
+[      94 ms] MODULE base=0x7ffb9cf30000 size=0xa3000 path=\\?\C:\Windows\System32\msvcp_win.dll
+[      94 ms] MODULE base=0x7ffb9d220000 size=0x27000 path=\\?\C:\Windows\System32\win32u.dll
+[      94 ms] MODULE base=0x7ffb9f2f0000 size=0x2b000 path=\\?\C:\Windows\System32\gdi32.dll
+[      94 ms] MODULE base=0x7ffb9bfb0000 size=0x12c000 path=\\?\C:\Windows\System32\gdi32full.dll
+[      94 ms] MODULE base=0x7ffb9e450000 size=0x80000 path=\\?\C:\Windows\System32\ws2_32.dll
+[      94 ms] MODULE base=0x7ffb95700000 size=0x217000 path=\\?\C:\Windows\System32\mfplat.dll
+[      94 ms] MODULE base=0x7ffb824b0000 size=0xd5000 path=\\?\C:\Windows\System32\mfreadwrite.dll
+[      94 ms] MODULE base=0x7ffb8c520000 size=0x67000 path=\\?\C:\Windows\System32\GameInput.dll
+[      94 ms] MODULE base=0x7ffb984b0000 size=0x129000 path=\\?\C:\Windows\System32\winhttp.dll
+[      94 ms] MODULE base=0x7ffb9d670000 size=0xf6000 path=\\?\C:\Windows\System32\SHCore.dll
+[      94 ms] MODULE base=0x7ffac0a90000 size=0x26000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\chad.dll
+[      94 ms] MODULE base=0x7ffac0030000 size=0x26000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\xg_xs.dll
+[      94 ms] MODULE base=0x7ffab9b10000 size=0xde000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\XboxBvhBuilder.dll
+[      94 ms] MODULE base=0x7ffabfd60000 size=0x55000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\XCRDAPI.dll
+[      94 ms] MODULE base=0x7ffaff070000 size=0x8000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\amd_fidelityfx_loader_xbox.dll
+[      94 ms] MODULE base=0x7ffab9a10000 size=0xf4000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libHttpClient.GDK.dll
+[      94 ms] MODULE base=0x7ffabd550000 size=0x26000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\xapu.dll
+[      94 ms] MODULE base=0x7ffab98e0000 size=0x26000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\AcpHal.dll
+[      94 ms] MODULE base=0x7ffab9890000 size=0x44000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\Bink2Scarlett.dll
+[      94 ms] MODULE base=0x7ffb9bea0000 size=0x2a000 path=\\?\C:\Windows\System32\bcrypt.dll
+[      94 ms] MODULE base=0x7ffb9cfe0000 size=0x178000 path=\\?\C:\Windows\System32\crypt32.dll
+[      94 ms] MODULE base=0x198c69d0000 size=0x2a000 path=\\?\C:\Windows\System32\bcrypt.dll
+[      94 ms] MODULE base=0x7ffb9bc60000 size=0x51000 path=\\?\C:\Windows\System32\cfgmgr32.dll
+[      94 ms] MODULE base=0x7ffb485b0000 size=0x91000 path=\\?\C:\Windows\System32\XAudio2_9.dll
+[      94 ms] MODULE base=0x7ffb9a000000 size=0xb000 path=\\?\C:\Windows\System32\avrt.dll
+[      94 ms] MODULE base=0x7ffb8ad70000 size=0x99000 path=\\?\C:\Windows\System32\MMDevAPI.dll
+[      94 ms] INITIAL_DEBUGGER_BREAK
+[      94 ms] MODULE base=0x7ffb9d300000 size=0x32000 path=\\?\C:\Windows\System32\imm32.dll
+[      94 ms] MODULE base=0x7ffb9d250000 size=0xa8000 path=\\?\C:\Windows\System32\bcryptprimitives.dll
+[     109 ms] MODULE base=0x7ffb956c0000 size=0x3c000 path=\\?\C:\Windows\System32\RTWorkQ.dll
+[     109 ms] TRACE_BREAK rva=0x1e1cfe0 tid=27800
+[     109 ms] REG tid=27800 rip=00007ff71b0bcfe1 (game_scarlett_master.exe+0x1e1cfe1) rsp=0000008db6effc50 rbp=0000000000000000 eax=00000004 eflags=00000202
+[     109 ms] REG rax=0000000000000004 rbx=00007ff71fa2f688 rcx=0000008db6effc80 rdx=00000198c680ff10 rsi=0000000600000000 rdi=0000008db6effc80
+[     109 ms] REG r8=0000008db6effba8 r9=0000000000000000 r10=0000000000000000 r11=0000000000000246 r12=0000000000000000 r13=0000000000000000 r14=0000000000000000 r15=0000000000000000
+[     109 ms] POINTER rcx hex=00000000 04000000 00000000 00000000
+[     109 ms] POINTER rdx ascii=......
+[     109 ms] POINTER rdx hex=b0a57fc6 98010000 a0c77fc6 98010000
+[     109 ms] POINTER r8 ascii=..%...
+[     109 ms] POINTER r8 hex=9e0e259c fb7f0000 02000000 00000000
+[     109 ms] STACKMEM +00: 00007ff700000000 00007ff700000004 00000000000002ac 00007ff71fa2f688
+[     109 ms] STACKMEM +20: 00000000000002ac 00007ff71fa2f688 0000000400000000 0000000000000000
+[     109 ms] STACKMEM +40: 0000000000000000 0000000000000000 0000000000000000 00007ff71fa2f688
+[     109 ms] STACKMEM +60: 0000000000000000 00007ff71fa31958 00000198c67fa5b0 0000000000000000
+[     109 ms] EAX_SYSTEM_MESSAGE 系统无法打开文件。
+
+[     109 ms] FRAME tid=27800 #0 game_scarlett_master.exe+0x1e1cfe1
+[     187 ms] FRAME tid=27800 #1 game_scarlett_master.exe+0x1e1cfe1
+[     187 ms] FRAME tid=27800 #2 0x7ff700000000
+[     187 ms] FRAME tid=27800 #3 0x7ff700000004
+[     187 ms] FRAME tid=27800 #4 0x2ac
+[     187 ms] FRAME tid=27800 #5 game_scarlett_master.exe+0x678f688
+[     187 ms] FRAME tid=27800 #6 0x2ac
+[     187 ms] FRAME tid=27800 #7 game_scarlett_master.exe+0x678f688
+[     187 ms] FRAME tid=27800 #8 0x400000000
+[     187 ms] TRACE_BREAK rva=0x1e1cfe5 tid=27800
+[     187 ms] REG tid=27800 rip=00007ff71b0bcfe6 (game_scarlett_master.exe+0x1e1cfe6) rsp=0000008db6effc50 rbp=0000000000000000 eax=00000000 eflags=00000246
+[     187 ms] REG rax=0000000000000000 rbx=00007ff71fa2f688 rcx=0000008db6effc80 rdx=00000198c680ff10 rsi=0000000600000000 rdi=0000008db6effc80
+[     187 ms] REG r8=0000008db6effba8 r9=0000000000000000 r10=0000000000000000 r11=0000000000000246 r12=0000000000000000 r13=0000000000000000 r14=0000000000000000 r15=0000000000000000
+[     187 ms] POINTER rcx hex=00000000 04000000 00000000 00000000
+[     187 ms] POINTER rdx ascii=......
+[     187 ms] POINTER rdx hex=b0a57fc6 98010000 a0c77fc6 98010000
+[     187 ms] POINTER r8 ascii=..%...
+[     187 ms] POINTER r8 hex=9e0e259c fb7f0000 02000000 00000000
+[     187 ms] STACKMEM +00: 00007ff700000000 00007ff700000004 00000000000002ac 00007ff71fa2f688
+[     187 ms] STACKMEM +20: 00000000000002ac 00007ff71fa2f688 0000000400000000 0000000000000000
+[     187 ms] STACKMEM +40: 0000000000000000 0000000000000000 0000000000000000 00007ff71fa2f688
+[     187 ms] STACKMEM +60: 0000000000000000 00007ff71fa31958 00000198c67fa5b0 0000000000000000
+[     187 ms] EAX_SYSTEM_MESSAGE 操作成功完成。
+
+[     187 ms] FRAME tid=27800 #0 game_scarlett_master.exe+0x1e1cfe6
+[     187 ms] FRAME tid=27800 #1 game_scarlett_master.exe+0x1e1cfe6
+[     187 ms] FRAME tid=27800 #2 0x7ff700000000
+[     187 ms] FRAME tid=27800 #3 0x7ff700000004
+[     187 ms] FRAME tid=27800 #4 0x2ac
+[     187 ms] FRAME tid=27800 #5 game_scarlett_master.exe+0x678f688
+[     187 ms] FRAME tid=27800 #6 0x2ac
+[     187 ms] FRAME tid=27800 #7 game_scarlett_master.exe+0x678f688
+[     187 ms] FRAME tid=27800 #8 0x400000000
+[     187 ms] DEBUGSTRING [xmem] XMemVirtualAlloc address=0x0000000000000000 size=0x0000000600000000 allocation=0x0000000020402000 attributes=0x0000000000000021 protection=0x0000000000000004 pcAllocation=0x0000000000002000 pcProtection=0x0000000000000004 result=0x00000198c8250000 error=0x0000000000000000
+
+[     187 ms] DEBUGSTRING [xmem] XMemVirtualAlloc address=0x0000000000000000 size=0x0000000600000000 allocation=0x0000000020402000 attributes=0x0000000000000003 protection=0x0000000000000801 pcAllocation=0x0000000000002000 pcProtection=0x0000000000000001 result=0x0000019ec8250000 error=0x0000000000000000
+
+[     187 ms] DEBUGSTRING [xmem] XMemVirtualAlloc address=0x0000000000000000 size=0x0000000049400000 allocation=0x0000000020003000 attributes=0x0000000000000183 protection=0x0000000000022004 pcAllocation=0x0000000000003000 pcProtection=0x0000000000000004 result=0x000001a4c8250000 error=0x0000000000000000
+
+[     187 ms] DEBUGSTRING [xmem] XMemVirtualAlloc address=0x0000000000000000 size=0x0000000089700000 allocation=0x0000000020003000 attributes=0x0000000000000283 protection=0x0000000000002404 pcAllocation=0x0000000020003000 pcProtection=0x0000000000002404 result=0x0000000000000000 error=0x0000000000000078
+
+[     187 ms] EXCEPTION code=0x80000003 first_chance=1 tid=27800 address=game_scarlett_master.exe+0x1e1d4e0 flags=0x0
+[     187 ms] EXCEPTION_INFO [0]=0x0
+[     187 ms] REG tid=27800 rip=00007ff71b0bd4e1 (game_scarlett_master.exe+0x1e1d4e1) rsp=0000008db6effc50 rbp=00007ff71f428a00 eax=00000000 eflags=00000246
+[     187 ms] REG rax=0000000000000000 rbx=0000000000000010 rcx=e183e1f1a16c0000 rdx=0000000000000000 rsi=00007ff720461480 rdi=00007ff72045f9b0
+[     187 ms] REG r8=0000000000000000 r9=0000008db6eff190 r10=00007ffb9f6a2a91 r11=0000008db6eff960 r12=00007ff7204613b8 r13=0000000000000002 r14=00007ff71f9ec270 r15=0000000089700000
+[     187 ms] POINTER r9 hex=00000000 00000000 00000000 00000000
+[     187 ms] STACKMEM +00: 00007ff700000000 00007ff700000004 00000000000002ac 00007ff71fa2f688
+[     187 ms] STACKMEM +20: 0000000000002404 00007ff71fa2f688 0000000400000000 0000000000000000
+[     187 ms] STACKMEM +40: 0000000000000000 0000000000000000 0000000000000000 00007ff71fa2f688
+[     187 ms] STACKMEM +60: 0000000000000000 00007ff71fa31958 00000198c67fa5b0 0000000000000000
+[     187 ms] EAX_SYSTEM_MESSAGE 操作成功完成。
+
+[     187 ms] FRAME tid=27800 #0 game_scarlett_master.exe+0x1e1d4e1
+[     187 ms] FRAME tid=27800 #1 game_scarlett_master.exe+0x1e1d4e1
+[     187 ms] FRAME tid=27800 #2 0x7ff700000000
+[     187 ms] FRAME tid=27800 #3 0x7ff700000004
+[     187 ms] FRAME tid=27800 #4 0x2ac
+[     187 ms] FRAME tid=27800 #5 game_scarlett_master.exe+0x678f688
+[     187 ms] FRAME tid=27800 #6 0x2404
+[     187 ms] FRAME tid=27800 #7 game_scarlett_master.exe+0x678f688
+[     187 ms] FRAME tid=27800 #8 0x400000000
+[     187 ms] STOP_ON_EXCEPTION: no assertion or failure has been bypassed
+[     187 ms] EXIT code=0xe0000003
+[     187 ms] END result=11 process_signaled=1

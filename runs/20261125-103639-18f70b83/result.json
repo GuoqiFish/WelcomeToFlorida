@@ -1,0 +1,72 @@
+{
+  "RunId": "20261125-103639-18f70b83",
+  "StartedUtc": "2026-11-25T02:36:39.5827055Z",
+  "Executable": "D:\\GTAVI\\GTA6.Xbox.v1.0.2.1-CYBERLEEK\\game_scarlett_master.exe",
+  "OriginalExeSha256": "E95020B2FA4A721DB3DF59FDECF75621730AC559D8835252F6C3B658D5A08993",
+  "TimeoutSeconds": 30,
+  "BreakRva": [
+    "0x1e1cfe0",
+    "0x1e1cfe5",
+    "0x24785b7",
+    "0x24785bc",
+    "0x5a91bdd",
+    "0x1d8e505"
+  ],
+  "StorageLog": "D:\\GTAVI\\GTA6.Xbox.v1.0.2.1-CYBERLEEK\\compat\\runs\\20261125-103639-18f70b83\\storage.log",
+  "DeployedDlls": [
+    {
+      "Name": "xmem.dll",
+      "Sha256": "10D9B357ACA7C00209443BCB638C65A52CFC085529D1B830014FA27861DE3A78"
+    },
+    {
+      "Name": "d3d12_xs.dll",
+      "Sha256": "F8C8034851F7D368FF3BB6A5AB132A412343EBCBA7FBBD5016ABA4A8D1777E4F"
+    },
+    {
+      "Name": "chad.dll",
+      "Sha256": "3C9983BD8CE7D9DF93B8DCA9C571F22820F205651973876713587FB6F29694E7"
+    },
+    {
+      "Name": "xg_xs.dll",
+      "Sha256": "2B447ECE8062062520B634F742A3CD2A90776B6CBC2BC49D48925E4D4D4E635B"
+    },
+    {
+      "Name": "XCRDAPI.dll",
+      "Sha256": "6E6131881C23CFBEACB52864E22CAFF95EACCFA02CF796EDD425A7ED9EA5B386"
+    },
+    {
+      "Name": "dstorage.dll",
+      "Sha256": "CAE65787F61514BEC6F012F44546E68B19E39D8854A9AB52AF813370D44B272A"
+    },
+    {
+      "Name": "dstoragecore.dll",
+      "Sha256": "CF85B19A92A8276F8BACA0DB9BBCD60735BAD50768DEB303D310E84D5F4FDD11"
+    },
+    {
+      "Name": "xapu.dll",
+      "Sha256": "8402ABCB66F8D0D335FF89D06E0DB329A06369AE8843CFF51640CF0AA4FD4264"
+    },
+    {
+      "Name": "AcpHal.dll",
+      "Sha256": "1E876AE1EFAE74C6B5DDFF7F8724383C1C2BB56F9B911D0D286D2959F30EBA57"
+    }
+  ],
+  "DebuggerExitCode": 11,
+  "CleanupSucceeded": true,
+  "RestoredFiles": [
+    "xmem.dll",
+    "d3d12_xs.dll",
+    "chad.dll",
+    "xg_xs.dll",
+    "XCRDAPI.dll",
+    "dstorage.dll",
+    "dstoragecore.dll",
+    "xapu.dll",
+    "AcpHal.dll"
+  ],
+  "Error": null,
+  "CleanupErrors": [],
+  "ExecutableUnchanged": true,
+  "FinishedUtc": "2026-11-25T02:36:39.9308591Z",
+  "StorageLogExists": false
+}
