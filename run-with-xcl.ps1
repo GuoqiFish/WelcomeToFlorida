@@ -49,8 +49,14 @@ try {
         $savedEnvironment[$entry.Key] = [Environment]::GetEnvironmentVariable($entry.Key, 'Process')
         [Environment]::SetEnvironmentVariable($entry.Key, $entry.Value, 'Process')
     }
-    & $xcl run $gameExe 1> (Join-Path $runPath 'stdout.log') 2> (Join-Path $runPath 'stderr.log')
-    $manifest.ExitCode = $LASTEXITCODE
+    # Start-Process redirects native stderr to a file without turning each XCL log line into a
+    # PowerShell NativeCommandError record (which can terminate this script under PS 7).
+    $process = Start-Process -FilePath $xcl `
+        -ArgumentList @('run', ('"{0}"' -f $gameExe)) `
+        -WorkingDirectory $title -NoNewWindow -Wait -PassThru `
+        -RedirectStandardOutput (Join-Path $runPath 'stdout.log') `
+        -RedirectStandardError (Join-Path $runPath 'stderr.log')
+    $manifest.ExitCode = $process.ExitCode
 } finally {
     foreach ($entry in $savedEnvironment.GetEnumerator()) {
         [Environment]::SetEnvironmentVariable($entry.Key, $entry.Value, 'Process')

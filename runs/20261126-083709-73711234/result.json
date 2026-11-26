@@ -1,0 +1,134 @@
+﻿{
+    "RunId":  "20261126-083709-73711234",
+    "StartedUtc":  "2026-11-26T00:37:09.0494449Z",
+    "Executable":  "D:\\GTAVI\\GTA6.Xbox.v1.0.2.1-CYBERLEEK\\game_scarlett_master.exe",
+    "OriginalExeSha256":  "E95020B2FA4A721DB3DF59FDECF75621730AC559D8835252F6C3B658D5A08993",
+    "TimeoutSeconds":  20,
+    "BreakRva":  [
+                     "0x1e1cfe0",
+                     "0x1e1cfe5",
+                     "0x24784d5",
+                     "0x247853a",
+                     "0x2478553",
+                     "0x24785b7",
+                     "0x2478698",
+                     "0x24786b9",
+                     "0x24786dc",
+                     "0x247870d",
+                     "0x2478731",
+                     "0x2478758",
+                     "0x247878a",
+                     "0x2478b96",
+                     "0x2478ba4",
+                     "0x2478bb7",
+                     "0x2478bc5",
+                     "0x2478bcd",
+                     "0x2478bd0",
+                     "0x2478de4",
+                     "0x2478dea",
+                     "0x2478e22",
+                     "0x2478e27",
+                     "0x2478e29",
+                     "0x2478e2f",
+                     "0x24787a7",
+                     "0x19f4f54",
+                     "0x19f4f56",
+                     "0x247abd8",
+                     "0x247abde",
+                     "0x2236e00",
+                     "0x2236e6e",
+                     "0x2236e73",
+                     "0x223716c",
+                     "0x5a91bdd",
+                     "0x1fb1f50",
+                     "0x1fb1f78",
+                     "0x56eb30",
+                     "0x56eb3f",
+                     "0x56eb5e",
+                     "0x56eb74",
+                     "0x56eb7e",
+                     "0x56eba8",
+                     "0x56ebbd",
+                     "0x56ebd6",
+                     "0x56ebf0",
+                     "D3D12Core.dll!0x237528",
+                     "D3D12Core.dll!0x237539",
+                     "D3D12Core.dll!0x11b0c3"
+                 ],
+    "StorageLog":  "D:\\GTAVI\\GTA6.Xbox.v1.0.2.1-CYBERLEEK\\compat\\runs\\20261126-083709-73711234\\storage.log",
+    "WindowCapture":  "D:\\GTAVI\\GTA6.Xbox.v1.0.2.1-CYBERLEEK\\compat\\runs\\20261126-083709-73711234\\debug.log.window.bmp",
+    "D3D12DebugEnabled":  false,
+    "XboxCommandListExtensionNoopsEnabled":  false,
+    "XboxDeviceSlot278NoopEnabled":  false,
+    "XboxDeviceSlot70NoopEnabled":  false,
+    "ObservedAllocationFlagsTranslationEnabled":  false,
+    "ObservedCreateCommittedResource3AdapterEnabled":  false,
+    "ObservedTextureArenaHookEnabled":  false,
+    "ObservedBvhPipelineBridgeEnabled":  false,
+    "ObservedXmemVaReservationEnabled":  false,
+    "UnifiedXmemReservationEnabled":  false,
+    "SkippedObservedXmemPlaceholderSplits":  false,
+    "ObservedXmemBufferResourceEnabled":  false,
+    "ObservedOversizedDescriptorHeapClampEnabled":  false,
+    "ObservedDescriptorHeapMismatchContinueEnabled":  false,
+    "FocusedStartupVmTraceEnabled":  false,
+    "DeployedDlls":  [
+                         {
+                             "Name":  "xmem.dll",
+                             "Sha256":  "FB57F16845381B2AAB2FB76E4F12EB85188FFAE6985F7A54713AE4E623C53A70"
+                         },
+                         {
+                             "Name":  "d3d12_xs.dll",
+                             "Sha256":  "6D98F350FADEA7920028F08E4AC9261AE81A04797F0A091ACD477A37696B8172"
+                         },
+                         {
+                             "Name":  "chad.dll",
+                             "Sha256":  "7EEC95B2804A21461599EA90D1ADECB24E190AFBCA226094F651271C73B44B7F"
+                         },
+                         {
+                             "Name":  "xg_xs.dll",
+                             "Sha256":  "F1467FA94A9AAB31AE4B5357600DBAF111F4F3D93FB32F8552DEB26EF85DF43A"
+                         },
+                         {
+                             "Name":  "XCRDAPI.dll",
+                             "Sha256":  "209C22ED7727032FEDE19976DC72E06AFE831E3B3258110E1CDCB8A4F3482E6B"
+                         },
+                         {
+                             "Name":  "dstorage.dll",
+                             "Sha256":  "CAE65787F61514BEC6F012F44546E68B19E39D8854A9AB52AF813370D44B272A"
+                         },
+                         {
+                             "Name":  "dstoragecore.dll",
+                             "Sha256":  "CF85B19A92A8276F8BACA0DB9BBCD60735BAD50768DEB303D310E84D5F4FDD11"
+                         },
+                         {
+                             "Name":  "xapu.dll",
+                             "Sha256":  "6528923AFEB8006646DC86C399D75F86E30C993EF92E5C9681677F1CA3EEDD84"
+                         },
+                         {
+                             "Name":  "AcpHal.dll",
+                             "Sha256":  "F0865AA3E7630ED3FAE374FEACDF2065819D1CE36154A55D7E25DF181CB95107"
+                         }
+                     ],
+    "DebuggerExitCode":  11,
+    "CleanupSucceeded":  true,
+    "RestoredFiles":  [
+                          "xmem.dll",
+                          "d3d12_xs.dll",
+                          "chad.dll",
+                          "xg_xs.dll",
+                          "XCRDAPI.dll",
+                          "dstorage.dll",
+                          "dstoragecore.dll",
+                          "xapu.dll",
+                          "AcpHal.dll"
+                      ],
+    "Error":  null,
+    "CleanupErrors":  [
+
+                      ],
+    "ExecutableUnchanged":  true,
+    "FinishedUtc":  "2026-11-26T00:37:12.0541090Z",
+    "StorageLogExists":  true,
+    "WindowCaptureExists":  false
+}
