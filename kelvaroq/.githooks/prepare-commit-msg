@@ -1,0 +1,3 @@
+#!/bin/sh
+set -eu
+git interpret-trailers --in-place --if-exists addIfDifferent --trailer 'Co-authored-by: Moon AI (https://chat.realmoon.ai)' "$1"

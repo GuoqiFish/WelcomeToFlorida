@@ -1,1 +1,18 @@
-bin
+# Legacy probe output
+/bin/
+/runs/
+
+# Local runtime data and build products
+/local/
+/game/
+/games/
+/data/
+/cache/
+/target/
+*.log
+*.exe
+*.dll
+*.pdb
+*.rpf
+*.xvd
+*.xvc

@@ -1,0 +1,13 @@
+/target/
+/.venv/
+__pycache__/
+.ruff_cache/
+*.egg-info/
+/research/build/
+*.exe
+*.dll
+*.pdb
+*.rpf
+*.xvd
+/local/
+/captures/
