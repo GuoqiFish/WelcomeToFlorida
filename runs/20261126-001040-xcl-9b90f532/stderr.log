@@ -1,0 +1,211 @@
+xcl: XCL_NETWORK=0: the system's WinHTTP, WinINet and Winsock refuse the network for the whole process (loopback and local names excepted)
+xcl: DXC: dxcompiler 1.8.2502.11 (23992152), dxil 1.8.2502.11, from C:\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\x64
+xcl: XCL 0.1.0 – host for 'RockstarGamesInc.28872443D20A7'
+xcl: game: D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\game_scarlett_master.exe (read-only folder: D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK)
+xcl: XCL data: D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7
+xcl: console: Xbox Series X (anaconda) (title memory 13824 MiB, mode advanced)
+xcl: XCL_NETWORK=0: the system's WinHTTP, WinINet and Winsock refuse the network for the whole process (loopback and local names excepted)
+xcl: timer: finest resolution for the title (was 10.00 ms, now 0.50 ms; kept while the window is hidden: yes)
+xcl: VFS: 31 file hooks active
+xcl: loaded game_scarlett_master.exe @ 0x140000000 (size 0xb06d000, preferred 0x140000000)
+xcl: loaded msvcp140.dll @ 0x180000000 (size 0x8d000, preferred 0x180000000)
+xcl: loaded vcruntime140.dll @ 0x1360000 (size 0x1b000, preferred 0x180000000, relocated)
+xcl: vcruntime140.dll: stack-cookie failures are reported (__report_gsfailure at 0x136fda0)
+xcl: DllMain(vcruntime140.dll, PROCESS_ATTACH)
+xcl: loaded vcruntime140_1.dll @ 0x1390000 (size 0xc000, preferred 0x180000000, relocated)
+xcl: vcruntime140_1.dll: stack-cookie failures are reported (__report_gsfailure at 0x13942d0)
+xcl: DllMain(vcruntime140_1.dll, PROCESS_ATTACH)
+xcl: msvcp140.dll: stack-cookie failures are reported (__report_gsfailure at 0x180052920)
+xcl: DllMain(msvcp140.dll, PROCESS_ATTACH)
+xcl: loaded xboxbvhbuilder.dll @ 0xa070000 (size 0xde000, preferred 0x180000000, relocated)
+xcl: VFS: CreateFileW(D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache) flags 0x2000000
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_0_xboxbvhbuilder_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\xboxbvhbuilder.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded xboxbvhbuilder.dll @ 0xa150000 (size 0xde000, preferred 0x180000000, relocated)
+xcl: VFS: CreateFileW(D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache) flags 0x2000000
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_1_xboxbvhbuilder_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\xboxbvhbuilder.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded xboxbvhbuilder.dll @ 0xa230000 (size 0xde000, preferred 0x180000000, relocated)
+xcl: VFS: CreateFileW(D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache) flags 0x2000000
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_2_xboxbvhbuilder_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\xboxbvhbuilder.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded xboxbvhbuilder.dll @ 0xa310000 (size 0xde000, preferred 0x180000000, relocated)
+xcl: VFS: CreateFileW(D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache) flags 0x2000000
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_3_xboxbvhbuilder_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\xboxbvhbuilder.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded xboxbvhbuilder.dll @ 0xa3f0000 (size 0xde000, preferred 0x180000000, relocated)
+xcl: VFS: CreateFileW(D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache) flags 0x2000000
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_4_xboxbvhbuilder_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\xboxbvhbuilder.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded xboxbvhbuilder.dll @ 0xa4d0000 (size 0xde000, preferred 0x180000000, relocated)
+xcl: VFS: CreateFileW(D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache) flags 0x2000000
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_5_xboxbvhbuilder_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\xboxbvhbuilder.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded xboxbvhbuilder.dll @ 0xa5b0000 (size 0xde000, preferred 0x180000000, relocated)
+xcl: VFS: CreateFileW(D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache) flags 0x2000000
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_6_xboxbvhbuilder_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\xboxbvhbuilder.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded amd_fidelityfx_loader_xbox.dll @ 0x13a0000 (size 0x8000, preferred 0x180000000, relocated)
+xcl: amd_fidelityfx_loader_xbox.dll: stack-cookie failures are reported (__report_gsfailure at 0x13a1910)
+xcl: DllMain(amd_fidelityfx_loader_xbox.dll, PROCESS_ATTACH)
+xcl: loaded libhttpclient.gdk.dll @ 0xa690000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: VFS: CreateFileW(D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache) flags 0x2000000
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_7_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xa790000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: VFS: CreateFileW(D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache) flags 0x2000000
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_8_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xa890000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: VFS: CreateFileW(D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache) flags 0x2000000
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_9_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xa990000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: VFS: CreateFileW(D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache) flags 0x2000000
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_10_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xaa90000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: VFS: CreateFileW(D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache) flags 0x2000000
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_11_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xab90000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: VFS: CreateFileW(D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache) flags 0x2000000
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_12_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xac90000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: VFS: CreateFileW(D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache) flags 0x2000000
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_13_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xad90000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: VFS: CreateFileW(D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache) flags 0x2000000
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_14_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xae90000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: VFS: CreateFileW(D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache) flags 0x2000000
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_15_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xaf90000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: VFS: CreateFileW(D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache) flags 0x2000000
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_16_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xb090000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: VFS: CreateFileW(D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache) flags 0x2000000
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_17_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xb190000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: VFS: CreateFileW(D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache) flags 0x2000000
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_18_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xb290000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: VFS: CreateFileW(D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache) flags 0x2000000
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_19_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xb390000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: VFS: CreateFileW(D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache) flags 0x2000000
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_20_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xb490000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: VFS: CreateFileW(D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache) flags 0x2000000
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_21_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xb590000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: VFS: CreateFileW(D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache) flags 0x2000000
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_22_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xba90000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: VFS: CreateFileW(D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache) flags 0x2000000
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_23_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xbb90000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_24_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xbc90000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_25_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xbd90000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_26_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xbe90000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_27_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xbf90000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_28_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xc090000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_29_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xc190000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_30_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xc290000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_31_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xc390000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_32_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xc490000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_33_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xc590000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_34_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xc690000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_35_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xc790000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_36_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xc890000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_37_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xc990000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_38_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xca90000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_39_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xcb90000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_40_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xcc90000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_41_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xcd90000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_42_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xce90000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_43_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded libhttpclient.gdk.dll @ 0xd160000 (size 0xf4000, preferred 0x180000000, relocated)
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_44_libhttpclient_gdk_dll.dll
+xcl: failed to load D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libhttpclient.gdk.dll: LoadLibrary of the TLS carrier failed (error 126)
+xcl: loaded bink2scarlett.dll @ 0xd260000 (size 0x44000, preferred 0x180000000, relocated)
+xcl: bink2scarlett.dll: stack-cookie failures are reported (__report_gsfailure at 0xd28a694)
+xcl: DllMain(bink2scarlett.dll, PROCESS_ATTACH)
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\cache\xcl_tls_3988_45_game_scarlett_master_exe.dll
+xcl: loading the game failed: LoadLibrary of the TLS carrier failed (error 126)
+xcl: GetDiskFreeSpaceExA(\\?\C:\Users\GuoqiFish\appdata\locallow\NVIDIA\DXCache\): 88119 MiB available of 946448 MiB
+xcl: UMA: 3 sparse VRAM window(s) (12 GiB VA) + 1 coherent window(s) (512 MB) at 0x400000000
+xcl: D3D12.X: UMA import check: ok, 1 window(s), 39669 µs
+xcl: D3D12.X: 3 sparse window(s) for the title's own memory (tiled buffers on video memory)
+xcl: D3D12.X: UMA opened (3 sparse VRAM window(s), 512 MB coherent window), window 0 buffer at VA 0x300000000
+xcl: D3D12.X: native dynamic depth bias (OPTIONS16): supported (ID3D12GraphicsCommandList9::RSSetDepthBias)
+xcl: D3D12.X: ID3D12Device14 – 83 PC methods, 47 internal slots under the guard, +64 stubs (Device, PC vtable D3D12Core.dll+0x2508c8)
+xcl: D3D12.X: backend 'real' – NVIDIA GeForce RTX 5060 Laptop GPU (7899 MiB VRAM)
+xcl: [VFS] write to a game file redirected to the overlay: compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\logs\report.json
+xcl: process ends with status 0x7c10002 (thread 32152); on the stack: xcl.exe+0x6d990b, xcl.exe+0x6dcfd0, xcl.exe+0x80cce0, xcl.exe+0x6db259, xcl.exe+0x73fc78, xcl.exe+0x73fc78, xcl.exe+0x1473, xcl.exe+0x6e1b44, xcl.exe+0x80dc9e, xcl.exe+0x73fc78, xcl.exe+0x6e1b44, xcl.exe+0x740630, xcl.exe+0x4776, xcl.exe+0x80d4e0, xcl.exe+0x460c, xcl.exe+0x80d4e0
+xcl: thread dump (14 threads):
+thread 12992 '': ntdll.dll+0x165954 < ntdll.dll+0x23c4e < KERNEL32.DLL+0x2e957 < ntdll.dll+0x427c
+thread 43852 '': ntdll.dll+0x165954 < ntdll.dll+0x23c4e < KERNEL32.DLL+0x2e957 < ntdll.dll+0x427c
+thread 59696 '': ntdll.dll+0x165954 < ntdll.dll+0x23c4e < KERNEL32.DLL+0x2e957 < ntdll.dll+0x427c
+thread 42176 'xcl-split-counts': ntdll.dll+0x161d24 < KERNELBASE.dll+0x2e40f < xcl.exe+0x6e0d6a < xcl.exe+0x2b40ac < xcl.exe+0x4daa4b < xcl.exe+0x6e1d6c < KERNEL32.DLL+0x2e957 < ntdll.dll+0x427c
+thread 63268 '': ntdll.dll+0x1627f4 < KERNELBASE.dll+0x34ce3 < crypt32.dll+0x9e6d7 < KERNEL32.DLL+0x2e957 < ntdll.dll+0x427c
+thread 49240 '': ntdll.dll+0x161d24 < KERNELBASE.dll+0x2e40f < nvwgf2umx.dll+0xa5501b < nvwgf2umx.dll+0xfd2d56 < KERNEL32.DLL+0x2e957 < ntdll.dll+0x427c
+thread 21372 '': ntdll.dll+0x1627f4 < KERNELBASE.dll+0x34ce3 < KERNELBASE.dll+0x34bb1 < nvwgf2umx.dll+0x220c66 < nvwgf2umx.dll+0xfd2d56 < KERNEL32.DLL+0x2e957 < ntdll.dll+0x427c
+thread 42704 '': ntdll.dll+0x161d24 < KERNELBASE.dll+0x2e40f < nvwgf2umx.dll+0xaa090f < nvwgf2umx.dll+0xfd2d56 < KERNEL32.DLL+0x2e957 < ntdll.dll+0x427c
+thread 6564 '': ntdll.dll+0x161d24 < KERNELBASE.dll+0x2e40f < nvwgf2umx.dll+0x8040b2 < nvwgf2umx.dll+0x804069 < nvwgf2umx.dll+0xfd2d56 < KERNEL32.DLL+0x2e957 < ntdll.dll+0x427c
+thread 23736 'D3D Background Thread 0': ntdll.dll+0x1658f4 < ntdll.dll+0x4a08e < KERNELBASE.dll+0x34fc8 < msvcp_win.dll+0x23d2d < msvcp_win.dll+0x1f4a9 < D3D12Core.dll+0x3ce9a < D3D12Core.dll+0x3cdb4 < ucrtbase.dll+0x37b0 < KERNEL32.DLL+0x2e957 < ntdll.dll+0x427c
+thread 55036 'D3D Background Thread 1': ntdll.dll+0x1658f4 < ntdll.dll+0x4a08e < KERNELBASE.dll+0x34fc8 < msvcp_win.dll+0x23d2d < msvcp_win.dll+0x1f4a9 < D3D12Core.dll+0x3ce9a < D3D12Core.dll+0x3cdb4 < ucrtbase.dll+0x37b0 < KERNEL32.DLL+0x2e957 < ntdll.dll+0x427c
+thread 27520 'D3D Background Thread 2': ntdll.dll+0x1658f4 < ntdll.dll+0x4a08e < KERNELBASE.dll+0x34fc8 < msvcp_win.dll+0x23d2d < msvcp_win.dll+0x1f4a9 < D3D12Core.dll+0x3ce9a < D3D12Core.dll+0x3cdb4 < ucrtbase.dll+0x37b0 < KERNEL32.DLL+0x2e957 < ntdll.dll+0x427c
+thread 42472 'D3D Background Thread 3': ntdll.dll+0x1658f4 < ntdll.dll+0x4a08e < KERNELBASE.dll+0x34fc8 < msvcp_win.dll+0x23d2d < msvcp_win.dll+0x1f4a9 < D3D12Core.dll+0x3ce9a < D3D12Core.dll+0x3cdb4 < ucrtbase.dll+0x37b0 < KERNEL32.DLL+0x2e957 < ntdll.dll+0x427c
+thread 51460 '': ntdll.dll+0x1627f4 < KERNELBASE.dll+0x34ce3 < KERNELBASE.dll+0x34bb1 < nvwgf2umx.dll+0x220c66 < nvwgf2umx.dll+0xfd2d56 < KERNEL32.DLL+0x2e957 < ntdll.dll+0x427c

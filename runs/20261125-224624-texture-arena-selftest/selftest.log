@@ -1,0 +1,7 @@
+allocation size=0x1fe0000 alignment=0x10000; observed Xbox size/alignment=0x1fe0000/0x10000
+64 MiB arena placements: [0x0,0x1fe0000), [0x1fe0000,0x3fc0000); remaining=0x40000
+CreateHeap(ALLOW_DISPLAY) HRESULT=0x80070057
+placed texture[0]=0000022642E7DE70 gpuVA=0x0
+placed texture[1]=0000022642E75FA0 gpuVA=0x0
+VirtualAlloc-backed diagnostic heap + textures HRESULT=0x80070057
+PASS: both observed 4K textures were backed by one native 64 MiB D3D12 heap.

@@ -5,5 +5,5 @@ New-Item -ItemType Directory -Force -Path $out | Out-Null
     (Join-Path $PSScriptRoot 'probe_debugger.c') `
     ("/Fo" + (Join-Path $out 'probe_debugger.obj')) `
     ("/Fe" + (Join-Path $out 'probe_debugger.exe')) `
-    /link dbghelp.lib user32.lib ("/PDB:" + (Join-Path $out 'probe_debugger.pdb'))
+    /link /INCREMENTAL:NO dbghelp.lib user32.lib gdi32.lib ("/PDB:" + (Join-Path $out 'probe_debugger.pdb'))
 if ($LASTEXITCODE -ne 0) { throw 'Debugger build failed' }

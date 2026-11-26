@@ -1,0 +1,84 @@
+{
+  "RunId": "20261125-114641-cf6f444b",
+  "StartedUtc": "2026-11-25T03:46:41.0835549Z",
+  "Executable": "D:\\GTAVI\\GTA6.Xbox.v1.0.2.1-CYBERLEEK\\game_scarlett_master.exe",
+  "OriginalExeSha256": "E95020B2FA4A721DB3DF59FDECF75621730AC559D8835252F6C3B658D5A08993",
+  "TimeoutSeconds": 25,
+  "BreakRva": [
+    "0x1e1cfe0",
+    "0x1e1cfe5",
+    "0x24784d5",
+    "0x247853a",
+    "0x2478553",
+    "0x24785b7",
+    "0x2478698",
+    "0x24786b9",
+    "0x24786dc",
+    "0x247870d",
+    "0x2478731",
+    "0x2478758",
+    "0x247878a",
+    "0x2236e00",
+    "0x2236e6e",
+    "0x2236e73",
+    "0x223716c",
+    "0x5a91bdd"
+  ],
+  "StorageLog": "D:\\GTAVI\\GTA6.Xbox.v1.0.2.1-CYBERLEEK\\compat\\runs\\20261125-114641-cf6f444b\\storage.log",
+  "DeployedDlls": [
+    {
+      "Name": "xmem.dll",
+      "Sha256": "F252B080C299AC584090DA5E4E9DA5DC8AB9FFE1D8F2887033489BF8A12CCD24"
+    },
+    {
+      "Name": "d3d12_xs.dll",
+      "Sha256": "89B0FFBFD299D76FA5D03AE0A5701E7D558492AC62B215BEAC539105693DF0E7"
+    },
+    {
+      "Name": "chad.dll",
+      "Sha256": "8E7902CD26F79D942772D28D62AEC3D7032F7324881AFDDAE79FA804A546A42B"
+    },
+    {
+      "Name": "xg_xs.dll",
+      "Sha256": "39DC2CBE0E4DEC12BACD9C2E30AAB632169A76D24D61911D74D4FA7C3ADAD15E"
+    },
+    {
+      "Name": "XCRDAPI.dll",
+      "Sha256": "8E984D1F25BF56A38624057A0144835D0C0A33A3EA76A6DEFB1F3756FB830803"
+    },
+    {
+      "Name": "dstorage.dll",
+      "Sha256": "CAE65787F61514BEC6F012F44546E68B19E39D8854A9AB52AF813370D44B272A"
+    },
+    {
+      "Name": "dstoragecore.dll",
+      "Sha256": "CF85B19A92A8276F8BACA0DB9BBCD60735BAD50768DEB303D310E84D5F4FDD11"
+    },
+    {
+      "Name": "xapu.dll",
+      "Sha256": "AFC37FC653963566F08332B5127646D4C69833B73C31CCFDEBACC7997C2EEF70"
+    },
+    {
+      "Name": "AcpHal.dll",
+      "Sha256": "9BBBD43EDCADDFC36064FBB3A3DC0E39104ABCA01B327F70D4012182004B56E3"
+    }
+  ],
+  "DebuggerExitCode": 11,
+  "CleanupSucceeded": true,
+  "RestoredFiles": [
+    "xmem.dll",
+    "d3d12_xs.dll",
+    "chad.dll",
+    "xg_xs.dll",
+    "XCRDAPI.dll",
+    "dstorage.dll",
+    "dstoragecore.dll",
+    "xapu.dll",
+    "AcpHal.dll"
+  ],
+  "Error": null,
+  "CleanupErrors": [],
+  "ExecutableUnchanged": true,
+  "FinishedUtc": "2026-11-25T03:46:43.7032319Z",
+  "StorageLogExists": true
+}

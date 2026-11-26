@@ -1,0 +1,832 @@
+[       0 ms] START pid=31856 timeout=25
+[       0 ms] MODULE base=0x7ff6610a0000 size=0xb06d000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\game_scarlett_master.exe
+[       0 ms] BREAK_ARMED module=game_scarlett_master.exe rva=0x1e1cfe0 original=e8
+[       0 ms] BREAK_ARMED module=game_scarlett_master.exe rva=0x1e1cfe5 original=85
+[       0 ms] BREAK_ARMED module=game_scarlett_master.exe rva=0x24784d5 original=ff
+[       0 ms] BREAK_ARMED module=game_scarlett_master.exe rva=0x247853a original=ff
+[       0 ms] BREAK_ARMED module=game_scarlett_master.exe rva=0x2478553 original=ff
+[       0 ms] BREAK_ARMED module=game_scarlett_master.exe rva=0x24785b7 original=e8
+[       0 ms] BREAK_ARMED module=game_scarlett_master.exe rva=0x2478698 original=ff
+[       0 ms] BREAK_ARMED module=game_scarlett_master.exe rva=0x24786b9 original=e8
+[       0 ms] BREAK_ARMED module=game_scarlett_master.exe rva=0x24786dc original=e8
+[       0 ms] BREAK_ARMED module=game_scarlett_master.exe rva=0x247870d original=ff
+[       0 ms] BREAK_ARMED module=game_scarlett_master.exe rva=0x2478731 original=ff
+[       0 ms] BREAK_ARMED module=game_scarlett_master.exe rva=0x2478758 original=ff
+[       0 ms] BREAK_ARMED module=game_scarlett_master.exe rva=0x247878a original=ff
+[       0 ms] BREAK_ARMED module=game_scarlett_master.exe rva=0x2236e00 original=41
+[       0 ms] BREAK_ARMED module=game_scarlett_master.exe rva=0x2236e6e original=e8
+[       0 ms] BREAK_ARMED module=game_scarlett_master.exe rva=0x2236e73 original=84
+[       0 ms] BREAK_ARMED module=game_scarlett_master.exe rva=0x223716c original=8b
+[       0 ms] BREAK_ARMED module=game_scarlett_master.exe rva=0x5a91bdd original=85
+[       0 ms] MODULE base=0x7ffb9f580000 size=0x267000 path=\\?\C:\Windows\System32\ntdll.dll
+[      31 ms] MODULE base=0x7ffb9e7f0000 size=0xc9000 path=\\?\C:\Windows\System32\kernel32.dll
+[      31 ms] MODULE base=0x7ffb9c230000 size=0x3f7000 path=\\?\C:\Windows\System32\KernelBase.dll
+[      31 ms] MODULE base=0x7ffb9d340000 size=0xb6000 path=\\?\C:\Windows\System32\advapi32.dll
+[      31 ms] MODULE base=0x7ffaa9a60000 size=0x27000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\xmem.dll
+[      31 ms] MODULE base=0x7ffa62140000 size=0x8d000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\msvcp140.dll
+[      31 ms] MODULE base=0x7ffb95fa0000 size=0x24e000 path=\\?\C:\Windows\System32\twinapi.appcore.dll
+[      31 ms] MODULE base=0x7ffb9f240000 size=0xa9000 path=\\?\C:\Windows\System32\msvcrt.dll
+[      31 ms] MODULE base=0x7ffb9c0e0000 size=0x14b000 path=\\?\C:\Windows\System32\ucrtbase.dll
+[      31 ms] MODULE base=0x7ffb9f490000 size=0xa7000 path=\\?\C:\Windows\System32\sechost.dll
+[      31 ms] MODULE base=0x1bf9c9b0000 size=0x14b000 path=\\?\C:\Windows\System32\ucrtbase.dll
+[      31 ms] MODULE base=0x7ffaa9740000 size=0x27000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\d3d12_xs.dll
+[      31 ms] MODULE base=0x7ffb9e0c0000 size=0x383000 path=\\?\C:\Windows\System32\combase.dll
+[      31 ms] MODULE base=0x7ffb9e640000 size=0x118000 path=\\?\C:\Windows\System32\rpcrt4.dll
+[      31 ms] MODULE base=0x7ffab6b90000 size=0x1b000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\vcruntime140.dll
+[      31 ms] MODULE base=0x7ffaf7fd0000 size=0xc000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\vcruntime140_1.dll
+[      31 ms] MODULE base=0x7ffb9f070000 size=0x1c6000 path=\\?\C:\Windows\System32\user32.dll
+[      31 ms] MODULE base=0x7ffb9cf30000 size=0xa3000 path=\\?\C:\Windows\System32\msvcp_win.dll
+[      31 ms] MODULE base=0x7ffb9d220000 size=0x27000 path=\\?\C:\Windows\System32\win32u.dll
+[      31 ms] MODULE base=0x7ffb9f2f0000 size=0x2b000 path=\\?\C:\Windows\System32\gdi32.dll
+[      31 ms] MODULE base=0x7ffb9bfb0000 size=0x12c000 path=\\?\C:\Windows\System32\gdi32full.dll
+[      31 ms] MODULE base=0x7ffb9e450000 size=0x80000 path=\\?\C:\Windows\System32\ws2_32.dll
+[      31 ms] MODULE base=0x7ffb824b0000 size=0xd5000 path=\\?\C:\Windows\System32\mfreadwrite.dll
+[      31 ms] MODULE base=0x7ffb984b0000 size=0x129000 path=\\?\C:\Windows\System32\winhttp.dll
+[      31 ms] MODULE base=0x7ffb8c520000 size=0x67000 path=\\?\C:\Windows\System32\GameInput.dll
+[      31 ms] MODULE base=0x7ffb95700000 size=0x217000 path=\\?\C:\Windows\System32\mfplat.dll
+[      31 ms] MODULE base=0x7ffb9d670000 size=0xf6000 path=\\?\C:\Windows\System32\SHCore.dll
+[      31 ms] MODULE base=0x7ffaa8890000 size=0x27000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\chad.dll
+[      31 ms] MODULE base=0x7ffa5aa00000 size=0xde000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\XboxBvhBuilder.dll
+[      31 ms] MODULE base=0x7ffaa8860000 size=0x27000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\xg_xs.dll
+[      31 ms] MODULE base=0x7ffaa86b0000 size=0x55000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\XCRDAPI.dll
+[      31 ms] MODULE base=0x7ffaf7d60000 size=0x8000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\amd_fidelityfx_loader_xbox.dll
+[      31 ms] MODULE base=0x7ffa1d5f0000 size=0xf4000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\libHttpClient.GDK.dll
+[      31 ms] MODULE base=0x7ffaa8560000 size=0x27000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\xapu.dll
+[      31 ms] MODULE base=0x7ffaa8530000 size=0x27000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\AcpHal.dll
+[      31 ms] MODULE base=0x7ffa90a70000 size=0x44000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\Bink2Scarlett.dll
+[      31 ms] MODULE base=0x7ffb9cfe0000 size=0x178000 path=\\?\C:\Windows\System32\crypt32.dll
+[      31 ms] MODULE base=0x7ffb9bea0000 size=0x2a000 path=\\?\C:\Windows\System32\bcrypt.dll
+[      31 ms] MODULE base=0x7ffb9bc60000 size=0x51000 path=\\?\C:\Windows\System32\cfgmgr32.dll
+[      31 ms] MODULE base=0x7ffb485b0000 size=0x91000 path=\\?\C:\Windows\System32\XAudio2_9.dll
+[      31 ms] MODULE base=0x7ffb8ad70000 size=0x99000 path=\\?\C:\Windows\System32\MMDevAPI.dll
+[      31 ms] MODULE base=0x7ffb9a000000 size=0xb000 path=\\?\C:\Windows\System32\avrt.dll
+[      31 ms] INITIAL_DEBUGGER_BREAK
+[      31 ms] MODULE base=0x7ffb9d300000 size=0x32000 path=\\?\C:\Windows\System32\imm32.dll
+[      47 ms] MODULE base=0x7ffb9d250000 size=0xa8000 path=\\?\C:\Windows\System32\bcryptprimitives.dll
+[      47 ms] MODULE base=0x7ffb956c0000 size=0x3c000 path=\\?\C:\Windows\System32\RTWorkQ.dll
+[      47 ms] TRACE_BREAK rva=0x1e1cfe0 tid=12064
+[      47 ms] REG tid=12064 rip=00007ff662ebcfe1 (game_scarlett_master.exe+0x1e1cfe1) rsp=0000000757cff830 rbp=0000000000000000 eax=00000004 eflags=00000202
+[      47 ms] REG rax=0000000000000004 rbx=00007ff66782f688 rcx=0000000757cff860 rdx=000001bf9c78c650 rsi=0000000600000000 rdi=0000000757cff860
+[      47 ms] REG r8=0000000757cff788 r9=0000000000000000 r10=0000000000000000 r11=0000000000000246 r12=0000000000000000 r13=0000000000000000 r14=0000000000000000 r15=0000000000000000
+[      47 ms] POINTER rcx hex=00000000 04000000 00000000 00000000
+[      47 ms] POINTER rdx ascii=..w...
+[      47 ms] POINTER rdx hex=b0a5779c bf010000 a0c7779c bf010000
+[      47 ms] POINTER r8 ascii=..%...
+[      47 ms] POINTER r8 hex=9e0e259c fb7f0000 02000000 00000000
+[      47 ms] POINTER rdi hex=00000000 04000000 00000000 00000000
+[      47 ms] STACKMEM +00: 00007ff600000000 00007ff600000004 0000000000000290 00007ff66782f688
+[      47 ms] STACKMEM +20: 0000000000000290 00007ff66782f688 0000000400000000 0000000000000000
+[      47 ms] STACKMEM +40: 0000000000000000 0000000000000000 0000000000000000 00007ff66782f688
+[      47 ms] STACKMEM +60: 0000000000000000 00007ff667831958 000001bf9c77a5b0 0000000000000000
+[      47 ms] EAX_SYSTEM_MESSAGE œµÕ≥Œﬁ∑®¥Úø™Œƒº˛°£
+
+[      47 ms] FRAME tid=12064 #0 game_scarlett_master.exe+0x1e1cfe1
+[      47 ms] FRAME tid=12064 #1 game_scarlett_master.exe+0x1e1cfe1
+[      47 ms] FRAME tid=12064 #2 game_scarlett_master.exe+0x1e0a375
+[      63 ms] FRAME tid=12064 #3 game_scarlett_master.exe+0x5c1b689
+[      63 ms] FRAME tid=12064 #4 ucrtbase.dll+0x6e686 (initterm+0x36)
+[      63 ms] FRAME tid=12064 #5 game_scarlett_master.exe+0x56a1dd0
+[      63 ms] FRAME tid=12064 #6 kernel32.dll+0x2e957 (BaseThreadInitThunk+0x17)
+[      63 ms] FRAME tid=12064 #7 ntdll.dll+0x427c (RtlUserThreadStart+0x2c)
+[      63 ms] TRACE_BREAK rva=0x1e1cfe5 tid=12064
+[      63 ms] REG tid=12064 rip=00007ff662ebcfe6 (game_scarlett_master.exe+0x1e1cfe6) rsp=0000000757cff830 rbp=0000000000000000 eax=00000000 eflags=00000246
+[      63 ms] REG rax=0000000000000000 rbx=00007ff66782f688 rcx=0000000757cff860 rdx=000001bf9c78c650 rsi=0000000600000000 rdi=0000000757cff860
+[      63 ms] REG r8=0000000757cff788 r9=0000000000000000 r10=0000000000000000 r11=0000000000000246 r12=0000000000000000 r13=0000000000000000 r14=0000000000000000 r15=0000000000000000
+[      63 ms] POINTER rcx hex=00000000 04000000 00000000 00000000
+[      63 ms] POINTER rdx ascii=..w...
+[      63 ms] POINTER rdx hex=b0a5779c bf010000 a0c7779c bf010000
+[      63 ms] POINTER r8 ascii=..%...
+[      63 ms] POINTER r8 hex=9e0e259c fb7f0000 02000000 00000000
+[      63 ms] POINTER rdi hex=00000000 04000000 00000000 00000000
+[      63 ms] STACKMEM +00: 00007ff600000000 00007ff600000004 0000000000000290 00007ff66782f688
+[      63 ms] STACKMEM +20: 0000000000000290 00007ff66782f688 0000000400000000 0000000000000000
+[      63 ms] STACKMEM +40: 0000000000000000 0000000000000000 0000000000000000 00007ff66782f688
+[      63 ms] STACKMEM +60: 0000000000000000 00007ff667831958 000001bf9c77a5b0 0000000000000000
+[      63 ms] EAX_SYSTEM_MESSAGE ≤Ÿ◊˜≥…π¶ÕÍ≥…°£
+
+[      63 ms] FRAME tid=12064 #0 game_scarlett_master.exe+0x1e1cfe6
+[      63 ms] FRAME tid=12064 #1 game_scarlett_master.exe+0x1e1cfe6
+[      63 ms] FRAME tid=12064 #2 game_scarlett_master.exe+0x1e0a375
+[      63 ms] FRAME tid=12064 #3 game_scarlett_master.exe+0x5c1b689
+[      63 ms] FRAME tid=12064 #4 ucrtbase.dll+0x6e686 (initterm+0x36)
+[      63 ms] FRAME tid=12064 #5 game_scarlett_master.exe+0x56a1dd0
+[      63 ms] FRAME tid=12064 #6 kernel32.dll+0x2e957 (BaseThreadInitThunk+0x17)
+[      63 ms] FRAME tid=12064 #7 ntdll.dll+0x427c (RtlUserThreadStart+0x2c)
+[      63 ms] DEBUGSTRING [xmem] XMemVirtualAlloc address=0x0000000000000000 size=0x0000000600000000 allocation=0x0000000020402000 attributes=0x0000000000000021 protection=0x0000000000000004 pcAllocation=0x0000000000002000 pcProtection=0x0000000000000004 result=0x000001bf9e1b0000 error=0x0000000000000000
+
+[      63 ms] DEBUGSTRING [xmem] XMemVirtualAlloc address=0x0000000000000000 size=0x0000000600000000 allocation=0x0000000020402000 attributes=0x0000000000000003 protection=0x0000000000000801 pcAllocation=0x0000000000002000 pcProtection=0x0000000000000001 result=0x000001c59e1b0000 error=0x0000000000000000
+
+[      63 ms] DEBUGSTRING [xmem] XMemVirtualAlloc address=0x0000000000000000 size=0x0000000049400000 allocation=0x0000000020003000 attributes=0x0000000000000183 protection=0x0000000000022004 pcAllocation=0x0000000000003000 pcProtection=0x0000000000000004 result=0x000001cb9e1b0000 error=0x0000000000000000
+
+[      63 ms] DEBUGSTRING [xmem] XMemVirtualAlloc address=0x0000000000000000 size=0x0000000089700000 allocation=0x0000000020003000 attributes=0x0000000000000283 protection=0x0000000000002404 pcAllocation=0x0000000000003000 pcProtection=0x0000000000000404 result=0x000001cbe75b0000 error=0x0000000000000000
+
+[      63 ms] DEBUGSTRING [xmem] XMemVirtualAlloc address=0x0000000000000000 size=0x0000000023300000 allocation=0x0000000020003000 attributes=0x0000000000000183 protection=0x0000000000022004 pcAllocation=0x0000000000003000 pcProtection=0x0000000000000004 result=0x000001cc70cb0000 error=0x0000000000000000
+
+[      63 ms] DEBUGSTRING [xmem] XMemVirtualAlloc address=0x0000000000000000 size=0x0000000025400000 allocation=0x0000000020003000 attributes=0x0000000000000183 protection=0x0000000000022004 pcAllocation=0x0000000000003000 pcProtection=0x0000000000000004 result=0x000001cc93fb0000 error=0x0000000000000000
+
+[      63 ms] DEBUGSTRING [xmem] XMemVirtualAlloc address=0x0000000000000000 size=0x0000000001400000 allocation=0x0000000020403000 attributes=0x0000000000000181 protection=0x0000000000000004 pcAllocation=0x0000000000003000 pcProtection=0x0000000000000004 result=0x000001ccb93b0000 error=0x0000000000000000
+
+[      78 ms] MODULE base=0x7ffb9b660000 size=0xc000 path=\\?\C:\Windows\System32\cryptbase.dll
+[     110 ms] MODULE base=0x7ffa11d60000 size=0x475000 path=\\?\C:\Windows\System32\xgameruntime.dll
+[     110 ms] MODULE base=0x7ffb9e560000 size=0xd9000 path=\\?\C:\Windows\System32\oleaut32.dll
+[     110 ms] MODULE base=0x7ffb9ae30000 size=0x1b000 path=\\?\C:\Windows\System32\kernel.appcore.dll
+[     110 ms] MODULE base=0x1ccba7b0000 size=0x1b000 path=\\?\C:\Windows\System32\kernel.appcore.dll
+[     110 ms] MODULE base=0x7ffb99eb0000 size=0x13e000 path=\\?\C:\Windows\System32\dxgi.dll
+[     110 ms] MODULE base=0x7ffb9cea0000 size=0x82000 path=\\?\C:\Windows\System32\wintrust.dll
+[     110 ms] MODULE base=0x7ffb9ab80000 size=0x5e000 path=\\?\C:\Windows\System32\powrprof.dll
+[     110 ms] MODULE base=0x7ffb9a7e0000 size=0x32000 path=\\?\C:\Windows\System32\IPHLPAPI.DLL
+[     110 ms] MODULE base=0x7ffb9b440000 size=0x33000 path=\\?\C:\Windows\System32\userenv.dll
+[     110 ms] MODULE base=0x7ffb95b60000 size=0x16a000 path=\\?\C:\Windows\System32\WinTypes.dll
+[     110 ms] MODULE base=0x7ffb83130000 size=0x1d8000 path=\\?\C:\Windows\WinSxS\amd64_microsoft.windows.gdiplus_6595b64144ccf1df_1.1.26100.8328_none_6ef30b123dc73046\GdiPlus.dll
+[     110 ms] MODULE base=0x7ffb9ab60000 size=0x14000 path=\\?\C:\Windows\System32\umpdc.dll
+[     110 ms] MODULE base=0x7ffb9b6b0000 size=0x13000 path=\\?\C:\Windows\System32\msasn1.dll
+[     110 ms] MODULE base=0x7ffb9dcb0000 size=0xae000 path=\\?\C:\Windows\System32\clbcatq.dll
+[     110 ms] MODULE base=0x7ffb854e0000 size=0x240000 path=\\?\C:\Windows\System32\msxml6.dll
+[     125 ms] EXCEPTION code=0x40080201 first_chance=1 tid=12064 address=KernelBase.dll+0xbfe0a flags=0x80
+[     125 ms] EXCEPTION_INFO [0]=0x80004005
+[     125 ms] EXCEPTION_INFO [1]=0x41
+[     125 ms] EXCEPTION_INFO [2]=0x757cfb140
+[     125 ms] ORIGINATE_ERROR_MESSAGE 'Grand Theft Auto VI' ËøùÂèç‰∫Ü '^ms-resource:.{1,256}' ÁöÑ pattern Á∫¶Êùü„ÄÇ
+
+[     125 ms] REG tid=12064 rip=00007ffb9c2efe0a (KernelBase.dll+0xbfe0a) rsp=0000000757cfafb0 rbp=0000000000000003 eax=00730079 eflags=00000200
+[     125 ms] REG rax=0065007400730079 rbx=0000000000000000 rcx=005c00320033006d rdx=0000000000000000 rsi=0000000757cfafd0 rdi=0000000757cfa980
+[     125 ms] REG r8=0000000757cfb038 r9=00007ffb00000000 r10=0000000757cfaef0 r11=0000000700000000 r12=0000000080004005 r13=0000000000000000 r14=0000000000000001 r15=0000000757cfb140
+[     125 ms] POINTER r8 hex=00000000 00000000 00000000 00000000
+[     125 ms] POINTER rsi ascii=...@.
+[     125 ms] POINTER rsi hex=01020840 80000000 00000000 00000000
+[     125 ms] POINTER rdi ascii=H
+[     125 ms] POINTER rdi utf16=H
+[     125 ms] POINTER rdi hex=48000000 00000000 01000000 00000000
+[     125 ms] STACKMEM +00: 000001ccba820104 0000000757cfb120 0000000000000000 0000000040080201
+[     125 ms] STACKMEM +20: 0000008040080201 0000000000000000 00007ffb9c2efe0a 0000000000000003
+[     125 ms] STACKMEM +40: 0000000080004005 0000000000000041 0000000757cfb140 0000000000000000
+[     125 ms] STACKMEM +60: 0000000000000000 0000000000000000 0000000000000000 0000000000000000
+[     125 ms] FRAME tid=12064 #0 KernelBase.dll+0xbfe0a
+[     125 ms] FRAME tid=12064 #1 KernelBase.dll+0xbfe0a (RaiseException+0x8a)
+[     125 ms] FRAME tid=12064 #2 combase.dll+0x1782f (RoOriginateErrorW+0x4bf)
+[     125 ms] FRAME tid=12064 #3 combase.dll+0x174a1 (RoOriginateErrorW+0x131)
+[     125 ms] FRAME tid=12064 #4 msxml6.dll+0x4e112
+[     125 ms] FRAME tid=12064 #5 msxml6.dll+0x4ed87
+[     125 ms] FRAME tid=12064 #6 msxml6.dll+0x77c54 (DllGetClassObject+0x8864)
+[     125 ms] FRAME tid=12064 #7 msxml6.dll+0x77a95 (DllGetClassObject+0x86a5)
+[     125 ms] FRAME tid=12064 #8 msxml6.dll+0x3af2c
+[     125 ms] FRAME tid=12064 #9 msxml6.dll+0x8e1fb (DllCanUnloadNow+0x2aeb)
+[     125 ms] FRAME tid=12064 #10 msxml6.dll+0x3b05f
+[     125 ms] FRAME tid=12064 #11 msxml6.dll+0x3ab41
+[     125 ms] FRAME tid=12064 #12 msxml6.dll+0x519a8
+[     125 ms] FRAME tid=12064 #13 msxml6.dll+0x50531
+[     125 ms] FRAME tid=12064 #14 msxml6.dll+0x34533
+[     125 ms] FRAME tid=12064 #15 msxml6.dll+0x33c3a
+[     125 ms] FRAME tid=12064 #16 msxml6.dll+0x36788
+[     125 ms] FRAME tid=12064 #17 msxml6.dll+0x1faad
+[     125 ms] FRAME tid=12064 #18 msxml6.dll+0x1f887
+[     125 ms] FRAME tid=12064 #19 msxml6.dll+0x20091
+[     125 ms] FRAME tid=12064 #20 msxml6.dll+0x1c642
+[     125 ms] FRAME tid=12064 #21 msxml6.dll+0x1c798
+[     125 ms] FRAME tid=12064 #22 xgameruntime.dll+0x23d279 (XErrorReport+0x13f249)
+[     125 ms] FRAME tid=12064 #23 xgameruntime.dll+0x100b16 (XErrorReport+0x2ae6)
+[     125 ms] FRAME tid=12064 #24 xgameruntime.dll+0x10026d (XErrorReport+0x223d)
+[     125 ms] FRAME tid=12064 #25 xgameruntime.dll+0x1000bd (XErrorReport+0x208d)
+[     125 ms] FRAME tid=12064 #26 xgameruntime.dll+0x1ac08 (UninitializeApiImpl+0x24e8)
+[     125 ms] FRAME tid=12064 #27 xgameruntime.dll+0x1a6f7 (UninitializeApiImpl+0x1fd7)
+[     125 ms] FRAME tid=12064 #28 xgameruntime.dll+0x16aac
+[     125 ms] FRAME tid=12064 #29 xgameruntime.dll+0x182d5 (InitializeApiImplEx2+0x2f5)
+[     125 ms] FRAME tid=12064 #30 game_scarlett_master.exe+0x55e2cca
+[     125 ms] FRAME tid=12064 #31 game_scarlett_master.exe+0x5a91bdd
+[     125 ms] EXCEPTION code=0xe0000001 first_chance=1 tid=12064 address=KernelBase.dll+0xbfe0a flags=0x80
+[     125 ms] EXCEPTION_INFO [0]=0xffffffff80004005
+[     125 ms] REG tid=12064 rip=00007ffb9c2efe0a (KernelBase.dll+0xbfe0a) rsp=0000000757cfb9b0 rbp=0000000000000001 eax=00000000 eflags=00000200
+[     125 ms] REG rax=0000000000000000 rbx=0000000000000000 rcx=0000000000000000 rdx=0000000000000000 rsi=0000000757cfb9d0 rdi=0000000757cfb380
+[     125 ms] REG r8=0000000000000000 r9=0000000000000000 r10=0000000000000000 r11=0000000000000000 r12=000001ccba8f0420 r13=000001ccba99c6c0 r14=000001ccba99f050 r15=000001ccba92df10
+[     125 ms] POINTER rsi ascii=.
+[     125 ms] POINTER rsi hex=010000e0 80000000 00000000 00000000
+[     125 ms] POINTER rdi hex=00000000 00000000 00000000 00000000
+[     125 ms] STACKMEM +00: 000001ccba99e070 0000000757cfbae0 0000000000000000 00000000e0000001
+[     125 ms] STACKMEM +20: 00000080e0000001 0000000000000000 00007ffb9c2efe0a 0000000000000001
+[     125 ms] STACKMEM +40: ffffffff80004005 0000000000000000 0000000000000000 0000000000000000
+[     125 ms] STACKMEM +60: 0000000000000000 0000000000000000 0000000000000000 0000000000000000
+[     125 ms] EAX_SYSTEM_MESSAGE ≤Ÿ◊˜≥…π¶ÕÍ≥…°£
+
+[     125 ms] FRAME tid=12064 #0 KernelBase.dll+0xbfe0a
+[     125 ms] FRAME tid=12064 #1 KernelBase.dll+0xbfe0a (RaiseException+0x8a)
+[     125 ms] FRAME tid=12064 #2 msxml6.dll+0x3d8e0
+[     125 ms] FRAME tid=12064 #3 msxml6.dll+0x77c6b (DllGetClassObject+0x887b)
+[     125 ms] FRAME tid=12064 #4 msxml6.dll+0x77a95 (DllGetClassObject+0x86a5)
+[     125 ms] FRAME tid=12064 #5 msxml6.dll+0x3af2c
+[     125 ms] FRAME tid=12064 #6 msxml6.dll+0x8e1fb (DllCanUnloadNow+0x2aeb)
+[     125 ms] FRAME tid=12064 #7 msxml6.dll+0x3b05f
+[     125 ms] FRAME tid=12064 #8 msxml6.dll+0x3ab41
+[     125 ms] FRAME tid=12064 #9 msxml6.dll+0x519a8
+[     125 ms] FRAME tid=12064 #10 msxml6.dll+0x50531
+[     125 ms] FRAME tid=12064 #11 msxml6.dll+0x34533
+[     125 ms] FRAME tid=12064 #12 msxml6.dll+0x33c3a
+[     125 ms] FRAME tid=12064 #13 msxml6.dll+0x36788
+[     125 ms] FRAME tid=12064 #14 msxml6.dll+0x1faad
+[     125 ms] FRAME tid=12064 #15 msxml6.dll+0x1f887
+[     125 ms] FRAME tid=12064 #16 msxml6.dll+0x20091
+[     125 ms] FRAME tid=12064 #17 msxml6.dll+0x1c642
+[     125 ms] FRAME tid=12064 #18 msxml6.dll+0x1c798
+[     125 ms] FRAME tid=12064 #19 xgameruntime.dll+0x23d279 (XErrorReport+0x13f249)
+[     125 ms] FRAME tid=12064 #20 xgameruntime.dll+0x100b16 (XErrorReport+0x2ae6)
+[     125 ms] FRAME tid=12064 #21 xgameruntime.dll+0x10026d (XErrorReport+0x223d)
+[     125 ms] FRAME tid=12064 #22 xgameruntime.dll+0x1000bd (XErrorReport+0x208d)
+[     125 ms] FRAME tid=12064 #23 xgameruntime.dll+0x1ac08 (UninitializeApiImpl+0x24e8)
+[     125 ms] FRAME tid=12064 #24 xgameruntime.dll+0x1a6f7 (UninitializeApiImpl+0x1fd7)
+[     125 ms] FRAME tid=12064 #25 xgameruntime.dll+0x16aac
+[     125 ms] FRAME tid=12064 #26 xgameruntime.dll+0x182d5 (InitializeApiImplEx2+0x2f5)
+[     125 ms] FRAME tid=12064 #27 game_scarlett_master.exe+0x55e2cca
+[     125 ms] FRAME tid=12064 #28 game_scarlett_master.exe+0x5a91bdd
+[     125 ms] FRAME tid=12064 #29 game_scarlett_master.exe+0x56a1e5a
+[     125 ms] FRAME tid=12064 #30 kernel32.dll+0x2e957 (BaseThreadInitThunk+0x17)
+[     125 ms] FRAME tid=12064 #31 ntdll.dll+0x427c (RtlUserThreadStart+0x2c)
+[     125 ms] EXCEPTION code=0x40080201 first_chance=1 tid=12064 address=KernelBase.dll+0xbfe0a flags=0x80
+[     125 ms] EXCEPTION_INFO [0]=0x80004005
+[     125 ms] EXCEPTION_INFO [1]=0x3c
+[     125 ms] EXCEPTION_INFO [2]=0x757cfb140
+[     125 ms] ORIGINATE_ERROR_MESSAGE 'Rockstar Games' ËøùÂèç‰∫Ü '^ms-resource:.{1,256}' ÁöÑ pattern Á∫¶Êùü„ÄÇ
+
+[     125 ms] REG tid=12064 rip=00007ffb9c2efe0a (KernelBase.dll+0xbfe0a) rsp=0000000757cfafb0 rbp=0000000000000003 eax=00000000 eflags=00000200
+[     125 ms] REG rax=0000000000000000 rbx=0000000000000000 rcx=0000000000000000 rdx=0000000000000000 rsi=0000000757cfafd0 rdi=0000000757cfa980
+[     125 ms] REG r8=0000000757cfb038 r9=0000f3a000000000 r10=0000000757cfaef0 r11=0000000700000000 r12=0000000080004005 r13=0000000000000000 r14=0000000000000001 r15=0000000757cfb140
+[     125 ms] POINTER r8 hex=00000000 00000000 00000000 00000000
+[     125 ms] POINTER rsi ascii=...@.
+[     125 ms] POINTER rsi hex=01020840 80000000 00000000 00000000
+[     125 ms] POINTER rdi ascii=H
+[     125 ms] POINTER rdi utf16=H
+[     125 ms] POINTER rdi hex=48000000 00000000 01000000 00000000
+[     125 ms] STACKMEM +00: 000001ccba92ee04 0000000757cfb120 0000000000000000 0000000040080201
+[     125 ms] STACKMEM +20: 0000008040080201 0000000000000000 00007ffb9c2efe0a 0000000000000003
+[     125 ms] STACKMEM +40: 0000000080004005 000000000000003c 0000000757cfb140 0000000000000000
+[     125 ms] STACKMEM +60: 0000000000000000 0000000000000000 0000000000000000 0000000000000000
+[     125 ms] EAX_SYSTEM_MESSAGE ≤Ÿ◊˜≥…π¶ÕÍ≥…°£
+
+[     125 ms] FRAME tid=12064 #0 KernelBase.dll+0xbfe0a
+[     125 ms] FRAME tid=12064 #1 KernelBase.dll+0xbfe0a (RaiseException+0x8a)
+[     125 ms] FRAME tid=12064 #2 combase.dll+0x1782f (RoOriginateErrorW+0x4bf)
+[     125 ms] FRAME tid=12064 #3 combase.dll+0x174a1 (RoOriginateErrorW+0x131)
+[     125 ms] FRAME tid=12064 #4 msxml6.dll+0x4e112
+[     125 ms] FRAME tid=12064 #5 msxml6.dll+0x4ed87
+[     125 ms] FRAME tid=12064 #6 msxml6.dll+0x77c54 (DllGetClassObject+0x8864)
+[     125 ms] FRAME tid=12064 #7 msxml6.dll+0x77a95 (DllGetClassObject+0x86a5)
+[     125 ms] FRAME tid=12064 #8 msxml6.dll+0x3af2c
+[     125 ms] FRAME tid=12064 #9 msxml6.dll+0x8e1fb (DllCanUnloadNow+0x2aeb)
+[     125 ms] FRAME tid=12064 #10 msxml6.dll+0x3b05f
+[     125 ms] FRAME tid=12064 #11 msxml6.dll+0x3ab41
+[     125 ms] FRAME tid=12064 #12 msxml6.dll+0x519a8
+[     125 ms] FRAME tid=12064 #13 msxml6.dll+0x50531
+[     125 ms] FRAME tid=12064 #14 msxml6.dll+0x34533
+[     125 ms] FRAME tid=12064 #15 msxml6.dll+0x33c3a
+[     125 ms] FRAME tid=12064 #16 msxml6.dll+0x36788
+[     125 ms] FRAME tid=12064 #17 msxml6.dll+0x1faad
+[     125 ms] FRAME tid=12064 #18 msxml6.dll+0x1f887
+[     125 ms] FRAME tid=12064 #19 msxml6.dll+0x20091
+[     125 ms] FRAME tid=12064 #20 msxml6.dll+0x1c642
+[     125 ms] FRAME tid=12064 #21 msxml6.dll+0x1c798
+[     125 ms] FRAME tid=12064 #22 xgameruntime.dll+0x23d279 (XErrorReport+0x13f249)
+[     125 ms] FRAME tid=12064 #23 xgameruntime.dll+0x100b16 (XErrorReport+0x2ae6)
+[     125 ms] FRAME tid=12064 #24 xgameruntime.dll+0x10026d (XErrorReport+0x223d)
+[     125 ms] FRAME tid=12064 #25 xgameruntime.dll+0x1000bd (XErrorReport+0x208d)
+[     141 ms] FRAME tid=12064 #26 xgameruntime.dll+0x1ac08 (UninitializeApiImpl+0x24e8)
+[     141 ms] FRAME tid=12064 #27 xgameruntime.dll+0x1a6f7 (UninitializeApiImpl+0x1fd7)
+[     141 ms] FRAME tid=12064 #28 xgameruntime.dll+0x16aac
+[     141 ms] FRAME tid=12064 #29 xgameruntime.dll+0x182d5 (InitializeApiImplEx2+0x2f5)
+[     141 ms] FRAME tid=12064 #30 game_scarlett_master.exe+0x55e2cca
+[     141 ms] FRAME tid=12064 #31 game_scarlett_master.exe+0x5a91bdd
+[     141 ms] EXCEPTION code=0xe0000001 first_chance=1 tid=12064 address=KernelBase.dll+0xbfe0a flags=0x80
+[     141 ms] EXCEPTION_INFO [0]=0xffffffff80004005
+[     141 ms] REG tid=12064 rip=00007ffb9c2efe0a (KernelBase.dll+0xbfe0a) rsp=0000000757cfb9b0 rbp=0000000000000001 eax=00000009 eflags=00000200
+[     141 ms] REG rax=0000000000000009 rbx=0000000000000000 rcx=0000000000000000 rdx=0000000000000000 rsi=0000000757cfb9d0 rdi=0000000757cfb380
+[     141 ms] REG r8=0000000000000070 r9=0000000000000000 r10=0000000000000000 r11=0000000000000000 r12=000001ccba8f0420 r13=000001ccba99ee40 r14=000001ccba99f050 r15=000001ccba92ff30
+[     141 ms] POINTER rsi ascii=.
+[     141 ms] POINTER rsi hex=010000e0 80000000 00000000 00000000
+[     141 ms] POINTER rdi hex=00000000 00000000 09000000 00000000
+[     141 ms] STACKMEM +00: 000001ccba99e070 0000000757cfbae0 0000000000000000 00000000e0000001
+[     141 ms] STACKMEM +20: 00000080e0000001 0000000000000000 00007ffb9c2efe0a 0000000000000001
+[     141 ms] STACKMEM +40: ffffffff80004005 0000000000000000 0000000000000000 0000000000000000
+[     141 ms] STACKMEM +60: 0000000000000000 0000000000000000 0000000000000000 0000000000000000
+[     141 ms] EAX_SYSTEM_MESSAGE ¥Ê¥¢øÿ÷∆øÈµÿ÷∑Œﬁ–ß°£
+
+[     141 ms] FRAME tid=12064 #0 KernelBase.dll+0xbfe0a
+[     141 ms] FRAME tid=12064 #1 KernelBase.dll+0xbfe0a (RaiseException+0x8a)
+[     141 ms] FRAME tid=12064 #2 msxml6.dll+0x3d8e0
+[     141 ms] FRAME tid=12064 #3 msxml6.dll+0x77c6b (DllGetClassObject+0x887b)
+[     141 ms] FRAME tid=12064 #4 msxml6.dll+0x77a95 (DllGetClassObject+0x86a5)
+[     141 ms] FRAME tid=12064 #5 msxml6.dll+0x3af2c
+[     141 ms] FRAME tid=12064 #6 msxml6.dll+0x8e1fb (DllCanUnloadNow+0x2aeb)
+[     141 ms] FRAME tid=12064 #7 msxml6.dll+0x3b05f
+[     141 ms] FRAME tid=12064 #8 msxml6.dll+0x3ab41
+[     141 ms] FRAME tid=12064 #9 msxml6.dll+0x519a8
+[     141 ms] FRAME tid=12064 #10 msxml6.dll+0x50531
+[     141 ms] FRAME tid=12064 #11 msxml6.dll+0x34533
+[     141 ms] FRAME tid=12064 #12 msxml6.dll+0x33c3a
+[     141 ms] FRAME tid=12064 #13 msxml6.dll+0x36788
+[     141 ms] FRAME tid=12064 #14 msxml6.dll+0x1faad
+[     141 ms] FRAME tid=12064 #15 msxml6.dll+0x1f887
+[     141 ms] FRAME tid=12064 #16 msxml6.dll+0x20091
+[     141 ms] FRAME tid=12064 #17 msxml6.dll+0x1c642
+[     141 ms] FRAME tid=12064 #18 msxml6.dll+0x1c798
+[     141 ms] FRAME tid=12064 #19 xgameruntime.dll+0x23d279 (XErrorReport+0x13f249)
+[     141 ms] FRAME tid=12064 #20 xgameruntime.dll+0x100b16 (XErrorReport+0x2ae6)
+[     141 ms] FRAME tid=12064 #21 xgameruntime.dll+0x10026d (XErrorReport+0x223d)
+[     141 ms] FRAME tid=12064 #22 xgameruntime.dll+0x1000bd (XErrorReport+0x208d)
+[     141 ms] FRAME tid=12064 #23 xgameruntime.dll+0x1ac08 (UninitializeApiImpl+0x24e8)
+[     141 ms] FRAME tid=12064 #24 xgameruntime.dll+0x1a6f7 (UninitializeApiImpl+0x1fd7)
+[     141 ms] FRAME tid=12064 #25 xgameruntime.dll+0x16aac
+[     141 ms] FRAME tid=12064 #26 xgameruntime.dll+0x182d5 (InitializeApiImplEx2+0x2f5)
+[     141 ms] FRAME tid=12064 #27 game_scarlett_master.exe+0x55e2cca
+[     141 ms] FRAME tid=12064 #28 game_scarlett_master.exe+0x5a91bdd
+[     141 ms] FRAME tid=12064 #29 game_scarlett_master.exe+0x56a1e5a
+[     141 ms] FRAME tid=12064 #30 kernel32.dll+0x2e957 (BaseThreadInitThunk+0x17)
+[     141 ms] FRAME tid=12064 #31 ntdll.dll+0x427c (RtlUserThreadStart+0x2c)
+[     141 ms] EXCEPTION code=0x40080201 first_chance=1 tid=12064 address=KernelBase.dll+0xbfe0a flags=0x80
+[     141 ms] EXCEPTION_INFO [0]=0x80004005
+[     141 ms] EXCEPTION_INFO [1]=0x41
+[     141 ms] EXCEPTION_INFO [2]=0x757cfb140
+[     141 ms] ORIGINATE_ERROR_MESSAGE 'Grand Theft Auto VI' ËøùÂèç‰∫Ü '^ms-resource:.{1,256}' ÁöÑ pattern Á∫¶Êùü„ÄÇ
+
+[     141 ms] REG tid=12064 rip=00007ffb9c2efe0a (KernelBase.dll+0xbfe0a) rsp=0000000757cfafb0 rbp=0000000000000003 eax=00000000 eflags=00000200
+[     141 ms] REG rax=0000000000000000 rbx=0000000000000000 rcx=0000000000000000 rdx=0000000000000000 rsi=0000000757cfafd0 rdi=0000000757cfa980
+[     141 ms] REG r8=0000000757cfb038 r9=0000f3a000000000 r10=0000000757cfaef0 r11=0000000700000000 r12=0000000080004005 r13=0000000000000000 r14=0000000000000001 r15=0000000757cfb140
+[     141 ms] POINTER r8 hex=00000000 00000000 00000000 00000000
+[     141 ms] POINTER rsi ascii=...@.
+[     141 ms] POINTER rsi hex=01020840 80000000 00000000 00000000
+[     141 ms] POINTER rdi ascii=H
+[     141 ms] POINTER rdi utf16=H
+[     141 ms] POINTER rdi hex=48000000 00000000 01000000 00000000
+[     141 ms] STACKMEM +00: 000001ccba92e804 0000000757cfb120 0000000000000000 0000000040080201
+[     141 ms] STACKMEM +20: 0000008040080201 0000000000000000 00007ffb9c2efe0a 0000000000000003
+[     141 ms] STACKMEM +40: 0000000080004005 0000000000000041 0000000757cfb140 0000000000000000
+[     141 ms] STACKMEM +60: 0000000000000000 0000000000000000 0000000000000000 0000000000000000
+[     141 ms] EAX_SYSTEM_MESSAGE ≤Ÿ◊˜≥…π¶ÕÍ≥…°£
+
+[     141 ms] FRAME tid=12064 #0 KernelBase.dll+0xbfe0a
+[     141 ms] FRAME tid=12064 #1 KernelBase.dll+0xbfe0a (RaiseException+0x8a)
+[     141 ms] FRAME tid=12064 #2 combase.dll+0x1782f (RoOriginateErrorW+0x4bf)
+[     141 ms] FRAME tid=12064 #3 combase.dll+0x174a1 (RoOriginateErrorW+0x131)
+[     141 ms] FRAME tid=12064 #4 msxml6.dll+0x4e112
+[     141 ms] FRAME tid=12064 #5 msxml6.dll+0x4ed87
+[     141 ms] FRAME tid=12064 #6 msxml6.dll+0x77c54 (DllGetClassObject+0x8864)
+[     141 ms] FRAME tid=12064 #7 msxml6.dll+0x77a95 (DllGetClassObject+0x86a5)
+[     141 ms] FRAME tid=12064 #8 msxml6.dll+0x3af2c
+[     141 ms] FRAME tid=12064 #9 msxml6.dll+0x8e1fb (DllCanUnloadNow+0x2aeb)
+[     141 ms] FRAME tid=12064 #10 msxml6.dll+0x3b05f
+[     141 ms] FRAME tid=12064 #11 msxml6.dll+0x3ab41
+[     141 ms] FRAME tid=12064 #12 msxml6.dll+0x519a8
+[     141 ms] FRAME tid=12064 #13 msxml6.dll+0x50531
+[     141 ms] FRAME tid=12064 #14 msxml6.dll+0x34533
+[     141 ms] FRAME tid=12064 #15 msxml6.dll+0x33c3a
+[     141 ms] FRAME tid=12064 #16 msxml6.dll+0x36788
+[     141 ms] FRAME tid=12064 #17 msxml6.dll+0x1faad
+[     141 ms] FRAME tid=12064 #18 msxml6.dll+0x1f887
+[     141 ms] FRAME tid=12064 #19 msxml6.dll+0x20091
+[     141 ms] FRAME tid=12064 #20 msxml6.dll+0x1c642
+[     141 ms] FRAME tid=12064 #21 msxml6.dll+0x1c798
+[     141 ms] FRAME tid=12064 #22 xgameruntime.dll+0x23d279 (XErrorReport+0x13f249)
+[     141 ms] FRAME tid=12064 #23 xgameruntime.dll+0x100b16 (XErrorReport+0x2ae6)
+[     141 ms] FRAME tid=12064 #24 xgameruntime.dll+0x10026d (XErrorReport+0x223d)
+[     141 ms] FRAME tid=12064 #25 xgameruntime.dll+0x1000bd (XErrorReport+0x208d)
+[     141 ms] FRAME tid=12064 #26 xgameruntime.dll+0x1ac08 (UninitializeApiImpl+0x24e8)
+[     141 ms] FRAME tid=12064 #27 xgameruntime.dll+0x1a6f7 (UninitializeApiImpl+0x1fd7)
+[     141 ms] FRAME tid=12064 #28 xgameruntime.dll+0x16aac
+[     141 ms] FRAME tid=12064 #29 xgameruntime.dll+0x182d5 (InitializeApiImplEx2+0x2f5)
+[     141 ms] FRAME tid=12064 #30 game_scarlett_master.exe+0x55e2cca
+[     141 ms] FRAME tid=12064 #31 game_scarlett_master.exe+0x5a91bdd
+[     141 ms] EXCEPTION code=0xe0000001 first_chance=1 tid=12064 address=KernelBase.dll+0xbfe0a flags=0x80
+[     141 ms] EXCEPTION_INFO [0]=0xffffffff80004005
+[     141 ms] REG tid=12064 rip=00007ffb9c2efe0a (KernelBase.dll+0xbfe0a) rsp=0000000757cfb9b0 rbp=0000000000000001 eax=00000009 eflags=00000200
+[     141 ms] REG rax=0000000000000009 rbx=0000000000000000 rcx=0000000000000000 rdx=0000000000000000 rsi=0000000757cfb9d0 rdi=0000000757cfb380
+[     141 ms] REG r8=0000000000000070 r9=0000000000000000 r10=0000000000000000 r11=0000000000000000 r12=000001ccba8f0420 r13=000001ccba9d1430 r14=000001ccba99f050 r15=000001ccba921fe0
+[     141 ms] POINTER rsi ascii=.
+[     141 ms] POINTER rsi hex=010000e0 80000000 00000000 00000000
+[     141 ms] POINTER rdi hex=00000000 00000000 09000000 00000000
+[     141 ms] STACKMEM +00: 000001ccba99e070 0000000757cfbae0 0000000000000000 00000000e0000001
+[     141 ms] STACKMEM +20: 00000080e0000001 0000000000000000 00007ffb9c2efe0a 0000000000000001
+[     141 ms] STACKMEM +40: ffffffff80004005 0000000000000000 0000000000000000 0000000000000000
+[     141 ms] STACKMEM +60: 0000000000000000 0000000000000000 0000000000000000 0000000000000000
+[     141 ms] EAX_SYSTEM_MESSAGE ¥Ê¥¢øÿ÷∆øÈµÿ÷∑Œﬁ–ß°£
+
+[     141 ms] FRAME tid=12064 #0 KernelBase.dll+0xbfe0a
+[     141 ms] FRAME tid=12064 #1 KernelBase.dll+0xbfe0a (RaiseException+0x8a)
+[     141 ms] FRAME tid=12064 #2 msxml6.dll+0x3d8e0
+[     141 ms] FRAME tid=12064 #3 msxml6.dll+0x77c6b (DllGetClassObject+0x887b)
+[     141 ms] FRAME tid=12064 #4 msxml6.dll+0x77a95 (DllGetClassObject+0x86a5)
+[     141 ms] FRAME tid=12064 #5 msxml6.dll+0x3af2c
+[     141 ms] FRAME tid=12064 #6 msxml6.dll+0x8e1fb (DllCanUnloadNow+0x2aeb)
+[     141 ms] FRAME tid=12064 #7 msxml6.dll+0x3b05f
+[     141 ms] FRAME tid=12064 #8 msxml6.dll+0x3ab41
+[     141 ms] FRAME tid=12064 #9 msxml6.dll+0x519a8
+[     141 ms] FRAME tid=12064 #10 msxml6.dll+0x50531
+[     141 ms] FRAME tid=12064 #11 msxml6.dll+0x34533
+[     141 ms] FRAME tid=12064 #12 msxml6.dll+0x33c3a
+[     141 ms] FRAME tid=12064 #13 msxml6.dll+0x36788
+[     141 ms] FRAME tid=12064 #14 msxml6.dll+0x1faad
+[     141 ms] FRAME tid=12064 #15 msxml6.dll+0x1f887
+[     141 ms] FRAME tid=12064 #16 msxml6.dll+0x20091
+[     141 ms] FRAME tid=12064 #17 msxml6.dll+0x1c642
+[     141 ms] FRAME tid=12064 #18 msxml6.dll+0x1c798
+[     141 ms] FRAME tid=12064 #19 xgameruntime.dll+0x23d279 (XErrorReport+0x13f249)
+[     141 ms] FRAME tid=12064 #20 xgameruntime.dll+0x100b16 (XErrorReport+0x2ae6)
+[     141 ms] FRAME tid=12064 #21 xgameruntime.dll+0x10026d (XErrorReport+0x223d)
+[     141 ms] FRAME tid=12064 #22 xgameruntime.dll+0x1000bd (XErrorReport+0x208d)
+[     141 ms] FRAME tid=12064 #23 xgameruntime.dll+0x1ac08 (UninitializeApiImpl+0x24e8)
+[     141 ms] FRAME tid=12064 #24 xgameruntime.dll+0x1a6f7 (UninitializeApiImpl+0x1fd7)
+[     141 ms] FRAME tid=12064 #25 xgameruntime.dll+0x16aac
+[     141 ms] FRAME tid=12064 #26 xgameruntime.dll+0x182d5 (InitializeApiImplEx2+0x2f5)
+[     141 ms] FRAME tid=12064 #27 game_scarlett_master.exe+0x55e2cca
+[     141 ms] FRAME tid=12064 #28 game_scarlett_master.exe+0x5a91bdd
+[     141 ms] FRAME tid=12064 #29 game_scarlett_master.exe+0x56a1e5a
+[     141 ms] FRAME tid=12064 #30 kernel32.dll+0x2e957 (BaseThreadInitThunk+0x17)
+[     141 ms] FRAME tid=12064 #31 ntdll.dll+0x427c (RtlUserThreadStart+0x2c)
+[     156 ms] MODULE base=0x7ffa61940000 size=0x7f000 path=\\?\C:\Windows\System32\gamingservicesproxy_17.dll
+[     156 ms] MODULE base=0x7ffb4b270000 size=0x22000 path=\\?\C:\Windows\System32\XblAuthManagerProxy.dll
+[     172 ms] DEBUGSTRING Runtime Service struct SErrorImpl Created
+
+[     172 ms] DEBUGSTRING Runtime Service struct SUsersImpl Created
+
+[     172 ms] DEBUGSTRING Runtime Service struct SGameImpl Created
+
+[     172 ms] DEBUGSTRING Runtime Service struct SUserDeviceAssociationsImpl Created
+
+[     172 ms] MODULE base=0x7ffb9bc30000 size=0x2d000 path=\\?\C:\Windows\System32\devobj.dll
+[     188 ms] DEBUGSTRING Runtime Service struct SMultiplayerNetworkingImpl Created
+
+[     188 ms] MODULE base=0x7ffb53b40000 size=0xba000 path=\\?\C:\Windows\System32\Windows.Networking.Connectivity.dll
+[     188 ms] DEBUGSTRING Runtime Service struct SSystemImpl Created
+
+[     188 ms] DEBUGSTRING Runtime Service struct SFeatureImpl Created
+
+[     188 ms] TRACE_BREAK rva=0x5a91bdd tid=12064
+[     188 ms] REG tid=12064 rip=00007ff666b31bde (game_scarlett_master.exe+0x5a91bde) rsp=0000000757cff940 rbp=0000000000000000 eax=00000000 eflags=00000206
+[     188 ms] REG rax=0000000000000000 rbx=000000000000000a rcx=00007ff667ea4e80 rdx=000001bf9c680000 rsi=00007ff6610a0000 rdi=0000000000000000
+[     188 ms] REG r8=7ffffffffffffffc r9=0000000000000000 r10=000001bf9c7766e6 r11=0000000757cff8d0 r12=0000000000000000 r13=0000000000000000 r14=0000000000000000 r15=0000000000000000
+[     188 ms] POINTER rcx hex=00000000 00000000 01000000 00000000
+[     188 ms] POINTER rdx hex=00000000 00000000 00000000 00000000
+[     188 ms] POINTER rsi ascii=MZx
+[     188 ms] POINTER rsi hex=4d5a7800 01000000 04000000 00000000
+[     188 ms] STACKMEM +00: 000000000000000a 0000000000000000 00007ff6610a0000 0000000000000000
+[     188 ms] STACKMEM +20: 0000000000000000 00007ff666741e5a 000000000000000a 0000000000000000
+[     188 ms] STACKMEM +40: 0000000000000000 0000000000000000 0000000000000000 0000000000000000
+[     188 ms] STACKMEM +60: 0000000000000000 00007ffb9e81e957 0000000000000000 0000000000000000
+[     188 ms] EAX_SYSTEM_MESSAGE ≤Ÿ◊˜≥…π¶ÕÍ≥…°£
+
+[     188 ms] FRAME tid=12064 #0 game_scarlett_master.exe+0x5a91bde
+[     188 ms] FRAME tid=12064 #1 game_scarlett_master.exe+0x5a91bde
+[     188 ms] FRAME tid=12064 #2 game_scarlett_master.exe+0x56a1e5a
+[     188 ms] FRAME tid=12064 #3 kernel32.dll+0x2e957 (BaseThreadInitThunk+0x17)
+[     188 ms] FRAME tid=12064 #4 ntdll.dll+0x427c (RtlUserThreadStart+0x2c)
+[     188 ms] DEBUGSTRING Runtime Service struct SAsyncImpl Created
+
+[     188 ms] MODULE base=0x7ffb92700000 size=0x19000 path=\\?\C:\Windows\System32\npmproxy.dll
+[     203 ms] MODULE base=0x7ffb9dc90000 size=0xa000 path=\\?\C:\Windows\System32\nsi.dll
+[     203 ms] MODULE base=0x7ffb55e30000 size=0x13000 path=\\?\C:\Windows\System32\dusmapi.dll
+[     203 ms] MODULE base=0x7ffb55df0000 size=0x37000 path=\\?\C:\Windows\System32\Windows.Networking.HostName.dll
+[     203 ms] MODULE base=0x7ffb96cd0000 size=0x6e000 path=\\?\C:\Windows\System32\netprofm.dll
+[     203 ms] MODULE base=0x7ffb9bdd0000 size=0xa1000 path=\\?\C:\Windows\System32\sxs.dll
+[     203 ms] MODULE base=0x7ffb99700000 size=0x242000 path=\\?\C:\Windows\System32\dbghelp.dll
+[     203 ms] MODULE base=0x7ffb8aa70000 size=0x3b000 path=\\?\C:\Windows\System32\dbgcore.dll
+[     219 ms] MODULE base=0x7ffb9b640000 size=0x1b000 path=\\?\C:\Windows\System32\cryptsp.dll
+[     235 ms] MODULE base=0x7ffb9ad90000 size=0x39000 path=\\?\C:\Windows\System32\rsaenh.dll
+[     235 ms] MODULE base=0x7ffb9f040000 size=0x20000 path=\\?\C:\Windows\System32\imagehlp.dll
+[     344 ms] MODULE base=0x7ffb9b400000 size=0x2f000 path=\\?\C:\Windows\System32\gpapi.dll
+[     375 ms] MODULE base=0x7ffb4d440000 size=0x211000 path=\\?\C:\Windows\System32\GameInputRedist.dll
+[     375 ms] MODULE base=0x7ffb9d800000 size=0x487000 path=\\?\C:\Windows\System32\setupapi.dll
+[     375 ms] MODULE base=0x7ffb9a3e0000 size=0xf000 path=\\?\C:\Windows\System32\hid.dll
+[     375 ms] MODULE base=0x7ffb9af50000 size=0x36000 path=\\?\C:\Windows\System32\ntmarta.dll
+[     375 ms] MODULE base=0x7ffb924d0000 size=0xb000 path=\\?\C:\Windows\System32\version.dll
+[     391 ms] MODULE base=0x7ffb7b4b0000 size=0x1c000 path=\\?\C:\Windows\System32\XInput1_4.dll
+[     391 ms] MODULE base=0x7ffb7a020000 size=0x1e3000 path=\\?\C:\Windows\System32\InputHost.dll
+[     391 ms] MODULE base=0x7ffb98190000 size=0x127000 path=\\?\C:\Windows\System32\CoreMessaging.dll
+[     641 ms] MODULE base=0x7ffb75c20000 size=0x46000 path=\\?\C:\Windows\System32\deviceaccess.dll
+[     641 ms] MODULE base=0x7ffb8ae80000 size=0x9b000 path=\\?\C:\Windows\System32\Windows.Devices.Lights.dll
+[     641 ms] MODULE base=0x7ffb6a2c0000 size=0x1107000 path=\\?\C:\Windows\System32\Windows.UI.Xaml.dll
+[    1344 ms] TRACE_BREAK rva=0x2236e00 tid=12064
+[    1344 ms] REG tid=12064 rip=00007ff6632d6e01 (game_scarlett_master.exe+0x2236e01) rsp=0000000757cff698 rbp=0000000000000000 eax=9f6e9b00 eflags=00000206
+[    1344 ms] REG rax=000001cb9f6e9b00 rbx=0000000000000000 rcx=000001cb9f6e9b00 rdx=0000000000000001 rsi=000001cb9f6e9b00 rdi=0000000757cff710
+[    1344 ms] REG r8=000000c400001b01 r9=009000c400001b30 r10=00007ff668262780 r11=000001cb9f758010 r12=0000000000000000 r13=0000000000000000 r14=00007ff66648c0f0 r15=0000000000000000
+[    1344 ms] POINTER rcx hex=00000000 00000000 00000000 00000000
+[    1344 ms] POINTER rsi hex=00000000 00000000 00000000 00000000
+[    1344 ms] POINTER rdi hex=00000000 00000000 00000000 00000000
+[    1344 ms] STACKMEM +00: 00007ff6632d6dae 0000000000000000 0000000000000000 0000000000000002
+[    1344 ms] STACKMEM +20: 0000000000000000 0000000000000000 0000000757cff710 0000000757cff820
+[    1344 ms] STACKMEM +40: 00007ff6632e0eab 0000000000000055 00007ff66648c0f0 7ad0c7c900000000
+[    1344 ms] STACKMEM +60: 0000000000000001 0000000000000000 0000000000000000 0000000000000000
+[    1344 ms] FRAME tid=12064 #0 game_scarlett_master.exe+0x2236e01
+[    1344 ms] FRAME tid=12064 #1 game_scarlett_master.exe+0x2236e01
+[    1344 ms] FRAME tid=12064 #2 game_scarlett_master.exe+0x2236dae
+[    1344 ms] FRAME tid=12064 #3 game_scarlett_master.exe+0x2240eab
+[    1344 ms] FRAME tid=12064 #4 game_scarlett_master.exe+0x81b253
+[    1344 ms] FRAME tid=12064 #5 game_scarlett_master.exe+0x53ec04f
+[    1344 ms] FRAME tid=12064 #6 game_scarlett_master.exe+0x53ebf3a
+[    1344 ms] FRAME tid=12064 #7 game_scarlett_master.exe+0x661f0
+[    1344 ms] FRAME tid=12064 #8 game_scarlett_master.exe+0x1d109c9
+[    1344 ms] FRAME tid=12064 #9 game_scarlett_master.exe+0x5a91c0d
+[    1344 ms] FRAME tid=12064 #10 game_scarlett_master.exe+0x56a1e5a
+[    1344 ms] FRAME tid=12064 #11 kernel32.dll+0x2e957 (BaseThreadInitThunk+0x17)
+[    1344 ms] FRAME tid=12064 #12 ntdll.dll+0x427c (RtlUserThreadStart+0x2c)
+[    1344 ms] TRACE_BREAK rva=0x2236e6e tid=12064
+[    1344 ms] REG tid=12064 rip=00007ff6632d6e6f (game_scarlett_master.exe+0x2236e6f) rsp=0000000757cff5c0 rbp=0000000000000000 eax=9f71d840 eflags=00000202
+[    1344 ms] REG rax=000001cb9f71d840 rbx=0000000000000000 rcx=000001cb9f71d840 rdx=00007ff6684f39f6 rsi=000001cb9f6e9b00 rdi=0000000000000000
+[    1344 ms] REG r8=00007ff66782d1bb r9=0000000000000000 r10=00005dd8f39e404c r11=0000000757cff528 r12=0000000000000000 r13=0000000000000000 r14=00007ff66648c0f0 r15=0000000000000000
+[    1344 ms] POINTER rcx ascii=G:/
+[    1344 ms] POINTER rcx hex=473a2f00 00000000 00000000 00000000
+[    1344 ms] POINTER rdx ascii=appdata0.rpf
+[    1344 ms] POINTER rdx hex=61707064 61746130 2e727066 00007800
+[    1344 ms] POINTER r8 hex=00770000 0025006c 006c0075 00000044
+[    1344 ms] POINTER rsi hex=00000000 00000000 00000000 00000000
+[    1344 ms] STACKMEM +00: 00007ff66781c997 000001cb9f6e9b00 0000000000000000 000001cb9e1b27b0
+[    1344 ms] STACKMEM +20: 000001cb9f6e8000 09030204fcf3f0fe 00007ff60098c6d0 00007ff66683105c
+[    1344 ms] STACKMEM +40: 150f0c0d140b0816 1e1a212114dfe913 00007ff66800b71d 0000000000000028
+[    1344 ms] STACKMEM +60: 0000000000000008 0000000000000000 0000000000000000 00007ff66648c0f0
+[    1344 ms] FRAME tid=12064 #0 game_scarlett_master.exe+0x2236e6f
+[    1344 ms] FRAME tid=12064 #1 game_scarlett_master.exe+0x2236e6f
+[    1344 ms] FRAME tid=12064 #2 game_scarlett_master.exe+0x2236dae
+[    1344 ms] FRAME tid=12064 #3 game_scarlett_master.exe+0x2240eab
+[    1344 ms] FRAME tid=12064 #4 game_scarlett_master.exe+0x81b253
+[    1344 ms] FRAME tid=12064 #5 game_scarlett_master.exe+0x53ec04f
+[    1344 ms] FRAME tid=12064 #6 game_scarlett_master.exe+0x53ebf3a
+[    1344 ms] FRAME tid=12064 #7 game_scarlett_master.exe+0x661f0
+[    1344 ms] FRAME tid=12064 #8 game_scarlett_master.exe+0x1d109c9
+[    1344 ms] FRAME tid=12064 #9 game_scarlett_master.exe+0x5a91c0d
+[    1344 ms] FRAME tid=12064 #10 game_scarlett_master.exe+0x56a1e5a
+[    1344 ms] FRAME tid=12064 #11 kernel32.dll+0x2e957 (BaseThreadInitThunk+0x17)
+[    1344 ms] FRAME tid=12064 #12 ntdll.dll+0x427c (RtlUserThreadStart+0x2c)
+[    1344 ms] PROVIDER_INPUT tid=12064 rax=0x1cb9f71d840 rdx=0x7ff6684f39f6 r8=0x7ff66782d1bb
+[    1344 ms] MEMORY_DUMP label=provider-header +0x00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00
+[    1344 ms] MEMORY_DUMP label=provider-header +0x10 50 e4 71 9f 90 1b 00 00 20 0c 00 00 00 00 00 00
+[    1344 ms] MEMORY_DUMP label=provider-header +0x20 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[    1344 ms] MEMORY_DUMP label=provider-header +0x30 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[    1344 ms] MEMORY_DUMP label=provider-header +0x40 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[    1344 ms] PROVIDER_TABLE count=1 records=0x1cb9f71e448 stride=0x100
+[    1344 ms] MEMORY_DUMP label=provider-0 +0x00 00 00 00 00 00 00 00 00 50 e4 71 9f 90 1b 00 00
+[    1344 ms] MEMORY_DUMP label=provider-0 +0x10 20 0c 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[    1344 ms] MEMORY_DUMP label=provider-0 +0x20 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[    1344 ms] MEMORY_DUMP label=provider-0 +0x30 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[    1344 ms] MEMORY_DUMP label=provider-0 +0x40 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[    1344 ms] DEBUGSTRING [storage tid=12064] DStorageGetFactory IID=62959d11-d45f-4884-a0a3-f7862ea243ae
+
+[    1344 ms] MODULE base=0x7ffa8caa0000 size=0x35000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\dstorage.dll
+[    1344 ms] MODULE base=0x7ffa11bd0000 size=0x17f000 path=\\?\D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\dstoragecore.dll
+[    1344 ms] MODULE base=0x7ffb87650000 size=0x36000 path=\\?\C:\Windows\System32\winmm.dll
+[    1344 ms] MODULE base=0x7ffb24a40000 size=0x25000 path=\\?\C:\Windows\System32\D3D12.dll
+[    1344 ms] DEBUGSTRING [storage tid=12064] PC DStorageGetFactory HRESULT=0x00000000
+
+[    1344 ms] DEBUGSTRING [storage tid=12064] Factory.SetStagingBufferSize bytes=33554432 HRESULT=0x00000000
+
+[    1344 ms] DEBUGSTRING [storage tid=12064] Factory.OpenFile IID=43704f9f-27c6-4a9f-8815-d16527894df4
+
+[    1344 ms] DEBUGSTRING [storage tid=12064] Factory.OpenFile path=G:\appdata0.rpf
+
+[    1360 ms] TRACE_BREAK rva=0x2236e73 tid=12064
+[    1360 ms] REG tid=12064 rip=00007ff6632d6e74 (game_scarlett_master.exe+0x2236e74) rsp=0000000757cff5c0 rbp=0000000000000000 eax=00000001 eflags=00000206
+[    1360 ms] REG rax=0000000000000001 rbx=0000000000000000 rcx=0000000000000080 rdx=ed1d97704b9104d6 rsi=000001cb9f6e9b00 rdi=0000000000000000
+[    1360 ms] REG r8=0000000000000000 r9=0000000000000000 r10=000001cb9f71e570 r11=000000000000ffff r12=0000000000000000 r13=0000000000000000 r14=00007ff66648c0f0 r15=0000000000000000
+[    1360 ms] POINTER rsi hex=00000000 00000000 00000000 00000000
+[    1360 ms] STACKMEM +00: 00007ff66781c997 000001cb9f6e9b00 0000000000000000 000001cb9e1b27b0
+[    1360 ms] STACKMEM +20: 000001cb9f6e8000 09030204fcf3f0fe 00007ff60098c6d0 00007ff66683105c
+[    1360 ms] STACKMEM +40: 150f0c0d140b0816 1e1a212114dfe913 00007ff66800b71d 0000000000000028
+[    1360 ms] STACKMEM +60: 0000000000000008 0000000000000000 0000000000000000 00007ff66648c0f0
+[    1360 ms] EAX_SYSTEM_MESSAGE ∫Ø ˝≤ª’˝»∑°£
+
+[    1360 ms] FRAME tid=12064 #0 game_scarlett_master.exe+0x2236e74
+[    1360 ms] FRAME tid=12064 #1 game_scarlett_master.exe+0x2236e74
+[    1360 ms] FRAME tid=12064 #2 game_scarlett_master.exe+0x2236dae
+[    1360 ms] FRAME tid=12064 #3 game_scarlett_master.exe+0x2240eab
+[    1360 ms] FRAME tid=12064 #4 game_scarlett_master.exe+0x81b253
+[    1360 ms] FRAME tid=12064 #5 game_scarlett_master.exe+0x53ec04f
+[    1360 ms] FRAME tid=12064 #6 game_scarlett_master.exe+0x53ebf3a
+[    1360 ms] FRAME tid=12064 #7 game_scarlett_master.exe+0x661f0
+[    1360 ms] FRAME tid=12064 #8 game_scarlett_master.exe+0x1d109c9
+[    1360 ms] FRAME tid=12064 #9 game_scarlett_master.exe+0x5a91c0d
+[    1360 ms] FRAME tid=12064 #10 game_scarlett_master.exe+0x56a1e5a
+[    1360 ms] FRAME tid=12064 #11 kernel32.dll+0x2e957 (BaseThreadInitThunk+0x17)
+[    1360 ms] FRAME tid=12064 #12 ntdll.dll+0x427c (RtlUserThreadStart+0x2c)
+[    1360 ms] PREDICATE_RETURN tid=12064 rax=0x1 al=0x01 eflags=0x00000206
+[    1375 ms] DEBUGSTRING Runtime Service struct SPackageImpl Created
+
+[    1375 ms] TRACE_BREAK rva=0x223716c tid=12064
+[    1375 ms] REG tid=12064 rip=00007ff6632d716d (game_scarlett_master.exe+0x223716d) rsp=0000000757cff5c0 rbp=0000000000001002 eax=00000004 eflags=00000202
+[    1375 ms] REG rax=0000000000000004 rbx=0000000000000000 rcx=0000000000000000 rdx=0000000757cff589 rsi=000001cb9f6e9b00 rdi=0000000000000002
+[    1375 ms] REG r8=0000000000000057 r9=00007ffab6b9138f r10=00007ffab6b90000 r11=8080808080808080 r12=0000000000000000 r13=0000000000000000 r14=0000000000000000 r15=0000000000000000
+[    1375 ms] POINTER rdx hex=00000000 7f000000 00000000 00000000
+[    1375 ms] POINTER r9 ascii=...D..B.f..D.@...L...J.D..J.L.
+[    1375 ms] POINTER r9 hex=0fb70a44 0fb64202 66890844 884002c3
+[    1375 ms] POINTER rsi ascii=.en...
+[    1375 ms] POINTER rsi hex=c0656e9f cb010000 03000000 03000000
+[    1375 ms] STACKMEM +00: 00007ff66781c997 000001cb9f6e9b00 0000000000000000 000001cb9e1b27b0
+[    1375 ms] STACKMEM +20: 000001cb9f6e8000 09030204fcf3f0fe 6b6361700198c6d0 00002f3a746f6f72
+[    1375 ms] STACKMEM +40: 150f0c0d140b0816 1e1a212114dfe913 636b63617001b71d 6f632f3a65686361
+[    1375 ms] STACKMEM +60: 000000006769666e 0000000000000000 0000000000000000 00007ff66648c0f0
+[    1375 ms] EAX_SYSTEM_MESSAGE œµÕ≥Œﬁ∑®¥Úø™Œƒº˛°£
+
+[    1375 ms] FRAME tid=12064 #0 game_scarlett_master.exe+0x223716d
+[    1375 ms] FRAME tid=12064 #1 game_scarlett_master.exe+0x223716d
+[    1375 ms] FRAME tid=12064 #2 game_scarlett_master.exe+0x2236dae
+[    1375 ms] FRAME tid=12064 #3 game_scarlett_master.exe+0x2240eab
+[    1375 ms] FRAME tid=12064 #4 game_scarlett_master.exe+0x81b253
+[    1375 ms] FRAME tid=12064 #5 game_scarlett_master.exe+0x53ec04f
+[    1375 ms] FRAME tid=12064 #6 game_scarlett_master.exe+0x53ebf3a
+[    1375 ms] FRAME tid=12064 #7 game_scarlett_master.exe+0x661f0
+[    1375 ms] FRAME tid=12064 #8 game_scarlett_master.exe+0x1d109c9
+[    1375 ms] FRAME tid=12064 #9 game_scarlett_master.exe+0x5a91c0d
+[    1375 ms] FRAME tid=12064 #10 game_scarlett_master.exe+0x56a1e5a
+[    1375 ms] FRAME tid=12064 #11 kernel32.dll+0x2e957 (BaseThreadInitThunk+0x17)
+[    1375 ms] FRAME tid=12064 #12 ntdll.dll+0x427c (RtlUserThreadStart+0x2c)
+[    1375 ms] VECTOR_DUMP stage=pre-assert tid=12064 rsi=0x1cb9f6e9b00
+[    1375 ms] MEMORY_DUMP label=rsi-context +0x00 c0 65 6e 9f cb 01 00 00 03 00 00 00 03 00 00 00
+[    1375 ms] MEMORY_DUMP label=rsi-context +0x10 88 0b 70 9f cb 01 00 00 01 00 00 00 01 00 00 00
+[    1375 ms] MEMORY_DUMP label=rsi-context +0x20 70 a2 60 9f cb 01 00 00
+[    1375 ms] VECTOR stage=pre-assert name=primary object=0x1cb9f6e9b00 count=3 capacity=3 data=0x1cb9f700b88
+[    1375 ms] VECTOR_ITEM stage=pre-assert name=primary index=0 value=0x1cb9f71e690
+[    1375 ms] VECTOR_ITEM stage=pre-assert name=primary index=1 value=0x1cb9f71e7c0
+[    1375 ms] VECTOR_ITEM stage=pre-assert name=primary index=2 value=0x1cb9f746800
+[    1375 ms] VECTOR stage=pre-assert name=secondary object=0x1cb9f6e9b00 count=1 capacity=1 data=0x1cb9f60a270
+[    1375 ms] VECTOR_ITEM stage=pre-assert name=secondary index=0 value=0x1cb9f6e64a0
+[    1375 ms] DEBUGSTRING [storage tid=12064] Factory.OpenFile IID=43704f9f-27c6-4a9f-8815-d16527894df4
+
+[    1375 ms] DEBUGSTRING [storage tid=12064] Factory.OpenFile path=G:\common.rpf
+
+[    1375 ms] DEBUGSTRING [storage tid=12064] Factory.OpenFile IID=43704f9f-27c6-4a9f-8815-d16527894df4
+
+[    1375 ms] DEBUGSTRING [storage tid=12064] Factory.OpenFile path=G:\movies.rpf
+
+[    1391 ms] DEBUGSTRING [storage tid=12064] Factory.OpenFile IID=43704f9f-27c6-4a9f-8815-d16527894df4
+
+[    1391 ms] DEBUGSTRING [storage tid=12064] Factory.OpenFile path=G:\shaders.rpf
+
+[    1391 ms] DEBUGSTRING [storage tid=12064] Factory.OpenFile IID=43704f9f-27c6-4a9f-8815-d16527894df4
+
+[    1391 ms] DEBUGSTRING [storage tid=12064] Factory.OpenFile path=G:\anim.rpf
+
+[    1391 ms] DEBUGSTRING [storage tid=12064] Factory.OpenFile IID=43704f9f-27c6-4a9f-8815-d16527894df4
+
+[    1391 ms] DEBUGSTRING [storage tid=12064] Factory.OpenFile path=G:\data.rpf
+
+[    1406 ms] DEBUGSTRING [storage tid=12064] Factory.OpenFile IID=43704f9f-27c6-4a9f-8815-d16527894df4
+
+[    1406 ms] DEBUGSTRING [storage tid=12064] Factory.OpenFile path=G:\levels.rpf
+
+[    1406 ms] DEBUGSTRING [storage tid=12064] Factory.OpenFile IID=43704f9f-27c6-4a9f-8815-d16527894df4
+
+[    1406 ms] DEBUGSTRING [storage tid=12064] Factory.OpenFile path=G:\navmeshes.rpf
+
+[    1422 ms] DEBUGSTRING [storage tid=12064] Factory.OpenFile IID=43704f9f-27c6-4a9f-8815-d16527894df4
+
+[    1422 ms] DEBUGSTRING [storage tid=12064] Factory.OpenFile path=G:\packs.rpf
+
+[    1422 ms] DEBUGSTRING [storage tid=12064] Factory.OpenFile IID=43704f9f-27c6-4a9f-8815-d16527894df4
+
+[    1422 ms] DEBUGSTRING [storage tid=12064] Factory.OpenFile path=G:\textures.rpf
+
+[    1438 ms] DEBUGSTRING [storage tid=12064] Factory.OpenFile IID=43704f9f-27c6-4a9f-8815-d16527894df4
+
+[    1438 ms] DEBUGSTRING [storage tid=12064] Factory.OpenFile path=G:\audio.rpf
+
+[    1438 ms] DEBUGSTRING [storage tid=12064] Factory.OpenFile IID=43704f9f-27c6-4a9f-8815-d16527894df4
+
+[    1438 ms] DEBUGSTRING [storage tid=12064] Factory.OpenFile path=G:\script.rpf
+
+[    1500 ms] DEBUGSTRING Runtime Service struct SPersistentLocalStorageImpl Created
+
+[    1500 ms] MODULE base=0x7ffb9c630000 size=0x86c000 path=\\?\C:\Windows\System32\windows.storage.dll
+[    1516 ms] MODULE base=0x7ffb9f320000 size=0x66000 path=\\?\C:\Windows\System32\shlwapi.dll
+[    1516 ms] MODULE base=0x7ffb9bed0000 size=0x29000 path=\\?\C:\Windows\System32\profapi.dll
+[    1578 ms] DEBUGSTRING Runtime Service struct SDisplayModeImpl Created
+
+[    1578 ms] TRACE_BREAK rva=0x24784d5 tid=9492
+[    1578 ms] REG tid=9492 rip=00007ff6635184d6 (game_scarlett_master.exe+0x24784d6) rsp=000000075a7ff4c0 rbp=0000000000000000 eax=6781b672 eflags=00000202
+[    1578 ms] REG rax=00007ff66781b672 rbx=0000000000000000 rcx=000000075a7ff590 rdx=00007ff6610a0000 rsi=00007ff66867dbe8 rdi=0000000000000000
+[    1578 ms] REG r8=00007ff66351a660 r9=ffffffff00000000 r10=0000000000000000 r11=0000000000000246 r12=0000000000000000 r13=0000000000000000 r14=0000000000000000 r15=0000000000000000
+[    1578 ms] POINTER rcx ascii=P
+[    1578 ms] POINTER rcx utf16=P
+[    1578 ms] POINTER rcx hex=50000000 03000000 60a65163 f67f0000
+[    1578 ms] POINTER rdx ascii=MZx
+[    1578 ms] POINTER rdx hex=4d5a7800 01000000 04000000 00000000
+[    1578 ms] POINTER r8 ascii=H.%..1..........VH.. H...`
+[    1578 ms] POINTER r8 hex=48ff25e9 953104cc cccccccc cccccccc
+[    1578 ms] POINTER rsi ascii=(.(g..
+[    1578 ms] POINTER rsi hex=28052867 f67f0000 01000000 00000000
+[    1578 ms] STACKMEM +00: 0000000000000000 0000000000000000 000001cb9f7cf0a0 000001cb9f7cf0d8
+[    1578 ms] STACKMEM +20: 0000000000000000 0000000000000000 0000000000010000 000001cb9f7cf0a0
+[    1578 ms] STACKMEM +40: 000001cb9facec00 000001bf9c770000 0000000000000000 0000000000010000
+[    1578 ms] STACKMEM +60: 00000000000047bf 00007ff6623d0e5c 0000000010579000 00007ff6613b4143
+[    1578 ms] FRAME tid=9492 #0 game_scarlett_master.exe+0x24784d6
+[    1578 ms] FRAME tid=9492 #1 game_scarlett_master.exe+0x24784d6
+[    1578 ms] FRAME tid=9492 #2 game_scarlett_master.exe+0x19f4f54
+[    1578 ms] FRAME tid=9492 #3 game_scarlett_master.exe+0x580437e
+[    1578 ms] FRAME tid=9492 #4 game_scarlett_master.exe+0x43a4911
+[    1578 ms] FRAME tid=9492 #5 game_scarlett_master.exe+0x224070b
+[    1578 ms] FRAME tid=9492 #6 game_scarlett_master.exe+0x23cf00a
+[    1578 ms] FRAME tid=9492 #7 game_scarlett_master.exe+0x2215eca
+[    1578 ms] FRAME tid=9492 #8 kernel32.dll+0x2e957 (BaseThreadInitThunk+0x17)
+[    1578 ms] FRAME tid=9492 #9 ntdll.dll+0x427c (RtlUserThreadStart+0x2c)
+[    1578 ms] TRACE_BREAK rva=0x247853a tid=9492
+[    1578 ms] REG tid=9492 rip=00007ff66351853b (game_scarlett_master.exe+0x247853b) rsp=000000075a7ff4c0 rbp=0000000000000000 eax=610a0000 eflags=00000246
+[    1578 ms] REG rax=00007ff6610a0000 rbx=0000000000000000 rcx=0000000000000000 rdx=00007ff66781b672 rsi=00007ff66867dbe8 rdi=0000000000000000
+[    1578 ms] REG r8=00007ff66b9e37b8 r9=0000000000cf0000 r10=000001bf9c770000 r11=000000075a7ff100 r12=0000000000000000 r13=0000000000000000 r14=0000000000000000 r15=0000000000000000
+[    1578 ms] POINTER rdx ascii=sgaWindowClass
+[    1578 ms] POINTER rdx hex=73676157 696e646f 77436c61 73730067
+[    1578 ms] POINTER r8 ascii=Americas
+[    1578 ms] POINTER r8 hex=416d6572 69636173 00110000 00000000
+[    1578 ms] POINTER rsi ascii=(.(g..
+[    1578 ms] POINTER rsi hex=28052867 f67f0000 01000000 00000000
+[    1578 ms] STACKMEM +00: 0000000000000000 0000000000000000 000001cb9f7cf0a0 000001cb9f7cf0d8
+[    1578 ms] STACKMEM +20: 0000000080000000 0000000080000000 0000000000000f00 000001cb00000870
+[    1578 ms] STACKMEM +40: 0000000000000000 0000000000000000 00007ff6610a0000 0000000000000000
+[    1578 ms] STACKMEM +60: 00000000000047bf 00007ff6623d0e5c 0000000010579000 00007ff6613b4143
+[    1578 ms] FRAME tid=9492 #0 game_scarlett_master.exe+0x247853b
+[    1578 ms] FRAME tid=9492 #1 game_scarlett_master.exe+0x247853b
+[    1578 ms] FRAME tid=9492 #2 game_scarlett_master.exe+0x19f4f54
+[    1578 ms] FRAME tid=9492 #3 game_scarlett_master.exe+0x580437e
+[    1578 ms] FRAME tid=9492 #4 game_scarlett_master.exe+0x43a4911
+[    1578 ms] FRAME tid=9492 #5 game_scarlett_master.exe+0x224070b
+[    1578 ms] FRAME tid=9492 #6 game_scarlett_master.exe+0x23cf00a
+[    1578 ms] FRAME tid=9492 #7 game_scarlett_master.exe+0x2215eca
+[    1578 ms] FRAME tid=9492 #8 kernel32.dll+0x2e957 (BaseThreadInitThunk+0x17)
+[    1578 ms] FRAME tid=9492 #9 ntdll.dll+0x427c (RtlUserThreadStart+0x2c)
+[    1578 ms] MODULE base=0x7ffb98a30000 size=0xaa000 path=\\?\C:\Windows\System32\uxtheme.dll
+[    1578 ms] MODULE base=0x7ffb9dd70000 size=0x15c000 path=\\?\C:\Windows\System32\msctf.dll
+[    1578 ms] TRACE_BREAK rva=0x2478553 tid=9492
+[    1578 ms] REG tid=9492 rip=00007ff663518554 (game_scarlett_master.exe+0x2478554) rsp=000000075a7ff4c0 rbp=0000000000000000 eax=001a1528 eflags=00000206
+[    1578 ms] REG rax=00000000001a1528 rbx=0000000000000000 rcx=00000000001a1528 rdx=0000000000000001 rsi=00007ff66867dbe8 rdi=0000000000000000
+[    1578 ms] REG r8=7ffffffffffffffc r9=000001ccbbd46170 r10=000001bf9c770000 r11=000000075a7ff400 r12=0000000000000000 r13=0000000000000000 r14=0000000000000000 r15=0000000000000000
+[    1578 ms] POINTER r9 ascii=p.....
+[    1578 ms] POINTER r9 hex=70e9d4bb cc010000 303a789c bf010000
+[    1578 ms] POINTER rsi ascii=(.(g..
+[    1578 ms] POINTER rsi hex=28052867 f67f0000 01000000 00000000
+[    1578 ms] STACKMEM +00: 0000000000000000 0000000000000000 000001cb9f7cf0a0 000001cb9f7cf0d8
+[    1578 ms] STACKMEM +20: 0000000080000000 0000000080000000 0000000000000f00 000001cb00000870
+[    1578 ms] STACKMEM +40: 0000000000000000 0000000000000000 00007ff6610a0000 0000000000000000
+[    1578 ms] STACKMEM +60: 00000000000047bf 00007ff6623d0e5c 0000000010579000 00007ff6613b4143
+[    1578 ms] FRAME tid=9492 #0 game_scarlett_master.exe+0x2478554
+[    1578 ms] FRAME tid=9492 #1 game_scarlett_master.exe+0x2478554
+[    1578 ms] FRAME tid=9492 #2 game_scarlett_master.exe+0x19f4f54
+[    1578 ms] FRAME tid=9492 #3 game_scarlett_master.exe+0x580437e
+[    1578 ms] FRAME tid=9492 #4 game_scarlett_master.exe+0x43a4911
+[    1578 ms] FRAME tid=9492 #5 game_scarlett_master.exe+0x224070b
+[    1578 ms] FRAME tid=9492 #6 game_scarlett_master.exe+0x23cf00a
+[    1578 ms] FRAME tid=9492 #7 game_scarlett_master.exe+0x2215eca
+[    1578 ms] FRAME tid=9492 #8 kernel32.dll+0x2e957 (BaseThreadInitThunk+0x17)
+[    1578 ms] FRAME tid=9492 #9 ntdll.dll+0x427c (RtlUserThreadStart+0x2c)
+[    1594 ms] MODULE base=0x7ffb752a0000 size=0x1a000 path=\\?\C:\Windows\System32\MsCtfMonitor.dll
+[    1594 ms] MODULE base=0x7ffb75240000 size=0x57000 path=\\?\C:\Windows\System32\msutb.dll
+[    1594 ms] MODULE base=0x7ffb5c310000 size=0x146000 path=\\?\C:\Windows\System32\TextInputFramework.dll
+[    1594 ms] MODULE base=0x7ffb9ded0000 size=0x197000 path=\\?\C:\Windows\System32\ole32.dll
+[    1594 ms] TRACE_BREAK rva=0x24785b7 tid=9492
+[    1594 ms] REG tid=9492 rip=00007ff6635185b8 (game_scarlett_master.exe+0x24785b8) rsp=000000075a7ff4c0 rbp=0000000000000000 eax=00000001 eflags=00000246
+[    1594 ms] REG rax=0000000000000001 rbx=0000000000000000 rcx=0000000000000000 rdx=000000075a7ff670 rsi=0000000000000000 rdi=0000000000000000
+[    1594 ms] REG r8=00007ff667280638 r9=00007ff66867f048 r10=0000000000000000 r11=0000000000000246 r12=0000000000000000 r13=0000000000000000 r14=0000000000000000 r15=0000000000000000
+[    1594 ms] POINTER rdx ascii=.
+[    1594 ms] POINTER rdx hex=04000200 00000000 00001000 00000000
+[    1594 ms] POINTER r8 ascii=D..TW.ND..#f.Z.9.p..~]"L..[..v.....aY..K...Ms..$.x..$@LG..d[Q.Ht|yj....O....GP...RQc..
+[    1594 ms] POINTER r8 hex=44c30554 57d44e44 b4dd2366 e45aee39
+[    1594 ms] POINTER r9 hex=00000000 00000000 00000000 00000000
+[    1594 ms] STACKMEM +00: 0000000000000000 0000000000000000 000001cb9f7cf0a0 000001cb9f7cf0d8
+[    1594 ms] STACKMEM +20: 0000000080000000 0000000080000000 0000000000000f00 000001cb00000870
+[    1594 ms] STACKMEM +40: 0000000000000000 0000000000000000 00007ff6610a0000 0000000000000000
+[    1594 ms] STACKMEM +60: 00000000000047bf 00007ff6623d0e5c 0000000010579000 00007ff6613b4143
+[    1594 ms] EAX_SYSTEM_MESSAGE ∫Ø ˝≤ª’˝»∑°£
+
+[    1594 ms] FRAME tid=9492 #0 game_scarlett_master.exe+0x24785b8
+[    1594 ms] FRAME tid=9492 #1 game_scarlett_master.exe+0x24785b8
+[    1594 ms] FRAME tid=9492 #2 game_scarlett_master.exe+0x19f4f54
+[    1594 ms] FRAME tid=9492 #3 game_scarlett_master.exe+0x580437e
+[    1594 ms] FRAME tid=9492 #4 game_scarlett_master.exe+0x43a4911
+[    1594 ms] FRAME tid=9492 #5 game_scarlett_master.exe+0x224070b
+[    1594 ms] FRAME tid=9492 #6 game_scarlett_master.exe+0x23cf00a
+[    1594 ms] FRAME tid=9492 #7 game_scarlett_master.exe+0x2215eca
+[    1594 ms] FRAME tid=9492 #8 kernel32.dll+0x2e957 (BaseThreadInitThunk+0x17)
+[    1594 ms] FRAME tid=9492 #9 ntdll.dll+0x427c (RtlUserThreadStart+0x2c)
+[    1594 ms] DEBUGSTRING [graphics] D3D12XboxCreateDevice adapter=0000000000000000 parameters=000000075A7FF670 iid=00007FF667280638 out=00007FF66867F048; device ABI adapter not implemented
+
+[    1594 ms] DEBUGSTRING [graphics] create parameters[0..19]=00020004 00000000 00100000 00000000 00000000 00000000 00000000 00000000 00000001 00000001 00000001 00000000 00000000 00000000 00000000 00000020 00000000 00000000 00000000 00000000
+
+[    1594 ms] EXCEPTION code=0x80000003 first_chance=1 tid=9492 address=game_scarlett_master.exe+0x19f4f58 flags=0x0
+[    1594 ms] EXCEPTION_INFO [0]=0x0
+[    1594 ms] REG tid=9492 rip=00007ff662a94f59 (game_scarlett_master.exe+0x19f4f59) rsp=000000075a7ff730 rbp=0000000000000000 eax=00000000 eflags=00000246
+[    1594 ms] REG rax=0000000000000000 rbx=0000000000000000 rcx=0000000080004001 rdx=000000000000007f rsi=00007ff66867dbe8 rdi=0000000000000000
+[    1594 ms] REG r8=000001bf9c770150 r9=000000000000007f r10=0000000000000009 r11=000000075a7fef60 r12=0000000000000000 r13=0000000000000000 r14=0000000000000000 r15=0000000000000000
+[    1594 ms] POINTER r8 ascii=......
+[    1594 ms] POINTER r8 hex=b015d7bb cc010000 b08ad7bb cc010000
+[    1594 ms] POINTER rsi ascii=(.(g..
+[    1594 ms] POINTER rsi hex=28052867 f67f0000 01000000 00000000
+[    1594 ms] STACKMEM +00: 000000075a7ff778 000001cba2281d10 000001cba2281840 00007ff66352dc11
+[    1594 ms] STACKMEM +20: 0000000000000000 00007ff6610e8b74 0000000000000000 0000000000000000
+[    1594 ms] STACKMEM +40: 000001cba22821ff 0000001200000020 0000000000000001 00007ff66352dc58
+[    1594 ms] STACKMEM +60: 0000000000000000 0000000000000000 0000000000000000 0000000000000000
+[    1594 ms] EAX_SYSTEM_MESSAGE ≤Ÿ◊˜≥…π¶ÕÍ≥…°£
+
+[    1594 ms] FRAME tid=9492 #0 game_scarlett_master.exe+0x19f4f59
+[    1594 ms] FRAME tid=9492 #1 game_scarlett_master.exe+0x19f4f59
+[    1594 ms] FRAME tid=9492 #2 game_scarlett_master.exe+0x580437e
+[    1594 ms] FRAME tid=9492 #3 game_scarlett_master.exe+0x43a4911
+[    1594 ms] FRAME tid=9492 #4 game_scarlett_master.exe+0x224070b
+[    1594 ms] FRAME tid=9492 #5 game_scarlett_master.exe+0x23cf00a
+[    1594 ms] FRAME tid=9492 #6 game_scarlett_master.exe+0x2215eca
+[    1594 ms] FRAME tid=9492 #7 kernel32.dll+0x2e957 (BaseThreadInitThunk+0x17)
+[    1594 ms] FRAME tid=9492 #8 ntdll.dll+0x427c (RtlUserThreadStart+0x2c)
+[    1594 ms] WINDOW hwnd=00000000001A1528 visible=1 client=1924x1061 class=sgaWindowClass title=Americas
+[    1594 ms] WINDOW hwnd=0000000000680CB0 visible=0 client=0x0 class=IME title=Default IME
+[    1594 ms] WINDOW hwnd=00000000005E14A8 visible=0 client=0x0 class=MSCTFIME UI title=MSCTFIME UI
+[    1594 ms] STOP_ON_EXCEPTION: no assertion or failure has been bypassed
+[    1610 ms] EXIT code=0xe0000003
+[    1625 ms] END result=11 process_signaled=1

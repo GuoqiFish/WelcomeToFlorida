@@ -1,0 +1,27 @@
+[storage tid=43164] DStorageGetFactory IID=62959d11-d45f-4884-a0a3-f7862ea243ae
+[storage tid=43164] PC DStorageGetFactory HRESULT=0x00000000
+[storage tid=43164] Factory.SetStagingBufferSize bytes=33554432 HRESULT=0x00000000
+[storage tid=43164] Factory.OpenFile IID=43704f9f-27c6-4a9f-8815-d16527894df4
+[storage tid=43164] Factory.OpenFile path=G:\appdata0.rpf
+[storage tid=43164] Factory.OpenFile IID=43704f9f-27c6-4a9f-8815-d16527894df4
+[storage tid=43164] Factory.OpenFile path=G:\common.rpf
+[storage tid=43164] Factory.OpenFile IID=43704f9f-27c6-4a9f-8815-d16527894df4
+[storage tid=43164] Factory.OpenFile path=G:\movies.rpf
+[storage tid=43164] Factory.OpenFile IID=43704f9f-27c6-4a9f-8815-d16527894df4
+[storage tid=43164] Factory.OpenFile path=G:\shaders.rpf
+[storage tid=43164] Factory.OpenFile IID=43704f9f-27c6-4a9f-8815-d16527894df4
+[storage tid=43164] Factory.OpenFile path=G:\anim.rpf
+[storage tid=43164] Factory.OpenFile IID=43704f9f-27c6-4a9f-8815-d16527894df4
+[storage tid=43164] Factory.OpenFile path=G:\data.rpf
+[storage tid=43164] Factory.OpenFile IID=43704f9f-27c6-4a9f-8815-d16527894df4
+[storage tid=43164] Factory.OpenFile path=G:\levels.rpf
+[storage tid=43164] Factory.OpenFile IID=43704f9f-27c6-4a9f-8815-d16527894df4
+[storage tid=43164] Factory.OpenFile path=G:\navmeshes.rpf
+[storage tid=43164] Factory.OpenFile IID=43704f9f-27c6-4a9f-8815-d16527894df4
+[storage tid=43164] Factory.OpenFile path=G:\packs.rpf
+[storage tid=43164] Factory.OpenFile IID=43704f9f-27c6-4a9f-8815-d16527894df4
+[storage tid=43164] Factory.OpenFile path=G:\textures.rpf
+[storage tid=43164] Factory.OpenFile IID=43704f9f-27c6-4a9f-8815-d16527894df4
+[storage tid=43164] Factory.OpenFile path=G:\audio.rpf
+[storage tid=43164] Factory.OpenFile IID=43704f9f-27c6-4a9f-8815-d16527894df4
+[storage tid=43164] Factory.OpenFile path=G:\script.rpf

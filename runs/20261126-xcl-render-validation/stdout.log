@@ -1,0 +1,23 @@
+XCL 0.1.0 – starting 'RockstarGamesInc.28872443D20A7'
+  exe:   D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\game_scarlett_master.exe
+  data:  C:\Users\GuoqiFish\AppData\Local\Temp\scarlett-xcl-638fedd41baa4fc7ade84191924a7d2f\data\RockstarGamesInc.28872443D20A7
+  MicrosoftGame.Config: title memory Advanced, PLS 2048 MB, TitleId 7952987A
+  console: imports d3d12_xs.dll
+  GPU: NVIDIA GeForce RTX 5060 Laptop GPU (7899 MiB VRAM)
+  NOTE: waves of 32–32 lanes: the console's 64-lane programs run as two 32-lane halves (slower; vertex / pixel shaders that read lanes 32–63 can differ)
+  DXC 1.8.2502.11 (23992152): C:\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\x64
+
+Game exited with code 0x0 (0)
+Imports: 1186 (game-dll:amd_fidelityfx_loader_xbox.dll: 4, game-dll:bink2scarlett.dll: 23, game-dll:libhttpclient.gdk.dll: 38, game-dll:msvcp140.dll: 157, game-dll:vcruntime140.dll: 82, game-dll:vcruntime140_1.dll: 4, game-dll:xboxbvhbuilder.dll: 7, hle:acphal.dll: 19, hle:d3d12_xs.dll: 4, hle:gameinput.dll: 1, hle:kernelx.dll: 75, hle:minuserx.dll: 2, hle:xaudio2_9.dll: 1, hle:xcl-netoff.dll: 6, hle:xcrdapi.dll: 1, hle:xg_xs.dll: 2, system: 760)
+Unimplemented functions called (9):
+      2456×  d3d12_xs.dll!ID3D12CommandAllocator::#9 (not on PC)   (first call: game_scarlett_master.exe+0x188501)
+      2454×  d3d12_xs.dll!ID3D12GraphicsCommandList10::#126 (not on PC)   (first call: game_scarlett_master.exe+0x3263e)
+      2454×  d3d12_xs.dll!ID3D12GraphicsCommandList10::#142 (not on PC)   (first call: game_scarlett_master.exe+0x329e9)
+      2454×  d3d12_xs.dll!ID3D12GraphicsCommandList10::#75 (console extension)   (first call: game_scarlett_master.exe+0x32820)
+        20×  d3d12_xs.dll!ID3D12CommandQueue::#31 (newer layout)   (first call: 0x0)
+         4×  d3d12_xs.dll!ID3D12GraphicsCommandList10::#131 (not on PC)   (first call: game_scarlett_master.exe+0x2478cba)
+         4×  d3d12_xs.dll!ID3D12GraphicsCommandList10::#132 (not on PC)   (first call: game_scarlett_master.exe+0x2478c99)
+         3×  d3d12_xs.dll!ID3D12GraphicsCommandList10::#131 (not on PC)   (first call: game_scarlett_master.exe+0x2478bc5)
+         1×  d3d12_xs.dll!ID3D12GraphicsCommandList10::#132 (not on PC)   (first call: game_scarlett_master.exe+0x2478ba4)
+Report: C:\Users\GuoqiFish\AppData\Local\Temp\scarlett-xcl-638fedd41baa4fc7ade84191924a7d2f\data\RockstarGamesInc.28872443D20A7\logs\report.json
+Log:    C:\Users\GuoqiFish\AppData\Local\Temp\scarlett-xcl-638fedd41baa4fc7ade84191924a7d2f\data\RockstarGamesInc.28872443D20A7\logs\xcl.log

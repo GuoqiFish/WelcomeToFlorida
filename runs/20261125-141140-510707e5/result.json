@@ -1,0 +1,95 @@
+{
+  "RunId": "20261125-141140-510707e5",
+  "StartedUtc": "2026-11-25T06:11:40.8130829Z",
+  "Executable": "D:\\GTAVI\\GTA6.Xbox.v1.0.2.1-CYBERLEEK\\game_scarlett_master.exe",
+  "OriginalExeSha256": "E95020B2FA4A721DB3DF59FDECF75621730AC559D8835252F6C3B658D5A08993",
+  "TimeoutSeconds": 20,
+  "BreakRva": [
+    "0x1e1cfe0",
+    "0x1e1cfe5",
+    "0x24784d5",
+    "0x247853a",
+    "0x2478553",
+    "0x24785b7",
+    "0x2478698",
+    "0x24786b9",
+    "0x24786dc",
+    "0x247870d",
+    "0x2478731",
+    "0x2478758",
+    "0x247878a",
+    "0x2236e00",
+    "0x2236e6e",
+    "0x2236e73",
+    "0x223716c",
+    "0x5a91bdd",
+    "0x1fb1f50",
+    "0x1fb1f78",
+    "0x56eb30",
+    "0x56eb3f",
+    "0x56eb5e",
+    "0x56eb74",
+    "0x56eb7e",
+    "0x56eba8",
+    "0x56ebbd",
+    "0x56ebd6",
+    "0x56ebf0"
+  ],
+  "StorageLog": "D:\\GTAVI\\GTA6.Xbox.v1.0.2.1-CYBERLEEK\\compat\\runs\\20261125-141140-510707e5\\storage.log",
+  "DeployedDlls": [
+    {
+      "Name": "xmem.dll",
+      "Sha256": "07E911571A074DE727A5E522D6B3BD08DCCA8D19C5F3C02A8E44C347E7A2AAC7"
+    },
+    {
+      "Name": "d3d12_xs.dll",
+      "Sha256": "4960B209B26406BE100DA702D934AA1D67824DF6E7FC410A2F064FE82EA6CA85"
+    },
+    {
+      "Name": "chad.dll",
+      "Sha256": "37F9587220956CF1D0BD79B3F3A4D37C7A6F7466BDB8300D2D41B8BE407CED92"
+    },
+    {
+      "Name": "xg_xs.dll",
+      "Sha256": "93AEE844FD5DDE95F23886E24BB8F793DF16CA6D5C6E1EAEE3C327E88072A20B"
+    },
+    {
+      "Name": "XCRDAPI.dll",
+      "Sha256": "5953536B98774302A474FBF3BB19AAB086FA87BADDDDFA8ACCEF0309334C7F63"
+    },
+    {
+      "Name": "dstorage.dll",
+      "Sha256": "CAE65787F61514BEC6F012F44546E68B19E39D8854A9AB52AF813370D44B272A"
+    },
+    {
+      "Name": "dstoragecore.dll",
+      "Sha256": "CF85B19A92A8276F8BACA0DB9BBCD60735BAD50768DEB303D310E84D5F4FDD11"
+    },
+    {
+      "Name": "xapu.dll",
+      "Sha256": "B5E1303CEAF95FE0F86D3954F4B6AD89E9D26C548C6A4D75B47A78972583FB62"
+    },
+    {
+      "Name": "AcpHal.dll",
+      "Sha256": "47A2FFF1BCFC4C241939C14E47C2D6DABE8307004834628E9409C504E763F7E8"
+    }
+  ],
+  "DebuggerExitCode": 11,
+  "CleanupSucceeded": true,
+  "RestoredFiles": [
+    "xmem.dll",
+    "d3d12_xs.dll",
+    "chad.dll",
+    "xg_xs.dll",
+    "XCRDAPI.dll",
+    "dstorage.dll",
+    "dstoragecore.dll",
+    "xapu.dll",
+    "AcpHal.dll"
+  ],
+  "Error": null,
+  "CleanupErrors": [],
+  "ExecutableUnchanged": true,
+  "FinishedUtc": "2026-11-25T06:11:44.5113067Z",
+  "StorageLogExists": true
+}

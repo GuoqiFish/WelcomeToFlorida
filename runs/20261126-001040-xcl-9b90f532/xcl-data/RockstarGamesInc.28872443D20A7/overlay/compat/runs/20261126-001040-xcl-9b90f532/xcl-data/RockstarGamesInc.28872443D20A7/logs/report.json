@@ -1,0 +1,255 @@
+{
+  "xcl_version": "0.1.0",
+  "title": "RockstarGamesInc.28872443D20A7",
+  "exe": "D:\\GTAVI\\GTA6.Xbox.v1.0.2.1-CYBERLEEK\\game_scarlett_master.exe",
+  "crash": "loader: LoadLibrary of the TLS carrier failed (error 126)",
+  "exit_code": null,
+  "environment": [],
+  "imports_by_source": {
+    "game-dll:amd_fidelityfx_loader_xbox.dll": 4,
+    "game-dll:bink2scarlett.dll": 23,
+    "game-dll:msvcp140.dll": 1723,
+    "game-dll:vcruntime140.dll": 820,
+    "game-dll:vcruntime140_1.dll": 47,
+    "hle:acphal.dll": 19,
+    "hle:d3d12_xs.dll": 10,
+    "hle:gameinput.dll": 1,
+    "hle:kernelx.dll": 623,
+    "hle:minuserx.dll": 2,
+    "hle:xaudio2_9.dll": 1,
+    "hle:xcl-netoff.dll": 43,
+    "hle:xcrdapi.dll": 1,
+    "hle:xg_xs.dll": 2,
+    "stub": 7,
+    "system": 5528
+  },
+  "stubbed_imports": [
+    {
+      "importer": "game_scarlett_master.exe",
+      "dll": "xboxbvhbuilder.dll",
+      "function": "??0XboxBvhBuilder@@QEAA@PEAUID3D12Device11@@_N@Z"
+    },
+    {
+      "importer": "game_scarlett_master.exe",
+      "dll": "xboxbvhbuilder.dll",
+      "function": "??1XboxBvhBuilder@@QEAA@XZ"
+    },
+    {
+      "importer": "game_scarlett_master.exe",
+      "dll": "xboxbvhbuilder.dll",
+      "function": "?BuildRaytracingAccelerationStructureBatched2X@XboxBvhBuilder@@QEAAXPEAUID3D12GraphicsCommandList6@@IPEBUD3D12XBOX_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_BATCHED_DESC2@@@Z"
+    },
+    {
+      "importer": "game_scarlett_master.exe",
+      "dll": "xboxbvhbuilder.dll",
+      "function": "?CopyRaytracingAccelerationStructure@XboxBvhBuilder@@QEAAXPEAUID3D12GraphicsCommandList4@@_K1W4D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE@@@Z"
+    },
+    {
+      "importer": "game_scarlett_master.exe",
+      "dll": "xboxbvhbuilder.dll",
+      "function": "?GetRaytracingAccelerationStructurePrebuildInfo@XboxBvhBuilder@@QEAAXPEBUD3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS@@PEBUD3D12XBOX_XDXR_STREAM_DESC@@PEAUD3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO@@@Z"
+    },
+    {
+      "importer": "game_scarlett_master.exe",
+      "dll": "xboxbvhbuilder.dll",
+      "function": "?RehydrateRaytracingAccelerationStructureBatched2X@XboxBvhBuilder@@QEAAJPEAUID3D12GraphicsCommandList8@@IPEBUD3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC@@PEB_K@Z"
+    },
+    {
+      "importer": "game_scarlett_master.exe",
+      "dll": "xboxbvhbuilder.dll",
+      "function": "?Set64BitMortonCodes@XboxBvhBuilder@@QEAAX_N@Z"
+    }
+  ],
+  "called_stubs": [],
+  "modules": [
+    {
+      "name": "msvcp140.dll",
+      "base": "0x180000000",
+      "size": "0x8d000"
+    },
+    {
+      "name": "vcruntime140.dll",
+      "base": "0x1360000",
+      "size": "0x1b000"
+    },
+    {
+      "name": "vcruntime140_1.dll",
+      "base": "0x1390000",
+      "size": "0xc000"
+    },
+    {
+      "name": "amd_fidelityfx_loader_xbox.dll",
+      "base": "0x13a0000",
+      "size": "0x8000"
+    },
+    {
+      "name": "bink2scarlett.dll",
+      "base": "0xd260000",
+      "size": "0x44000"
+    }
+  ],
+  "vfs": {
+    "unmapped_paths": [],
+    "redirected_writes": [
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_0_xboxbvhbuilder_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_10_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_11_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_12_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_13_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_14_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_15_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_16_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_17_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_18_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_19_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_1_xboxbvhbuilder_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_20_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_21_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_22_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_23_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_24_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_25_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_26_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_27_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_28_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_29_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_2_xboxbvhbuilder_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_30_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_31_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_32_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_33_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_34_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_35_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_36_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_37_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_38_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_39_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_3_xboxbvhbuilder_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_40_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_41_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_42_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_43_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_44_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_45_game_scarlett_master_exe.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_4_xboxbvhbuilder_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_5_xboxbvhbuilder_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_6_xboxbvhbuilder_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_7_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_8_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\cache\\xcl_tls_3988_9_libhttpclient_gdk_dll.dll",
+      "compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\logs\\report.json"
+    ],
+    "whiteouts": []
+  },
+  "shaders": {
+    "unique": 0,
+    "submitted": 0,
+    "by_kind": {},
+    "unknown_parts": {},
+    "by_stage": {},
+    "rejected_pointers": 0,
+    "dump_dir": "D:\\GTAVI\\GTA6.Xbox.v1.0.2.1-CYBERLEEK\\compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7\\shaders",
+    "xbox_hw_stages": {},
+    "xbox_errors": 0,
+    "rdna2_instructions": 0,
+    "rdna2_undecoded_dwords": 0,
+    "rdna2_mnemonics": [],
+    "recomp_programs": 0,
+    "recomp_complete": 0,
+    "recomp_modes": {},
+    "recomp_unsupported": {},
+    "recomp_dxc_ok": 0,
+    "recomp_dxc_cached": 0,
+    "recomp_dxc_failed": 0
+  },
+  "dxc": {
+    "dir": "",
+    "dxcompiler": {
+      "file_version": "",
+      "major": 0,
+      "minor": 0,
+      "commit": ""
+    },
+    "dxil": {
+      "file_version": "",
+      "major": 0,
+      "minor": 0,
+      "commit": ""
+    }
+  },
+  "d3d12": {
+    "backend": "real",
+    "adapter": "NVIDIA GeForce RTX 5060 Laptop GPU (7899 MiB VRAM)",
+    "classes": [
+      {
+        "interface": "ID3D12Device14",
+        "public_methods": 83,
+        "internal_slots": 47
+      }
+    ],
+    "unknown_iids": [],
+    "fallback_pipelines": 0,
+    "failed_pipelines": 0,
+    "fallback_root_signatures": 0,
+    "presents": 0,
+    "frame_boundaries": 0,
+    "last_frame_dump": null,
+    "uma_mb": 512,
+    "uma_used_kb": 65536,
+    "uma_gpu_va": "0x300000000",
+    "uma_error": "",
+    "uma_import_check": "ok, 1 window(s), 39669 µs",
+    "translated_pipelines": 0,
+    "translation_errors": [],
+    "background_pipelines": [
+      0,
+      0,
+      0
+    ],
+    "dxil_cache": {
+      "hits": 0,
+      "misses": 0,
+      "coalesced_hits": 0,
+      "deferred_misses": 0,
+      "compilations": 0,
+      "compilation_failures": 0,
+      "compilation_errors": []
+    }
+  },
+  "audio": {
+    "engines": 0,
+    "engine_errors": 0,
+    "mastering_voices": 0,
+    "mastering_retries": 0,
+    "mastering_errors": 0,
+    "source_voices": 0,
+    "xma_voices": 0,
+    "xma_buffers_decoded": 0,
+    "xma_decode_errors": 0,
+    "opus_voices": 0,
+    "opus_buffers_decoded": 0,
+    "opus_decode_errors": 0,
+    "unsupported_formats": [],
+    "silent_voices": 0,
+    "buffers_silenced": 0,
+    "source_voice_errors": 0,
+    "dropped_flags": [],
+    "xapu_packets_decoded": 0,
+    "xapu_decode_errors": 0,
+    "xapu_frames": 0,
+    "xapu_nonzero_samples": 0
+  },
+  "xgameruntime": {
+    "apis": {},
+    "unimplemented": {}
+  },
+  "dstorage": {
+    "bcpack_refused": {},
+    "bcpack_unpacked": {}
+  },
+  "notes": [
+    "D3D12.X methods missing on PC show up in called_stubs as '<Interface>::#slot (not on PC)'.",
+    "Console-format shaders are replaced (fallback_pipelines) until the RDNA2 recompiler is finished.",
+    "Direct Nt* calls on files do not go through the VFS."
+  ]
+}

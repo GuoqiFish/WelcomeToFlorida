@@ -1,0 +1,43 @@
+{
+  "title": "RockstarGamesInc.28872443D20A7",
+  "exe_path": "D:\\GTAVI\\GTA6.Xbox.v1.0.2.1-CYBERLEEK\\game_scarlett_master.exe",
+  "game_root": "D:\\GTAVI\\GTA6.Xbox.v1.0.2.1-CYBERLEEK",
+  "data_dir": "D:\\GTAVI\\GTA6.Xbox.v1.0.2.1-CYBERLEEK\\compat\\runs\\20261126-001040-xcl-9b90f532\\xcl-data\\RockstarGamesInc.28872443D20A7",
+  "config": {
+    "device_type": "anaconda",
+    "console_type_raw": 6,
+    "gamertag": "Player1",
+    "user_id": 2533274790395905,
+    "console_id": "00000000.00000000.00000000.00000000.00",
+    "sandbox_id": "RETAIL",
+    "title_memory_mb": 13824,
+    "title_memory": "advanced",
+    "pls_mb": 2048,
+    "uma_mb": 4095,
+    "log_level": "info",
+    "log_to_stderr": true,
+    "exe": "game_scarlett_master.exe",
+    "package_identifier": "",
+    "title_id": "7952987A",
+    "mounts": {
+      "D:": "{game}",
+      "G:": "{game}",
+      "GAME:": "{game}",
+      "S:": "{data}\\pls",
+      "T:": "{data}\\temp"
+    },
+    "aliases": {},
+    "stub_returns": {},
+    "graphics": "d3d12",
+    "d3d12_adapter": "auto",
+    "d3d12_debug": false,
+    "present": "auto",
+    "raytracing": "auto",
+    "window_width": 1280,
+    "window_height": 720,
+    "window_pos": "auto",
+    "xbox_live_tokens": false,
+    "keyboard_mouse": true,
+    "mouse_sensitivity": 1.0
+  }
+}

@@ -1,0 +1,43 @@
+# XCL – title configuration. Created automatically; you can edit it.
+# device_type: "anaconda" (Series X) or "lockhart" (Series S)
+# mounts: console path prefix -> folder ({game} = game folder, read-only; {data} = XCL data)
+# aliases: DLL pattern -> "kernelx.dll" / "xgameruntime.dll" / "d3d12_xs.dll" / "@system" / "@stub"
+# stub_returns: "dll!Function" -> value the stub returns (e.g. "E_NOTIMPL", "0", "0x1")
+
+device_type = "anaconda"
+console_type_raw = 6
+gamertag = "Player1"
+user_id = 2533274790395905
+console_id = "00000000.00000000.00000000.00000000.00"
+sandbox_id = "RETAIL"
+title_memory_mb = 0
+title_memory = "auto"
+pls_mb = 0
+uma_mb = 0
+log_level = "info"
+log_to_stderr = true
+exe = ""
+package_identifier = ""
+title_id = ""
+graphics = "d3d12"
+d3d12_adapter = "auto"
+d3d12_debug = false
+present = "auto"
+raytracing = "auto"
+window_width = 1280
+window_height = 720
+window_pos = "auto"
+xbox_live_tokens = false
+keyboard_mouse = true
+mouse_sensitivity = 1.0
+
+[mounts]
+"D:" = "{game}"
+"G:" = "{game}"
+"GAME:" = "{game}"
+"S:" = '{data}\pls'
+"T:" = '{data}\temp'
+
+[aliases]
+
+[stub_returns]

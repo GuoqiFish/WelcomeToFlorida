@@ -1,0 +1,11 @@
+XCL 0.1.0 – starting 'RockstarGamesInc.28872443D20A7'
+  exe:   D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\game_scarlett_master.exe
+  data:  D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7
+  MicrosoftGame.Config: title memory Advanced, PLS 2048 MB, TitleId 7952987A
+  console: imports d3d12_xs.dll
+  GPU: NVIDIA GeForce RTX 5060 Laptop GPU (7899 MiB VRAM)
+  NOTE: waves of 32–32 lanes: the console's 64-lane programs run as two 32-lane halves (slower; vertex / pixel shaders that read lanes 32–63 can differ)
+  DXC 1.8.2502.11 (23992152): C:\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\x64
+
+Game exited with code 0x7c10002 (130088962)
+No report – see the log: D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\compat\runs\20261126-001040-xcl-9b90f532\xcl-data\RockstarGamesInc.28872443D20A7\logs\xcl.log

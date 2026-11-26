@@ -1,0 +1,3 @@
+CreateHeap(64 MiB DEFAULT/ALLOW_DISPLAY) failed: HRESULT=0x80070057
+allocation size=0x1fe0000 alignment=0x10000; observed Xbox size/alignment=0x1fe0000/0x10000
+64 MiB arena placements: [0x0,0x1fe0000), [0x1fe0000,0x3fc0000); remaining=0x40000

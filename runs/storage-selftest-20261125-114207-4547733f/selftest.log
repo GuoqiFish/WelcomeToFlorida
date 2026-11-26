@@ -1,0 +1,8 @@
+Testing Xbox-facing adapter: D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\compat\bin\XCRDAPI.dll
+Read-only reference: D:\GTAVI\GTA6.Xbox.v1.0.2.1-CYBERLEEK\xbs_splash.png
+PASS File.GetHandle: ReadFile matched and owned handle closed
+PASS missing file returns native failure HRESULT=0x80070002
+PASS selftest.file: 4096 bytes match ReadFile; Submit gating, status, event and Query1 verified
+PASS selftest.memory: 4096 bytes match ReadFile; Submit gating, status, event and Query1 verified
+PASS Close-before-Submit: E_ABORT status and unchanged destination
+ALL STORAGE SELF-TESTS PASSED
