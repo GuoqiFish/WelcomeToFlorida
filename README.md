@@ -36,7 +36,13 @@ Copy-Item -LiteralPath '.\cool_fox\target\diag\victory.exe' -Destination (Join-P
 
 ## 渲染验证
 
-2026 年 11 月 26 日，在 RTX 5060 Laptop（8 GB 显存、驱动 `621.01`）上用该后端和 Series S 配置呈现了序章的 3D 人物、建筑和水面。该次序章约 1–3 FPS，仍出现人物脸部缺失和光照异常。日志检测到宿主 wave 宽度为 32，部分 Xbox Wave64 着色器未能转译。
+2026 年 11 月 27 日，在 RTX 5060 Laptop（8 GB 显存、驱动 `621.01`）上以 Series S 配置测试。启用实验性的 Wave64 配对转译、关闭按需 mip 驻留和 BVH 构建后，暖缓存运行约 54 秒显示序章 3D 场景，并继续渲染人物近景、监舍、窗外景物和走廊。下列截图来自这次运行。帧率约 1–2 FPS，个别镜头仍有光照和材质异常。
+
+![序章人物与监舍内的阳光](docs/screenshots/prologue-character.png)
+
+![序章人物在窗前，透过玻璃可见院内人物和建筑](docs/screenshots/prologue-window.png)
+
+[下载 5 张原始 PNG 截图（ZIP，约 4.6 MiB）](docs/screenshots/series-s-prologue.zip?raw=true)
 
 ## 源码与历史
 
@@ -54,4 +60,4 @@ Copy-Item -LiteralPath '.\cool_fox\target\diag\victory.exe' -Destination (Join-P
 
 分发 GPL 组件的二进制时，请按对应版本的 GPL 提供完整对应源码，并保留许可证和版权声明。Kelvaroq 的名称和标识另有[上游说明](kelvaroq/README.md#name-and-logo)。
 
-Microsoft DirectStorage SDK 适用 [随附条款和声明](vendor/directstorage-1.3.0/README.md)。BCPack 常量表的权利说明见 [cool_fox 的资产政策](cool_fox/docs/asset-policy.md#the-one-exception)。仓库原有的 runs/ 目录含日志、截帧和运行时文件，其中的第三方内容适用各自的权利条款。
+Microsoft DirectStorage SDK 适用 [随附条款和声明](vendor/directstorage-1.3.0/README.md)。BCPack 常量表的权利说明见 [cool_fox 的资产政策](cool_fox/docs/asset-policy.md#the-one-exception)。截图中游戏画面的权利归相应权利人，具体范围见 [许可证说明](LICENSE-NOTICES.md#组件范围)。
