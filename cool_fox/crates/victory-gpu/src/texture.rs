@@ -91,11 +91,6 @@ pub(crate) struct Staging {
     /// recorded again about a second later if the card has room by then
     /// ([`upload`]).
     waiting: std::sync::atomic::AtomicU64,
-    /// Recorded for a one-shot decoration bake (`BAKING`): submission-time
-    /// refresh must wait for title memory to stop remapping
-    /// (`title_memory_reading`) instead of taking `no_wait()` /
-    /// `refresh_unlocked()` or the 30-frame partial-read throttle.
-    exact: std::sync::atomic::AtomicBool,
 }
 
 /// What a texture's staging buffer holds: the hash of the memory detiled
@@ -762,9 +757,6 @@ pub(crate) fn upload_from(list: &HostList, resource: This, first: u32) {
     };
     use std::sync::atomic::Ordering::Relaxed;
     let baking = BAKING.get();
-    if baking {
-        staging.exact.store(true, Relaxed);
-    }
     let picking = PICKING.get();
     if picking.is_none() {
         // A draw samples it through a table: kept and checked from here on.
@@ -825,12 +817,12 @@ pub(crate) fn upload_from(list: &HostList, resource: This, first: u32) {
     if !baking && staging.uploaded.load(Relaxed) && !staging.dirty.load(Relaxed) {
         #[cfg(feature = "diagnostics")]
         crate::copystat::add(crate::copystat::C::TexSkipped, 1);
-        list.defer_texture(staging);
+        list.defer_texture(staging, false);
         return;
     }
     #[cfg(feature = "diagnostics")]
     crate::copystat::add(crate::copystat::C::TexUploads, 1);
-    if no_wait() && fill_unlocked() {
+    if !baking && no_wait() && fill_unlocked() {
         let there = match picking {
             Some(there) if there != u64::MAX => there,
             _ => mapped_bytes(staging.memory, staging.read),
@@ -864,12 +856,12 @@ pub(crate) fn upload_from(list: &HostList, resource: This, first: u32) {
     let on_demand = if staging.on_demand { crate::resource::host_tiled(resource) } else { None };
     let Some(on_demand) = on_demand else {
         // Once per submission however many of its lists sample the texture.
-        list.defer_texture(staging);
+        list.defer_texture(staging, baking);
         // Then what the list's copy puts in the host copy is known.
         list.defer_host(move || noted.note_held());
         return;
     };
-    list.defer_texture(staging.clone());
+    list.defer_texture(staging.clone(), baking);
     list.defer_host(move || {
         let waiting = on_demand.uploaded(staging.detiled.load(Relaxed), staging.memory as u64);
         staging.waiting.store(if waiting { crate::host::moment().max(1) } else { 0 }, Relaxed);
@@ -1228,11 +1220,11 @@ impl Staging {
 
     /// Detiles the texture memory into the staging buffer if it changed
     /// since the last time (and is mapped at all).
-    pub(crate) fn refresh(&self) {
+    pub(crate) fn refresh(&self, exact: bool) {
         use std::sync::atomic::Ordering::Relaxed;
         let started = std::time::Instant::now();
         let _texture = crate::timeline::span("a texture's refresh");
-        let read = self.refresh_now();
+        let read = self.refresh_now(exact);
         let preparing = &crate::host::PREPARING;
         preparing[2].fetch_add(started.elapsed().as_micros() as u64, Relaxed);
         preparing[3].fetch_add(read as u64, Relaxed);
@@ -1253,25 +1245,24 @@ impl Staging {
     }
 
     /// Returns the bytes of title memory read.
-    fn refresh_now(&self) -> usize {
+    fn refresh_now(&self, exact: bool) -> usize {
         let whole = std::time::Instant::now();
-        let read = self.refresh_timed();
+        let read = self.refresh_timed(exact);
         REFRESH_WAITS[3].fetch_add(whole.elapsed().as_micros() as u64, std::sync::atomic::Ordering::Relaxed);
         read
     }
 
-    fn refresh_timed(&self) -> usize {
+    fn refresh_timed(&self, exact: bool) -> usize {
         let size = self.read;
         let start = self.memory as usize;
         let mut last = waited(0, || self.last.lock().unwrap_or_else(|e| e.into_inner()));
         let last = &mut *last;
-        let exact = self.exact.swap(false, std::sync::atomic::Ordering::Relaxed);
         let alone = self.once.load(std::sync::atomic::Ordering::Relaxed);
         if alone && !exact && last.hash.is_some() {
             return 0;
         }
-        if !alone && let Some((now, written)) = waited(1, || crate::watch::writes(start, start + size, false)) {
-            if !exact && last.asked != 0 && written.iter().all(|&(_, w)| w <= last.asked) {
+        if !exact && !alone && let Some((now, written)) = waited(1, || crate::watch::writes(start, start + size, false)) {
+            if last.asked != 0 && written.iter().all(|&(_, w)| w <= last.asked) {
                 return 0;
             }
             last.asked = now;
@@ -1938,7 +1929,6 @@ fn staging(resource: This, copy: &crate::resource::HostTexture, first: u32) -> O
         detiled: std::sync::atomic::AtomicU32::new(0),
         judged: [const { std::sync::atomic::AtomicU64::new(0) }; 2],
         waiting: std::sync::atomic::AtomicU64::new(0),
-        exact: std::sync::atomic::AtomicBool::new(BAKING.get()),
     });
     map.insert(resource as usize, s.clone());
     Some(s)

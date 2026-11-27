@@ -569,10 +569,10 @@ pub(crate) struct Spans {
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
 pub(crate) enum Rule {
     /// When it starts where the older one starts: at the same address
-    /// with another length, or within the older one's first [`HEAD`]
-    /// bytes (or the older within its own). No two textures share the
-    /// block of their smallest levels. A view that only reaches into the
-    /// address range of an older texture's larger levels says nothing.
+    /// with another length, or when their first [`HEAD`] bytes overlap.
+    /// A smaller texture only occupies its own bytes in that block, so
+    /// adjacent palettes can coexist. A view that only reaches into an
+    /// older texture's larger levels says nothing.
     #[default]
     Start,
     /// Whenever their spans at full size overlap (the rule until run
@@ -586,7 +586,7 @@ pub(crate) enum Rule {
 }
 
 /// The first bytes of a placed texture that are its own under
-/// [`Rule::Start`]: the 4 KiB block its smallest levels share. (Of 129
+/// [`Rule::Start`]: at most the 4 KiB block its smallest levels share. (Of 129
 /// pairs of overlapping neighbours in the listings of runs 188 and 189,
 /// none starts closer than 0x2000 to the one before it.)
 const HEAD: u64 = 4096;
@@ -636,8 +636,8 @@ impl Spans {
         let clashing: Vec<u64> = match rule {
             Rule::Start => self
                 .by_start
-                .range(start.saturating_sub(HEAD - 1)..start.saturating_add(HEAD))
-                .map(|(at, _)| *at)
+                .range(start.saturating_sub(HEAD - 1)..end.min(start.saturating_add(HEAD)))
+                .filter_map(|(&at, &(old_end, _))| (old_end > start).then_some(at))
                 .collect(),
             Rule::Overlap | Rule::Never => self.overlapping(start, end),
         };
@@ -695,7 +695,11 @@ impl Spans {
     /// The first span that starts inside `[start, end)` past the first
     /// [`HEAD`] bytes of it.
     fn next_start(&self, start: u64, end: u64) -> Option<u64> {
-        self.by_start.range(start.saturating_add(HEAD)..end).next().map(|(at, _)| *at)
+        let after_head = start.saturating_add(HEAD);
+        if after_head >= end {
+            return None;
+        }
+        self.by_start.range(after_head..end).next().map(|(at, _)| *at)
     }
 
     /// The slots that hold a view of the texture at `start`.
@@ -5431,6 +5435,23 @@ mod tests {
         assert!(spans.note(8, at + 0x900, at + 0x2900, false).is_empty());
         assert_eq!(spans.by_slot.get(&8), None);
         assert_eq!(spans.by_slot.len(), 3);
+    }
+
+    #[test]
+    fn adjacent_small_textures_keep_their_own_views() {
+        let mut spans = Spans::default();
+        assert!(spans.note(1, 0x1000, 0x1100, true).is_empty());
+        assert!(spans.note(3, 0x1200, 0x1400, true).is_empty());
+        assert!(spans.note(2, 0x1100, 0x1200, true).is_empty());
+        assert!(spans.note(4, 0x1000, 0x1100, false).is_empty());
+        assert_eq!(spans.slots_holding(0x1000, 0x1100), [1, 4]);
+        assert_eq!(spans.slots_holding(0x1100, 0x1200), [2]);
+        assert_eq!(spans.slots_holding(0x1200, 0x1400), [3]);
+        assert_eq!(spans.next_start(0x1000, 0x1100), None);
+
+        assert_eq!(spans.note(5, 0x1180, 0x1280, true), [2, 3]);
+        assert_eq!(spans.slots_holding(0x1000, 0x1100), [1, 4]);
+        assert_eq!(spans.slots_holding(0x1180, 0x1280), [5]);
     }
 
     /// A slot written with another texture leaves its old span; the same

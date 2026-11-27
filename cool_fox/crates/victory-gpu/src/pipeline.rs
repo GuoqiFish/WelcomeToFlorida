@@ -325,12 +325,17 @@ pub(crate) fn builder_rests(why: &'static str) {
     }
 }
 
-/// At a dispatch of a builder pipeline: whether the builder runs (see
-/// [`Builder`]).
+/// Whether the launcher requested the ray-tracing structure builder.
+#[cfg(windows)]
+fn builder_enabled() -> bool {
+    static ALLOWED: OnceLock<bool> = OnceLock::new();
+    *ALLOWED.get_or_init(|| std::env::var_os("VICTORY_BVH_BUILDER").is_some_and(|v| v == "1"))
+}
+
+/// At a dispatch of a builder pipeline: whether all its stages can run.
 #[cfg(windows)]
 pub(crate) fn builder_runs() -> bool {
-    static ALLOWED: OnceLock<bool> = OnceLock::new();
-    if !*ALLOWED.get_or_init(|| std::env::var_os("VICTORY_BVH_BUILDER").is_some_and(|v| v == "1")) {
+    if !builder_enabled() {
         return false;
     }
     let mut b = BUILDER.lock().unwrap_or_else(|e| e.into_inner());
@@ -516,16 +521,17 @@ pub(crate) fn is_skipped(this: This) -> bool {
 /// for want of a host pipeline (diagnostics).
 #[cfg(all(windows, feature = "diagnostics"))]
 pub(crate) fn note_drop(this: This) {
-    let why = if this.is_null() {
-        Some("no pipeline set".to_owned())
-    } else {
-        let p = pipeline(this);
-        skipped_shader(p)
-            .map(|hash| format!("skipped shader {hash}"))
-            .or_else(|| make::missing(&p.host))
-    };
-    if let Some(why) = why {
-        note_why(why);
+    if this.is_null() {
+        note_why("no pipeline set".to_owned());
+        return;
+    }
+    let p = pipeline(this);
+    if let Some(why) = skipped_shader(p)
+        .map(|hash| format!("skipped shader {hash}"))
+        .or_else(|| make::missing(&p.host))
+    {
+        crate::capture::op(0, || format!("DROPPED {why} shaders={:?}", p.shaders));
+        count_drop(why);
     }
 }
 
@@ -533,6 +539,11 @@ pub(crate) fn note_drop(this: This) {
 #[cfg(all(windows, feature = "diagnostics"))]
 pub(crate) fn note_why(why: String) {
     crate::capture::op(0, || format!("DROPPED {why}"));
+    count_drop(why);
+}
+
+#[cfg(all(windows, feature = "diagnostics"))]
+fn count_drop(why: String) {
     let mut drops = DROPS.lock().unwrap_or_else(|e| e.into_inner());
     *drops.get_or_insert_with(HashMap::new).entry(why).or_default() += 1;
 }
@@ -567,13 +578,13 @@ fn hand_out(
 ) -> HRESULT {
     tracing::trace!(?shaders, "pipeline state");
     #[cfg(windows)]
+    let builder = of_builder(&shaders);
+    #[cfg(windows)]
     let host = Arc::new(make::Pending::new(shaders.clone(), graphics));
     #[cfg(windows)]
     known::note(host.key(), &shaders, host.graphics.as_deref());
     #[cfg(windows)]
-    make::early(&host);
-    #[cfg(windows)]
-    let builder = of_builder(&shaders);
+    make::early(&host, builder && builder_enabled());
     #[cfg(windows)]
     if builder {
         // Another stage: the group is looked at again at its next dispatch.

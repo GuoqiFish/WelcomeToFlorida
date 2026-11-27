@@ -262,7 +262,7 @@ impl Worker {
 
     fn copy(&self, jobs: &[Arc<Job>], value: u64) -> windows::core::Result<()> {
         for job in jobs {
-            job.staging.refresh();
+            job.staging.refresh(false);
         }
         // SAFETY: this worker's allocator and list, whose last submission has
         // run; the jobs hold what the list names until after the wait.

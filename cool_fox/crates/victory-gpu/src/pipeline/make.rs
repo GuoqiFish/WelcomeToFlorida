@@ -59,8 +59,7 @@ fn named(shaders: &[Arc<Shader>], name: &[u8]) -> bool {
 fn left_out(shaders: &[Arc<Shader>]) -> Option<&'static str> {
     static SKIP_RT_RESOLVE: OnceLock<bool> = OnceLock::new();
     let skip_rt = *SKIP_RT_RESOLVE.get_or_init(|| {
-        let builder = std::env::var_os("VICTORY_BVH_BUILDER").is_some_and(|v| v == "1");
-        if builder {
+        if super::builder_enabled() {
             return false;
         }
         // Without BVH, ~1,000 CS_RaytracingResolve shaders shade no hits while
@@ -72,8 +71,7 @@ fn left_out(shaders: &[Arc<Shader>]) -> Option<&'static str> {
     }
     static SKIP_ACTIVATE_RAYS: OnceLock<bool> = OnceLock::new();
     let skip_activate = *SKIP_ACTIVATE_RAYS.get_or_init(|| {
-        let builder = std::env::var_os("VICTORY_BVH_BUILDER").is_some_and(|v| v == "1");
-        if builder {
+        if super::builder_enabled() {
             return std::env::var_os("VICTORY_ACTIVATE_RAYS").is_some_and(|v| v == "0");
         }
         std::env::var_os("VICTORY_ACTIVATE_RAYS").is_none_or(|v| v == "0")
@@ -96,7 +94,11 @@ fn scene_input(shaders: &[Arc<Shader>]) -> bool {
                 | "ebe4e53f031f5249"
                 | "2cc4c197ee29e291"
                 | "369cbe906ea72764"
-        ) || crate::draw::BAKE_PIXEL_SHADERS.contains(&s.hash.as_str())
+                // Alpha transmission prefilter and the two volumetric passes used in the prologue.
+                | "2da4beb386509b77"
+                | "5dc3b25986622949"
+                | "6f225b641c5b0708"
+        ) || crate::draw::is_bake_shader(&s.hash)
     })
 }
 
@@ -150,10 +152,12 @@ impl Pending {
     }
 }
 
-/// Why a pipeline has no host pipeline (diagnostics): its shaders that do
-/// not translate, else "refused" or "being made"; `None` if it has one.
+/// Why a pipeline has no host pipeline. `None` if it has one.
 #[cfg(feature = "diagnostics")]
 pub(crate) fn missing(p: &Pending) -> Option<String> {
+    if let Some(reason) = p.left_out {
+        return Some(reason.to_owned());
+    }
     match p.made.get() {
         Some(Some(_)) => None,
         None => Some("being made".into()),
@@ -246,16 +250,16 @@ pub(crate) fn now(p: &Arc<Pending>) -> bool {
     p.made.get().is_some_and(|made| made.is_some())
 }
 
-/// At the title's creation of a pipeline: starts it at once if an earlier
-/// run drew with it (during loading, so the world's first frames find it),
-/// or if it is a confirmed opening-scene / bake producer.
-pub(crate) fn early(p: &Arc<Pending>) {
+/// Start known pipelines during loading. The first BVH dispatch needs every
+/// builder pipeline, so queue those when the title creates them.
+pub(crate) fn early(p: &Arc<Pending>, builder: bool) {
     if p.left_out.is_some() {
         return;
     }
-    if !p.shaders.is_empty() && (p.scene_input || super::library::wanted_early(&p.key)) {
+    let required = p.scene_input || builder;
+    if !p.shaders.is_empty() && (required || super::library::wanted_early(&p.key)) {
         super::library::EARLY.fetch_add(1, Ordering::Relaxed);
-        start(p, if p.scene_input { REQUESTED } else { EARLY });
+        start(p, if required { REQUESTED } else { EARLY });
     }
 }
 

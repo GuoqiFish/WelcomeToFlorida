@@ -736,3 +736,6 @@ fn the_lanes_past_a_count_of_threads_do_not_run() {
         }
     }
 }
+
+#[path = "paired_tests.rs"]
+mod paired;

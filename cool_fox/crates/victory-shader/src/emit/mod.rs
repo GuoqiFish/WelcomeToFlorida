@@ -438,6 +438,18 @@ pub fn emit(
     io: &io::Io,
     res: &resource::Resources,
 ) -> Result<HostShader, ShaderError> {
+    emit_with_paired(c, native, p, st, io, res, paired_compute_enabled())
+}
+
+fn emit_with_paired(
+    c: &Container,
+    native: &NativeProgram,
+    p: &ir::Program,
+    st: &structure::Structured,
+    io: &io::Io,
+    res: &resource::Resources,
+    allow_paired: bool,
+) -> Result<HostShader, ShaderError> {
     // (what an earlier program's lowering on this thread left behind)
     lower::take_needs();
     let original = emit_program(c, native, p, st, io, res);
@@ -448,7 +460,9 @@ pub fn emit(
     // body from being a block every lane runs.
     let stuck = match &original {
         Ok((_, wave)) => *wave == Some(64),
-        Err(ShaderError::Unsupported { what, .. }) => lower::needs_every_lane(what),
+        Err(ShaderError::Unsupported { what, .. }) => {
+            lower::needs_every_lane(what) || (allow_paired && *what == "a lane permute across two host waves")
+        }
         Err(_) => false,
     };
     // (a mask with lanes elsewhere is only helped by the exact forms: not by each half-wave
@@ -540,13 +554,17 @@ pub fn emit(
         // (`ptfx_CS_lightAtlas_Sprite` and `_Trail`). The 32-lane programs' form below, which
         // has no barrier, stays on.
         let wide_option = std::env::var_os("VICTORY_WAVE_WIDE");
-        // Both archived kernels use one logical wave per group and have
+        // These scene kernels use one logical wave per group and have
         // validated wave32 PSOs on RTX. Explicit policy wins.
         let scene_kernel = matches!(native.io, crate::native::StageIo::Cs(cs) if cs.threads.iter().product::<u32>() == 64)
             && matches!(
                 c.digest,
                 [0x58, 0x1d, 0xab, 0x2c, 0xd8, 0xbc, 0xf2, 0x2e, 0x5c, 0x96, 0x4b, 0x98, 0xe9, 0x03, 0x48, 0xd1]
                     | [0x24, 0x31, 0xbb, 0xe7, 0xdc, 0x15, 0x4a, 0xd7, 0x59, 0xd2, 0x0b, 0xc9, 0x54, 0x82, 0x9c, 0x1c]
+                    // TransmissionVolumetrics_Tiled, LocalLights, and Submerged.
+                    | [0x24, 0x12, 0x6c, 0x14, 0xdc, 0x76, 0x19, 0xb0, 0x82, 0xef, 0x57, 0x12, 0x96, 0x03, 0x88, 0x90]
+                    | [0x70, 0x99, 0xa5, 0x7f, 0xde, 0xd1, 0x42, 0x61, 0x3b, 0x44, 0xf4, 0x10, 0x46, 0x3d, 0x6b, 0xe6]
+                    | [0xf1, 0xf1, 0x61, 0xe4, 0x7e, 0xef, 0xa3, 0x64, 0x69, 0x18, 0x39, 0xfd, 0x72, 0x06, 0xcc, 0xf6]
             );
         let wide_on = wide_option.as_ref().map_or(scene_kernel, |v| v == "1");
         // A single guest wave can iterate an active-lane loop until both host
@@ -591,6 +609,13 @@ pub fn emit(
                         if done(&again) {
                             return again.map(|(shader, _)| shader);
                         }
+                    }
+                }
+                if allow_paired {
+                    let paired = emit_paired(c, native, p, st);
+                    report("paired guest lanes", &paired);
+                    if done(&paired) {
+                        return paired.map(|(shader, _)| shader);
                     }
                 }
                 if strict {
@@ -681,6 +706,36 @@ pub fn emit(
     let io = io::raise(&p, native)?;
     let res = resource::track(&p, &native.layout, native.stage, Some(&st))?;
     emit_program(c, native, &p, &st, &io, &res).and_then(supported)
+}
+
+/// Enables the compute lowering that executes two guest lanes per host lane.
+pub fn paired_compute_enabled() -> bool {
+    static ENABLED: std::sync::OnceLock<bool> = std::sync::OnceLock::new();
+    *ENABLED.get_or_init(|| std::env::var_os("VICTORY_WAVE64_PAIRED").is_some_and(|v| v == "1"))
+}
+
+fn emit_paired(
+    c: &Container,
+    native: &NativeProgram,
+    p: &ir::Program,
+    st: &structure::Structured,
+) -> Result<(HostShader, Option<u32>), ShaderError> {
+    let wide: std::collections::HashSet<_> = st.wave_any.iter()
+        .enumerate()
+        .filter_map(|(b, kind)| kind.map(|_| b))
+        .collect();
+    let st = structure::structure_wide(p, &wide)?;
+    for (b, exit) in st.exits.iter().enumerate() {
+        if let structure::LaneExit::Branch { when, .. } = *exit
+            && !wide.contains(&b)
+            && st.bools.support(when).iter().any(|a| !matches!(a, structure::Atom::Uniform(_)))
+        {
+            return Err(ShaderError::Unsupported { offset: 0, what: "a branch without a whole-wave decision" });
+        }
+    }
+    let io = io::raise(p, native)?;
+    let res = resource::track(p, &native.layout, native.stage, Some(&st))?;
+    lower::with_paired(|| emit_program(c, native, p, &st, &io, &res))
 }
 
 /// `p` (a console wave64 compute program on a host of 32-lane waves) with the per-lane

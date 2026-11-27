@@ -1050,10 +1050,22 @@ pub fn set_host_max_wave(lanes: u32) {
 thread_local! {
     /// See [`take_needs`].
     static NEEDS: std::cell::RefCell<Vec<usize>> = const { std::cell::RefCell::new(Vec::new()) };
+    static PAIRED: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
     /// See [`with_local_waves`].
     static LOCAL_WAVES: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
     /// See [`with_local_waves_any`].
     static LOCAL_ANY: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
+}
+
+pub(super) fn with_paired<R>(f: impl FnOnce() -> R) -> R {
+    struct Reset(bool);
+    impl Drop for Reset {
+        fn drop(&mut self) {
+            PAIRED.set(self.0);
+        }
+    }
+    let _reset = Reset(PAIRED.replace(true));
+    f()
 }
 
 /// As [`with_local_waves`], with every other use of a lane mask as a number
@@ -1443,7 +1455,10 @@ impl<'a> Lower<'a> {
             // `v_readlane`, `v_writelane`, `ds_(b)permute`, masks as numbers or lane-constant
             // masks), nor when LDS may be shared within the console wave without barriers (a
             // group over 32 threads with LDS): those still need 64-lane waves.
-            if wave == 64 && host_max_wave() == 32 && (console_lanes || one_wave && s.lds_dwords > 0) {
+            console_lanes |= PAIRED.get();
+            if wave == 64 && host_max_wave() == 32 && !PAIRED.get()
+                && (console_lanes || one_wave && s.lds_dwords > 0)
+            {
                 let crosses = insts().any(|i| {
                     let n = i.name();
                     n.starts_with("v_mbcnt")
@@ -2329,6 +2344,8 @@ impl<'a> Lower<'a> {
     }
 
     fn run(mut self, counted: bool) -> Result<Lowered, Stop> {
+        let paired = PAIRED.get();
+        let mut lane_regions = Vec::new();
         let p = self.x.p;
         if counted {
             // Before anything else, so that wave counts, reads of the first
@@ -2379,7 +2396,9 @@ impl<'a> Lower<'a> {
             }
         }
         self.cur = self.s.entry;
-        self.find_sections();
+        if !paired {
+            self.find_sections();
+        }
         self.inputs()?;
         if let Some(mesh) = self.s.mesh {
             self.mesh_prologue(mesh).map_err(|w| unsupported(0, w))?;
@@ -2417,7 +2436,17 @@ impl<'a> Lower<'a> {
             }
             let mut i = 0;
             while i < p.blocks[b].insts.len() {
+                let before = self.cur;
+                if paired && matches!(p.blocks[b].insts[i].fields, Fields::Ds { .. }) {
+                    // Each physical lane issues both of its guest lanes' LDS accesses.
+                    // Order them before the following guest instruction can read the writes.
+                    let fence = self.s.m.i32(8);
+                    self.s.op(before, "barrier", Attr::NoDuplicate, self.s.t.void, 80, &[fence]);
+                }
                 self.inst(b, i)?;
+                if paired && before != self.cur {
+                    lane_regions.push((before, self.cur));
+                }
                 if let Some(end) = self.sections.get(&b).and_then(|s| s.get(&i)).map(|s| s.end) {
                     for j in i + 1..end {
                         self.section_inst(b, j, i);
@@ -2441,6 +2470,10 @@ impl<'a> Lower<'a> {
         let root_srvs = self.s.root_srvs.iter().map(|r| r.0).collect();
         let root_uavs = self.s.root_uavs.iter().map(|r| r.0).collect();
         let cmp_samplers = self.s.cmp_samplers;
+        if paired {
+            super::bitcode::paired::run(&mut self.s, &lane_regions, &self.tail)
+                .map_err(|why| unsupported(0, why))?;
+        }
         let wave_size = self.s.wave_size;
         Ok(Lowered {
             wave_size,

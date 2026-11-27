@@ -2235,7 +2235,11 @@ enum Step {
     GpuWrite(std::sync::Arc<crate::shadow::Shadow>, usize, usize),
     /// Brings a texture's staging buffer up to date: once per submission,
     /// whichever lists sample it, until a `Copy` or `Run` intervenes.
-    Texture(std::sync::Arc<crate::texture::Staging>),
+    Texture {
+        staging: std::sync::Arc<crate::texture::Staging>,
+        /// A one-shot bake needs the mapped bytes at this step.
+        exact: bool,
+    },
     /// Reads a CPU-written linear movie plane into a per-list upload buffer.
     Plane((usize, usize), Box<dyn Fn() + Send>),
     /// A title buffer copy that the list does on the card ([`place`]): what
@@ -2985,7 +2989,7 @@ fn blocked_by(written: &[(usize, usize)], runs: &[&HostList], count: bool) -> Op
                         return Some(WHY_READ);
                     }
                 }
-                Step::Texture(staging) => {
+                Step::Texture { staging, .. } => {
                     let (at, len) = staging.memory();
                     if touches(written, at, at + len) {
                         if count {
@@ -7274,8 +7278,8 @@ impl HostList {
 
     /// Brings a texture's staging buffer up to date when the list is
     /// submitted, keeping it alive until the list is reset.
-    pub(crate) fn defer_texture(&self, staging: std::sync::Arc<crate::texture::Staging>) {
-        self.deferred().copies.push(Step::Texture(staging));
+    pub(crate) fn defer_texture(&self, staging: std::sync::Arc<crate::texture::Staging>, exact: bool) {
+        self.deferred().copies.push(Step::Texture { staging, exact });
     }
 
     /// A copy source owned exclusively by this list until reset after its
@@ -7404,8 +7408,16 @@ impl HostList {
                     }
                     continue;
                 }
-                Step::Texture(staging) => {
-                    if batch.texture_due(staging) {
+                Step::Texture { staging, exact } => {
+                    if *exact {
+                        // Finish pending work before a bake refresh, including any
+                        // refresh of this same staging buffer. Tile mapping and
+                        // publication for this copy use the new staging data.
+                        batch.fill();
+                        batch.refresh_textures();
+                        staging.refresh(true);
+                        batch.texture_due(staging);
+                    } else if batch.texture_due(staging) {
                         batch.due.push(staging.clone());
                         if !wide_textures() {
                             batch.refresh_textures();
@@ -7983,7 +7995,7 @@ impl Batch {
                         touches.push(Touch::Refresh(key, *at, *at + *len));
                     }
                     Step::GpuWrite(shadow, ..) => touches.push(Touch::Write(std::sync::Arc::as_ptr(shadow) as usize)),
-                    Step::Texture(staging) if wide_textures() => {
+                    Step::Texture { staging, exact: false } if wide_textures() => {
                         if self.texture_due(staging) {
                             due.push(staging.clone());
                         }
@@ -8030,7 +8042,7 @@ impl Batch {
         crate::shadow::wide_each(spans.len() + due.len(), move |i| {
             // The textures first: they are the longer pieces.
             let Some(i) = i.checked_sub(due.len()) else {
-                due[i].refresh();
+                due[i].refresh(false);
                 return;
             };
             let (shadow, from, to) = &spans[i];
@@ -8132,7 +8144,7 @@ impl Batch {
     /// The textures due are brought up to date.
     fn refresh_textures(&mut self) {
         if self.due.len() < 2 || !wide_textures() {
-            self.due.drain(..).for_each(|staging| staging.refresh());
+            self.due.drain(..).for_each(|staging| staging.refresh(false));
             return;
         }
         let _textures = crate::timeline::span("textures brought up to date");
@@ -8140,7 +8152,7 @@ impl Batch {
         let started = std::time::Instant::now();
         let before = PREPARING[2].load(Ordering::Relaxed);
         let due = std::mem::take(&mut self.due);
-        crate::shadow::wide_each(due.len(), move |i| due[i].refresh());
+        crate::shadow::wide_each(due.len(), move |i| due[i].refresh(false));
         let summed = PREPARING[2].load(Ordering::Relaxed).saturating_sub(before);
         PREPARING[2].fetch_sub(summed.saturating_sub(started.elapsed().as_micros() as u64), Ordering::Relaxed);
     }

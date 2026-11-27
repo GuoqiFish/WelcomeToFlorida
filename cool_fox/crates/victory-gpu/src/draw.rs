@@ -241,7 +241,7 @@ struct BakeSync {
 /// `PS_BakeDecorations_*`), by the first 16 hex digits of their hash as the
 /// frame listings print it. They draw into a 256x256 corner of 2048x2048
 /// targets and name no texture in a table.
-pub(crate) const BAKE_PIXEL_SHADERS: [&str; 7] = [
+const BAKE_PIXEL_SHADERS: [&str; 7] = [
     "c0a7fe77b1862e10",
     "0d1575a396dfe513",
     "b7cfd8dda91ebb6b",
@@ -256,6 +256,10 @@ pub(crate) const BAKE_PIXEL_SHADERS: [&str; 7] = [
 /// `mesh d4111a6e6ea49d91` decoration projection mesh), catching pixel-shader
 /// permutations beyond `BAKE_PIXEL_SHADERS`.
 const BAKE_GEOMETRY_SHADERS: [&str; 2] = ["089d6271be6650ef", "d4111a6e6ea49d91"];
+
+pub(crate) fn is_bake_shader(hash: &str) -> bool {
+    BAKE_PIXEL_SHADERS.contains(&hash) || BAKE_GEOMETRY_SHADERS.contains(&hash)
+}
 
 /// Since the start: early runs of the texture pass, and those of them
 /// made for a bake draw.
@@ -2262,10 +2266,7 @@ impl State {
     /// (`>= 512x512`) so unseen NPC/head/clothing shader permutations never
     /// bake `neutral()` or `null` stand-ins into permanent ped textures.
     fn is_bake_draw(&self, p: &HostPipeline) -> bool {
-        if p.stages.iter().any(|s| {
-            let h = s.shader.hash.as_str();
-            BAKE_PIXEL_SHADERS.contains(&h) || BAKE_GEOMETRY_SHADERS.contains(&h)
-        }) {
+        if p.stages.iter().any(|s| is_bake_shader(&s.shader.hash)) {
             return true;
         }
         self.depth == 0
