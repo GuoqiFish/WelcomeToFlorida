@@ -87,7 +87,7 @@ enum Stop {
 }
 
 pub(crate) fn lower(parts: &Parts) -> Result<Lowered, ShaderError> {
-    lower_counted(parts, counted_in_threads(parts))
+    lower_counted(parts, counted_in_threads(parts), &[])
 }
 
 /// Whether the title dispatches the program by a count of threads whose last
@@ -110,10 +110,14 @@ fn counted_in_threads(parts: &Parts) -> bool {
 /// [`lower`]; `counted`: the lanes past a dispatch's count of threads leave
 /// at once (`shader.rs` `USER_DISPATCH_THREADS_X`; after DexNom/VIctory
 /// bc3cd4b0, which does so for two of the programs by their digests).
-pub(super) fn lower_counted(parts: &Parts, counted: bool) -> Result<Lowered, ShaderError> {
+pub(super) fn lower_counted(
+    parts: &Parts,
+    counted: bool,
+    color_lut_sites: &[usize],
+) -> Result<Lowered, ShaderError> {
     let mut bad = HashMap::new();
     loop {
-        match Lower::new(parts, &bad).run(counted) {
+        match Lower::new(parts, &bad, color_lut_sites).run(counted) {
             Ok(l) => return Ok(l),
             Err(Stop::Retry(v, why)) => {
                 if bad.insert(v, why).is_some() {
@@ -263,6 +267,7 @@ struct Lower<'a> {
     s: Shader,
     x: &'a Parts<'a>,
     bad: &'a HashMap<Value, Why>,
+    color_lut_sites: &'a [usize],
     lane_fail: HashMap<Value, Why>,
     vals: HashMap<Value, Val>,
     floats: HashMap<Value, V>,
@@ -1400,7 +1405,7 @@ fn unsupported(offset: usize, what: Why) -> Stop {
 }
 
 impl<'a> Lower<'a> {
-    fn new(x: &'a Parts<'a>, bad: &'a HashMap<Value, Why>) -> Self {
+    fn new(x: &'a Parts<'a>, bad: &'a HashMap<Value, Why>, color_lut_sites: &'a [usize]) -> Self {
         let p = x.p;
         let mut phi_at = HashMap::new();
         for (b, block) in p.blocks.iter().enumerate() {
@@ -1644,6 +1649,7 @@ impl<'a> Lower<'a> {
             s,
             x,
             bad,
+            color_lut_sites,
             lane_fail: HashMap::new(),
             vals: HashMap::new(),
             floats: HashMap::new(),
@@ -11077,7 +11083,7 @@ impl<'a> Lower<'a> {
         let h = self.handle(site, src, false, props)?;
         let fu = self.s.m.undef(self.s.t.f32);
         let iu = self.s.m.undef(self.s.t.i32);
-        // A gather at a named level, done as four texel reads (below).
+        // Component values for samples and gathers built out of multiple reads.
         let mut gathered: Option<[V; 4]> = None;
         let r = if sample {
             let ss = self
@@ -11396,6 +11402,13 @@ impl<'a> Lower<'a> {
                     };
                     call_sample(self, name, op, &args, &mut gathered)
                 }
+                62 if kind == 4 && name == "image_sample_lz"
+                    && sampler_choice.is_none()
+                    && self.color_lut_sites.contains(&inst.machine.offset) =>
+                {
+                    gathered = Some(self.sample_linear_clamp_volume(h, [cs[0], cs[1], cs[2]]));
+                    self.s.m.undef(self.s.t.res_ret)
+                }
                 62 => {
                     let lod = if name == "image_sample_l" {
                         let x = addr_packed(self, coord_base, coords)?;
@@ -11559,6 +11572,58 @@ impl<'a> Lower<'a> {
             self.write(inst, Reg::V(reg + k as u8), x, guard);
         }
         Ok(())
+    }
+
+    /// Linear filtering of a volume's base mip with clamped normalized coordinates.
+    fn sample_linear_clamp_volume(&mut self, texture: V, uvw: [V; 3]) -> [V; 4] {
+        let block = self.cur;
+        let i32t = self.s.t.i32;
+        let f32t = self.s.t.f32;
+        let mip = self.s.m.i32(0);
+        let undef = self.s.m.undef(i32t);
+        let dimensions = self.s.m.named_struct("dx.types.Dimensions", vec![i32t; 4]);
+        let dimensions = self.s.op(block, "getDimensions", Attr::ReadOnly, dimensions, 72, &[texture, mip]);
+        let zero = self.s.m.f32(0);
+        let half = self.s.m.f32(0.5f32.to_bits());
+        let one = self.s.m.f32(1.0f32.to_bits());
+        let axes = std::array::from_fn::<_, 3, _>(|axis| {
+            let size = self.s.m.extract(block, dimensions, axis as u32);
+            let size = self.s.m.cast(block, Cast::UiToFp, size, f32t);
+            let last = self.s.m.bin(block, Bin::Sub, size, one);
+            let last = self.binary(35, zero, last); // A null SRV can report a zero size.
+            let scaled = self.s.m.bin(block, Bin::Mul, uvw[axis], size);
+            let scaled = self.s.m.bin(block, Bin::Sub, scaled, half);
+            let scaled = self.binary(35, zero, scaled);
+            let scaled = self.binary(36, last, scaled);
+            let lower = self.unary(27, scaled);
+            let upper = self.s.m.bin(block, Bin::Add, lower, one);
+            let upper = self.binary(36, upper, last);
+            let weight = self.s.m.bin(block, Bin::Sub, scaled, lower);
+            let lower = self.s.m.cast(block, Cast::FpToUi, lower, i32t);
+            let upper = self.s.m.cast(block, Cast::FpToUi, upper, i32t);
+            ([lower, upper], weight)
+        });
+        let texels = std::array::from_fn::<_, 8, _>(|index| {
+            let [x, y, z] = std::array::from_fn(|axis| axes[axis].0[(index >> axis) & 1]);
+            self.s.op(
+                block, "textureLoad.f32", Attr::ReadOnly, self.s.t.res_ret, 66,
+                &[texture, mip, x, y, z, undef, undef, undef],
+            )
+        });
+        std::array::from_fn(|channel| {
+            let values = texels.map(|v| self.s.m.extract(block, v, channel as u32));
+            let mut lerp = |a, b, weight| {
+                let delta = self.s.m.bin(block, Bin::Sub, b, a);
+                let weighted = self.s.m.bin(block, Bin::Mul, delta, weight);
+                self.s.m.bin(block, Bin::Add, a, weighted)
+            };
+            let rows = std::array::from_fn::<_, 4, _>(|row| {
+                lerp(values[row * 2], values[row * 2 + 1], axes[0].1)
+            });
+            let near = lerp(rows[0], rows[1], axes[1].1);
+            let far = lerp(rows[2], rows[3], axes[1].1);
+            lerp(near, far, axes[2].1)
+        })
     }
 
     /// The direction a cube sample's face coordinates stand for: the

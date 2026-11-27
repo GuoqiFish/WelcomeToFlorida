@@ -36,13 +36,13 @@ Copy-Item -LiteralPath '.\cool_fox\target\diag\victory.exe' -Destination (Join-P
 
 ### 复现实机验证配置
 
-当仓库、游戏目录和 `Florida-render-validation` 位于同一级目录时，从仓库根目录运行以下命令。脚本默认复用 `20261127-133203-series-s-full-textures` 下的 `portable`、`cache` 和 `data`，启动后手动进入游戏。
+按上文构建并安装后端后，从仓库根目录运行以下命令。脚本默认运行本仓库构建的 Kelvaroq 和 cool_fox，游戏路径默认指向同级的游戏目录。本机有 `20261127-133203-series-s-full-textures` 验证目录时，脚本复用其中的缓存和存档。启动后手动进入游戏。
 
 ```powershell
 .\Play-3D-Validated.ps1
 ```
 
-也可以指定游戏目录和包含 `portable`、`cache`、`data` 的验证目录。
+用 `-GameDirectory` 指定其他游戏目录。复现历史构建时，另用 `-ValidationDirectory` 指定包含 `portable`、`cache`、`data` 的验证目录。该选项会运行目录内的便携后端。
 
 ```powershell
 .\Play-3D-Validated.ps1 -GameDirectory 'D:\Games\My Xbox Game' -ValidationDirectory 'D:\Runs\series-s-full-textures'
@@ -51,6 +51,8 @@ Copy-Item -LiteralPath '.\cool_fox\target\diag\victory.exe' -Destination (Join-P
 ## 渲染验证
 
 2026 年 11 月 27 日，在 RTX 5060 Laptop（8 GB 显存、驱动 `621.01`）上以 Series S 配置测试。启用实验性的 Wave64 配对转译、关闭按需 mip 驻留和 BVH 构建后，暖缓存运行约 54 秒显示序章 3D 场景，并继续渲染人物近景、监舍、窗外景物和走廊。下列截图来自这次运行。帧率约 1–2 FPS，个别镜头仍有光照和材质异常。
+
+手机过场的彩色色带出现在 10 位调色通道。当前后端对两份受影响的像素着色器使用显式三线性插值，RTX 5060 Laptop 实机复测已通过手机近景。[调色验证记录](docs/series-s-rendering-plan.md#调色色带)
 
 ![序章人物与监舍内的阳光](docs/screenshots/prologue-character.png)
 

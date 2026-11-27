@@ -10,17 +10,27 @@ $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $false
 
 $gamePath = (Resolve-Path -LiteralPath $GameDirectory).ProviderPath
-$runPath = (Resolve-Path -LiteralPath $ValidationDirectory).ProviderPath
-$portablePath = Join-Path $runPath 'portable'
+$launchArguments = @($gamePath)
+$runPath = $ValidationDirectory
+if ($PSBoundParameters.ContainsKey('ValidationDirectory')) {
+    $runPath = (Resolve-Path -LiteralPath $ValidationDirectory).ProviderPath
+    $launchArguments += Join-Path $runPath 'portable'
+}
 
 $launchEnvironment = @{
-    VICTORY_CACHE_DIR = Join-Path $runPath 'cache'
-    VICTORY_DATA_DIR = Join-Path $runPath 'data'
     VICTORY_WAVE64_PAIRED = '1'
     VICTORY_LEVELS_ON_DEMAND = '0'
     VICTORY_BVH_BUILDER = '0'
     VICTORY_WINDOW_MAX = '960x540'
     VICTORY_D3D12_DRED = 'light'
+}
+if (Test-Path -LiteralPath $runPath -PathType Container) {
+    if (-not $env:VICTORY_CACHE_DIR) {
+        $launchEnvironment.VICTORY_CACHE_DIR = Join-Path $runPath 'cache'
+    }
+    if (-not $env:VICTORY_DATA_DIR) {
+        $launchEnvironment.VICTORY_DATA_DIR = Join-Path $runPath 'data'
+    }
 }
 
 $previousEnvironment = @{}
@@ -30,7 +40,7 @@ try {
         [Environment]::SetEnvironmentVariable($setting.Key, $setting.Value, 'Process')
     }
 
-    & (Join-Path $PSScriptRoot 'Play-3D.cmd') $gamePath $portablePath
+    & (Join-Path $PSScriptRoot 'Play-3D.cmd') @launchArguments
     $launchExitCode = $LASTEXITCODE
 } finally {
     foreach ($setting in $previousEnvironment.GetEnumerator()) {
