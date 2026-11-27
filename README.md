@@ -34,6 +34,20 @@ Copy-Item -LiteralPath '.\cool_fox\target\diag\victory.exe' -Destination (Join-P
 
 默认存档路径为 `%LOCALAPPDATA%\WelcomeToFlorida\data`，着色器缓存路径为 `%LOCALAPPDATA%\WelcomeToFlorida\cache`。启动前设置 `VICTORY_DATA_DIR` 或 `VICTORY_CACHE_DIR` 可复用已有的本地目录。首次运行需要生成着色器缓存。
 
+### 复现实机验证配置
+
+当仓库、游戏目录和 `Florida-render-validation` 位于同一级目录时，从仓库根目录运行以下命令。脚本默认复用 `20261127-133203-series-s-full-textures` 下的 `portable`、`cache` 和 `data`，启动后手动进入游戏。
+
+```powershell
+.\Play-3D-Validated.ps1
+```
+
+也可以指定游戏目录和包含 `portable`、`cache`、`data` 的验证目录。
+
+```powershell
+.\Play-3D-Validated.ps1 -GameDirectory 'D:\Games\My Xbox Game' -ValidationDirectory 'D:\Runs\series-s-full-textures'
+```
+
 ## 渲染验证
 
 2026 年 11 月 27 日，在 RTX 5060 Laptop（8 GB 显存、驱动 `621.01`）上以 Series S 配置测试。启用实验性的 Wave64 配对转译、关闭按需 mip 驻留和 BVH 构建后，暖缓存运行约 54 秒显示序章 3D 场景，并继续渲染人物近景、监舍、窗外景物和走廊。下列截图来自这次运行。帧率约 1–2 FPS，个别镜头仍有光照和材质异常。
