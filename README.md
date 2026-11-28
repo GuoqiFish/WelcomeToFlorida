@@ -4,7 +4,9 @@
 
 ## 构建和启动
 
-准备 Windows 10 或 11 x64、支持 AVX2 的 CPU、支持 Shader Model 6.6 和 Mesh Shader 的 Direct3D 12 GPU，以及包含 `game_scarlett_master.exe` 的完整本地游戏目录。构建需要 Rustup、MSVC C++ 构建工具、Windows SDK、Python 3 和 .NET Framework 4.8。
+准备 Windows x64、支持 AVX2 的 CPU、支持 Shader Model 6.6 和 Mesh Shader 的 Direct3D 12 GPU，以及包含 `game_scarlett_master.exe` 的完整本地游戏目录。构建需要 Rustup、MSVC C++ 构建工具、Windows SDK、Python 3 和 .NET Framework 4.8。
+
+本项目的 NVIDIA 配置已在 Windows 11 x64（内部版本 26200）实测。社区贡献者重编后端启用 Agility SDK，在 Windows 10 x64 上启动并通过追逐战。当前发布配置的 Win10 实机验证仍待完成。[Windows 10 复现说明](docs/series-s-rendering-plan.md#windows-10-兼容性) · [Issue #1](https://github.com/GuoqiFish/WelcomeToFlorida/issues/1)
 
 ### VIctory-NVIDIA（Series S 与 DLSS）
 
@@ -69,7 +71,10 @@ Copy-Item -LiteralPath '.\cool_fox\target\diag\victory.exe' -Destination (Join-P
 | 指标 | 实机记录 |
 | --- | --- |
 | 帧率 | 观察峰值约 **25 FPS**，序章片段平均约 **15–20 FPS**。帧率随场景变化，固定路线仍待复测。 |
+| 固定室外步行实显 | 2 GiB 渲染目标预留试验平均 **9.24 FPS**，P95 帧时间 **136.19 ms**。验收要求同一路段连续两轮均达到平均 ≥10 FPS、P95 ≤150 ms。 |
 | 整卡显存占用 | 峰值约 **8 GB**（纹理预算试验为 7.64 GiB），短程对照平均约 **5 GB**（5.47 GiB）。跑至首个检查点的一轮平均为 6.59 GiB。 |
+
+固定路线的 CPU 提交、内存压力和画质复测见 [Series S 渲染验证计划](docs/series-s-rendering-plan.md)。RTX 2070 SUPER 上的社区记录另有追逐战设备移除、长时间运行和驾驶掉帧样本。[追逐战与驾驶压力复测](docs/series-s-rendering-plan.md#追逐战与驾驶压力复测)
 
 当前配置关闭 BVH 构建，依赖 BVH 的光追通道会被跳过。部分阴影偏暗，材质细节仍在验证。
 
@@ -106,6 +111,6 @@ Copy-Item -LiteralPath '.\cool_fox\target\diag\victory.exe' -Destination (Join-P
 
 根目录的 [LICENSE](LICENSE) 将自有兼容性探针和文档置于 Unlicense 下，[LICENSE-NOTICES.md](LICENSE-NOTICES.md) 说明各导入组件的授权边界。Kelvaroq 主体、VIctory-NVIDIA、cool_fox 和改编自 cool_fox 的 Play-3D.cmd 适用 GPL-3.0-or-later。[Kelvaroq 的研究模块](kelvaroq/research/LICENSE) 适用 GPL-2.0-or-later。
 
-分发 GPL 组件的二进制时，请按对应版本的 GPL 提供完整对应源码，并保留许可证和版权声明。Kelvaroq 的名称和标识另有[上游说明](kelvaroq/README.md#name-and-logo)。
+分发 GPL 组件的二进制时，请按对应版本的 GPL 提供完整对应源码，并保留许可证和版权声明。Kelvaroq 的名称和标识另有[上游说明](kelvaroq/README.md#contributing)。
 
 Microsoft DirectStorage SDK 适用 [随附条款和声明](vendor/directstorage-1.3.0/README.md)。BCPack 常量表的权利说明见 [cool_fox 的资产政策](cool_fox/docs/asset-policy.md#the-one-exception)。截图中游戏画面的权利归相应权利人，具体范围见 [许可证说明](LICENSE-NOTICES.md#组件范围)。

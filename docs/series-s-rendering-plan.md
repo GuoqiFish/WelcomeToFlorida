@@ -51,18 +51,48 @@
 
 前三轮取样时游戏窗口未获焦，进程均以代码 0 正常退出。截图见前两轮的 `startup-adjacent.jpg` 和预编译轮的 `startup-pso-contact.jpg`。预编译轮启动时应用管线库为空，同时带入了已用管线清单并复用了 NVIDIA 驱动缓存。仅预转译轮曾采到系统可用物理内存 16 MiB，见该轮 `memory.csv`。正式复测同步记录进程工作集、系统可用内存和提交余量。
 
-暖应用管线库轮的日志确认加载 25,582,190 字节，前台开场画面见该轮 `startup-warm-contact.jpg`。实显第 13514 帧记录到失焦，复核时路线输入仍只有开场确认键。这轮可用于比较开场画质和启动时间。预编译对稳态帧率的影响待完整室外段前台复测。
+暖应用管线库轮的日志确认加载 25,582,190 字节，前台开场画面见 `startup-warm-contact.jpg`。第 13514 帧记录到失焦。随后写入首个检查点 SARC0015/v2，第 26807 帧已确认继续前台出帧，之后进入「去钓鱼」并正常退出（代码 0）。预编译对稳态帧率的影响待完整室外段前台复测。
+
+### CPU 提交与系统内存
+
+dmmchh 在 Windows 10 x64、Core i7-6850K、16 GB 单通道 DDR4-2133、RTX 2070 SUPER 8 GB（驱动 610.88）上报告，每帧约有 5,300–6,000 次 draw，场景物体越多，帧率越低。该构建的 F2 面板显示 CPU 提交耗时偏高，GPU 同时存在空闲。测试机配置了 33 GB 页面文件，游戏期间系统内存占用约 98%。报告未附提交号和逐帧时间线。单线程提交、内存带宽和分页各自的影响待测。[Issue #1](https://github.com/GuoqiFish/WelcomeToFlorida/issues/1)
+
+本机为 Core Ultra 9 275HX，A、B 通道各装一条 16 GiB 内存，配置速率 5600 MT/s。2 GiB 预留的室外基线中，可用物理内存采样最低为 900 MiB。暖应用管线库轮的全程采样最低为 69 MiB，系统提交余量最低为 2,571 MiB。内存记录见各轮 `memory.csv`。
+
+同一室外区间内，382 个相邻宿主 Present 间隔的累计 `draws` 增量中位数约为 11,456，计数可能跨渲染帧边界。38 个完整的 fence 汇总窗口中，宿主监测到的队列空档中位数为 36.8 ms/帧，其中与提交线程工作区间重叠的空档中位数为 28.6 ms/帧。7 个帧率汇总窗口中，副本准备时间的中位数为 26.6 ms/帧。各项均先按窗口计算帧均值，再取中位数。原始数据见该轮 `host-presents.csv` 与 `renderer.log`。
+
+用 `clocks.csv` 对齐实显帧、宿主 Present、内存采样和一小段 CPU/GPU 时间线。分别统计游戏侧 draw、宿主 draw、`ExecuteIndirect` 和 `ExecuteCommandLists`。按线程测命令录制、持锁准备、锁或 fence 等待和 CPU 实际运行时间。WTF 可用 F3 打开性能面板，其中 `SUBMIT BUSY` 按经过时间计量，已识别的 GPU 等待单独计数。查看图形、计算与复制队列在同一慢帧里的执行和空闲区间，对照硬缺页及其 I/O 来源、进程工作集、进程本地显存和 DXGI 预算。[面板计数实现](../victory-nvidia/crates/victory-gpu/src/host/panel.rs) · [Microsoft PIX 时间线文档](https://devblogs.microsoft.com/pix/timing-captures-new/)
+
+室外基线已设 `VICTORY_THIN=1` 和 `VICTORY_INDIRECT_BATCH=2`，先核对实际提交线程及间接参数批处理。若提交准备期间 GPU 队列在等新工作，优先测去除重复绑定及无内容变化的刷新，再测合并同一队列中没有同步依赖的相邻提交。若命令录制处在关键路径上，再试并行录制独立的命令列表，核对资源状态、barrier、fence 和提交顺序，并测额外内存开销。若慢帧与硬缺页或驻留等待重合，单独检查上传积压、可回收纹理块和驻留变化。每项用同路线的实显帧时间、关键 draw 和画面复验。[Microsoft D3D12 命令列表文档](https://learn.microsoft.com/en-us/windows/win32/direct3d12/recording-command-lists-and-bundles)
+
+### 追逐战与驾驶压力复测
+
+社区报告中，默认渲染配置运行约 40 分钟后在首场追逐战触发上传和共享缓冲区分配失败（`0x8007000E`），随后设备移除（`0x887A0005`）。贡献者在启动脚本里同时切换 DLSS Performance（`VICTORY_DLSS_MODE=performance`）、80% 纹理副本阈值（`VICTORY_TEXTURE_ROOM_PERCENT=80`）和警告级日志（`VICTORY_LOG=warn`），随后运行 **2 小时 43 分钟**并通过追逐战，手动退出前未再出现上述错误。日志从约 96 MB 降至 110 KB，仍有两条转译缺失和一次动态描述符槽位不足，后者跳过一次 draw。附图显示存档菜单已有「垂钓（3%）」。[Issue #1 实机记录](https://github.com/GuoqiFish/WelcomeToFlorida/issues/1)
+
+面板与标题栏读数中，空旷室内峰值约 16 FPS，空旷室外约 5 FPS，追逐战约 2–3 FPS，对话或切场景瞬间约 0.1–1 FPS。送卡尔回家的驾驶段及任务完成后仍约 1–5 FPS。[Issue #1 场景反馈](https://github.com/GuoqiFish/WelcomeToFlorida/issues/1)
+
+复测用隔离存档分别固定追逐战和驾驶的路线、输入、计时边界和缓存状态，同步采集实显帧时间、提交耗时、内存状态、上传分配及动态描述符用量。若发生设备移除，关联首个分配失败的资源类型和大小、当时的系统提交余量和 DXGI 本地显存预算。
+
+从 DLSS Quality 配置出发，每轮只改一项。80% 阈值按 DXGI 动态预算计算，用于判断是否创建部分纹理的宿主副本，同时记录贴图和 mip 恢复情况。给 `warn` 轮保留独立的帧时间和内存采样，以比较日志 I/O。Performance 轮记录实际输入分辨率和材质清晰度，室外 10 FPS 仍按 720p / DLSS Quality 验收。当前启动脚本清理继承的 `VICTORY_*` 变量，以上试验值应写入隔离测试脚本的配置。[纹理预算实现](../victory-nvidia/crates/victory-gpu/src/resource.rs) · [启动配置](../Play-SeriesS-DLSS.ps1)
 
 ### 实施顺序
 
 以同一运行基线对照纹理、光影和室外帧时间，每轮只切换待验证的改动。先用已采集的同场景画面查缺脸与管线就绪的关系，同时用固定室外段采样定位慢帧。每处画质异常对齐输出帧、上游通道输入及对应的资源更新，确认缺陷最早出现的阶段后再改代码。优先采用已有清晰画面的同机位、同动作样本，供最终构建复测。
 
-1. **定位室外慢帧。** 以关闭批量刷新和 2 GiB 渲染目标预留的配置为起点。当前 9.24 FPS 的前台实显基线距 10 FPS 约差 8 ms 平均帧时间。记录翻栏恢复步行及抓捕开始的相邻画面和帧号，保持两轮的计时边界和输入一致。把实显帧、宿主提交和短段 GPU 时间线对齐，找出无数据变更的刷新、提交锁、fence 等待以及图形、计算和复制队列在关键路径上的实际开销。按时间线证实的瓶颈逐项减少重复刷新、复制或等待，核对关键绘制和资源更新的结果。正式帧率使用常规采集配置复测。同机同设置用原版 VIctory-NVIDIA 作对照。独立 `cool_fox-fork` 的逐 draw 改动（`ca7e76a`）按整段前台帧时间复测。
+1. **定位室外慢帧。** 以关闭批量刷新和 2 GiB 渲染目标预留的配置为起点。当前 9.24 FPS 的前台实显基线距 10 FPS 约差 8 ms 平均帧时间。记录翻栏恢复步行及抓捕开始的相邻画面和帧号，保持两轮的计时边界和输入一致。按 [CPU 提交与系统内存](#cpu-提交与系统内存) 对齐同帧样本，沿实测关键路径逐项试验。正式帧率使用常规采集配置复测。同机同设置用原版 VIctory-NVIDIA 作对照，独立 `cool_fox-fork` 的逐 draw 改动（`ca7e76a`）按整段前台帧时间复测。
 2. **修复缺失的人物部件、缺图和材质变糊。** 复现手机过场和监舍转身时的缺脸，将异常帧对齐绘制跳过原因、深度和 G-buffer，再跟踪脸部资源重定位着色器 `02384a60fda6f2d0` 的调度、输出和下游读取。当前日志已确认宿主 PSO 和首次绑定。用独立 `cool_fox-fork` 的 `c36f9f4` 与 `ca7e21a` 作为输出对照。保持同一机位、停留时长和输入，单独测试 `Told::Recheck`（`8c23f18`）和 2 GiB 与 3 GiB 渲染目标预留。追踪材质描述符、纹理内容版本、mip 上传与驻留，记录纹理重新入镜后的恢复时间。若确认可见纹理受 DXGI 动态预算限制，验证可见 mip 优先上传和驻留，并让因预算推迟的队列项随预算变化重试。用少量同帧回读比较 720p DLSS 输入和 1080p 输出。若细节在 DLSS 阶段丢失，再核对运动向量尺度、抖动、曝光和镜头切换时的历史重置。
 3. **修复暗部、曝光与反射。** 对照间接光、调色前亮度和最终输出，在同一区域测阴影细节、商店高光饱和比例与门口曝光收敛时间。单次反馈试跑仍可见上述光影异常。下一组用同一构建对照默认设置与 `VICTORY_AMBIENT_SETTLE=250,3`（独立 `cool_fox-fork` 的 `53f23cf`），确认差异出现在哪个通道。眼部另查材质输入和 `CS_RayMiss` 替代输出。反射通道 `06bb6e728c7c99bf` 日志报告找不到射线图或深度。先核对表 1 偏移 96 的 640 × 360 `R32_FLOAT` 输入、深度语义、投影和资源状态，再用玻璃和湿表面的连续帧验证。当前基线关闭 BVH 构建，单独开启曾以 `0xc0000005` 退出。先验证间接光和反射替代路径，再定位 BVH 失效阶段并测其画面、帧时间和显存影响。
 4. **验证缺失的着色器输出。** NVIDIA 日志确认 `6b82bc7d22016cb5` 首次绑定后因缺少 Wave32 转译被拒绝，随后一段平均记录到每帧跳过 7.8 次对应的计算调用。追踪其原始调度、读写资源及下游渲染通道，核对是否对应可见异常。同时核对 `926c46bab3b86bd6` 的游戏内调度与资源输出。需要补转译时，先用可计算的输入或独立 XCL 对照验证跨半波运算、掩码和组共享状态，再验证宿主 PSO、实际调度和 GPU 输出。
 5. **让开场关键管线在首次使用前就绪。** 继续使用实走路线的 3,348 个着色器样本和 3,042 条管线。固定引擎、镜像缓存、隔离存档、宿主 Wave32、描述符 null slot 和转译选项，复测空工作缓存、`translate --warm`、预转译加 `warm --used --jobs 2`。补一轮同一已用管线清单下的对照，分别核对有效的应用管线库命中和驱动预热。根据首次绑定和创建耗时优先准备开场、监舍和商店主要绘制所需的 PSO。记录离线耗时、首个可辨认 3D、主要纹理可见时间、首次进场慢帧和因待编译而跳过的绘制。稳态收益用完整室外段的暖缓存实显帧时间验证。按显卡、驱动、引擎和转译选项核对缓存的复用条件。游戏派生着色器、管线缓存及 GPU 回读保存在仓库外。
 6. **验收合并后的配置。** 合并单项验证通过的改动，用固定配置和隔离存档跑两轮完整路线，检查前台实显帧时间、连续画面和检查点。按场景对齐显存预算和系统内存余量，若出现持续增长或分配压力，追踪资源释放、上传队列和管线工作进程的内存。另用隔离存档复测「去钓鱼」的水面反射、船尾水花与运动中的清晰度。只有本机参考的场景记录为本地回归对照。遇到整屏阶梯色带，保留帧号、运行目录和配置交给色带调查。
+
+### Windows 10 兼容性
+
+贡献者在 Win10 x64 上遇到启动黑屏或 `0x80070057`，在 `victory-nvidia/apps/victory/src/main.rs` 补上 Agility SDK 数据导出并重编后启动成功。其 Windows 构建号和更新修订待补。本机用 `dumpbin /exports` 核对了 README 构建流程生成的 NVIDIA 后端，导出表中尚无这两个符号。[Issue #1 原始构建说明](https://github.com/GuoqiFish/WelcomeToFlorida/issues/1)
+
+1. 按 Issue #1 的示例，在创建设备的后端 EXE 导出 `D3D12SDKVersion` 和 `D3D12SDKPath`，值分别为 `619` 和 `.\D3D12\`。独立 `cool_fox-fork` 的同版本实现可作为可选构建功能的参考。[cool_fox Agility SDK 实现](https://raw.githubusercontent.com/DoubleGhosty/cool_fox/e5055d6d3212e780e356fd671e16c423d5d37818/apps/victory/src/agility.rs)
+2. 运行 `Build-SeriesS-DLSS.ps1` 重编，将 Microsoft NuGet 包中 x64 的 `D3D12Core.dll` 1.619.6 放到 `victory-nvidia/target/wtf-series-s/native/D3D12/`。路径相对于 `native/kelvaroq-engine.exe`。用 MSVC 的 `dumpbin /exports` 检查该 EXE 的两个数据导出，启动后核对进程加载的核心文件路径及版本。[Agility SDK 规范](https://microsoft.github.io/DirectX-Specs/d3d/D3D12Redistributable.html#application-and-games) · [Microsoft.Direct3D.D3D12 1.619.6](https://www.nuget.org/packages/Microsoft.Direct3D.D3D12/1.619.6)
+3. 在同一台 Windows 10 x64 机器对照当前发布配置和上述构建，记录 `winver` 的构建号和更新修订、GPU 与驱动。核对 D3D12 设备创建、Shader Model 6.6、Mesh Shader Tier、Streamline 初始化、首次 3D 和首个检查点。故障记录附最先失败的调用及 HRESULT。根据同机对照结果更新 README 的系统要求。
 
 ## 早期 cool_fox 实机基线
 
