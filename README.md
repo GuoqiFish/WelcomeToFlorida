@@ -10,15 +10,24 @@
 
 ### VIctory-NVIDIA（Series S 与 DLSS）
 
-在仓库根目录打开 PowerShell。构建后用附带的脚本从 NVIDIA 获取已验证的 Streamline `2.14.16`，最后将示例路径替换成自己的游戏目录。
+**日常游玩请使用 [`PlayWithSave.ps1`](PlayWithSave.ps1)。** 游戏进度和游戏内设置默认保存在 `%LOCALAPPDATA%\WTFVI\Data`。每次用同一个数据目录启动即可继续游玩。
+
+首次使用时，在仓库根目录打开 PowerShell，构建后端并下载 Streamline `2.14.16`。
 
 ```powershell
 .\Build-SeriesS-DLSS.ps1
 .\victory-nvidia\scripts\get-nvidia-sdks.ps1 -To "$env:LOCALAPPDATA\WelcomeToFlorida\nvidia\sdk"
-.\Play-SeriesS-DLSS.ps1 -GameDirectory 'D:\Games\My Xbox Game'
 ```
 
-已有 Streamline 时，用 `-StreamlineDirectory` 指定包含 DLL 的目录。NVIDIA 配置默认将存档与缓存写入 `%LOCALAPPDATA%\WelcomeToFlorida\nvidia` 下的 `data` 和 `cache`。也可用 `-DataDirectory` 和 `-CacheDirectory` 指定仓库外的路径。
+构建完成后运行下面的命令，将路径替换成自己的游戏目录。如果游戏位于脚本默认的同级目录，可以直接运行 `.\PlayWithSave.ps1`。
+
+```powershell
+.\PlayWithSave.ps1 -GameDirectory 'D:\Games\My Xbox Game'
+```
+
+已有 Streamline 时，可用 `-StreamlineDirectory` 指定包含 DLL 的目录。也可用 `-DataDirectory` 指定仓库外的自定义存档目录，之后每次启动都传入同一路径。
+
+**迁移旧档。** 正常退出游戏后，将旧 `data` 目录的全部内容复制到 `%LOCALAPPDATA%\WTFVI\Data`，使游戏的子目录（例如 `7952987A`）直接位于 `Data` 下。如果目标已有存档，请先备份。直接用 `Play-SeriesS-DLSS.ps1` 启动时，旧档默认在 `%LOCALAPPDATA%\WelcomeToFlorida\nvidia\data`。隔离测试的存档位置可在对应 `run.txt` 的 `VICTORY_DATA_DIR=` 一行查到。
 
 ### cool_fox
 
