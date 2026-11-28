@@ -90,7 +90,7 @@ enum Stop {
 }
 
 pub(crate) fn lower(parts: &Parts) -> Result<Lowered, ShaderError> {
-    lower_counted(parts, counted_in_threads(parts))
+    lower_counted(parts, counted_in_threads(parts), &[])
 }
 
 /// Whether the title dispatches the program by a count of threads whose last
@@ -113,10 +113,14 @@ fn counted_in_threads(parts: &Parts) -> bool {
 /// [`lower`]; `counted`: the lanes past a dispatch's count of threads leave
 /// at once (`shader.rs` `USER_DISPATCH_THREADS_X`; after DexNom/VIctory
 /// bc3cd4b0, which does so for two of the programs by their digests).
-pub(super) fn lower_counted(parts: &Parts, counted: bool) -> Result<Lowered, ShaderError> {
+pub(super) fn lower_counted(
+    parts: &Parts,
+    counted: bool,
+    color_lut_sites: &[usize],
+) -> Result<Lowered, ShaderError> {
     let mut bad = HashMap::new();
     loop {
-        match Lower::new(parts, &bad).run(counted) {
+        match Lower::new(parts, &bad, color_lut_sites).run(counted) {
             Ok(l) => return Ok(l),
             Err(Stop::Retry(v, why)) => {
                 if bad.insert(v, why).is_some() {
@@ -266,6 +270,7 @@ struct Lower<'a> {
     s: Shader,
     x: &'a Parts<'a>,
     bad: &'a HashMap<Value, Why>,
+    color_lut_sites: &'a [usize],
     lane_fail: HashMap<Value, Why>,
     vals: HashMap<Value, Val>,
     floats: HashMap<Value, V>,
@@ -1618,7 +1623,7 @@ fn unsupported(offset: usize, what: Why) -> Stop {
 }
 
 impl<'a> Lower<'a> {
-    fn new(x: &'a Parts<'a>, bad: &'a HashMap<Value, Why>) -> Self {
+    fn new(x: &'a Parts<'a>, bad: &'a HashMap<Value, Why>, color_lut_sites: &'a [usize]) -> Self {
         let p = x.p;
         let mut phi_at = HashMap::new();
         for (b, block) in p.blocks.iter().enumerate() {
@@ -1891,6 +1896,7 @@ impl<'a> Lower<'a> {
             s,
             x,
             bad,
+            color_lut_sites,
             lane_fail: HashMap::new(),
             vals: HashMap::new(),
             floats: HashMap::new(),
@@ -11878,9 +11884,10 @@ impl<'a> Lower<'a> {
                 }
                 62 if kind == 4
                     && name == "image_sample_lz"
-                    && filter_3d_on()
                     && sampler_choice.is_none()
-                    && matches!(ss, Source::Constant(words) if linear_clamp_sampler(words)) =>
+                    && (self.color_lut_sites.contains(&inst.machine.offset)
+                        || (filter_3d_on()
+                            && matches!(ss, Source::Constant(words) if linear_clamp_sampler(words)))) =>
                 {
                     // Trilinear by hand at level 0 ([`filter_3d_on`]): the
                     // texel centres around the point, their indices clamped
@@ -11900,6 +11907,7 @@ impl<'a> Lower<'a> {
                         let n = self.s.m.extract(c, d, k as u32);
                         let n = self.s.m.cast(c, Cast::UiToFp, n, f32t);
                         let last = self.s.m.bin(c, Bin::Sub, n, one);
+                        let last = self.binary(35, zero, last); // A null SRV can report a zero size.
                         let t = self.s.m.bin(c, Bin::Mul, cs[k], n);
                         let t = self.s.m.bin(c, Bin::Sub, t, half);
                         let first = self.unary(27, t); // round down

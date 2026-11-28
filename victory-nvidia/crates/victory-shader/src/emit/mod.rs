@@ -975,7 +975,7 @@ fn emit_program(
         }
         _ => EarlyDepth::NotAsked,
     };
-    let l = lower::lower(&lower::Parts {
+    let parts = lower::Parts {
         native,
         p,
         st,
@@ -985,7 +985,23 @@ fn emit_program(
         outputs,
         prims,
         mesh_stride,
-    })?;
+    };
+    // Preserve the Series S prologue's linear color grading on D3D12.
+    // The DXBC digest and instruction offsets identify the affected LUT reads.
+    let color_lut_sites: &[usize] = match (native.stage, c.digest) {
+        (HwStage::Ps, [0x34, 0x8a, 0x8c, 0x9e, 0xd1, 0x59, 0xf7, 0x1e, 0x98, 0x1d, 0x91, 0x8e, 0x65, 0x49, 0xfc, 0x6a]) => {
+            &[0x0efc, 0x0f68, 0x1018, 0x1160]
+        }
+        (HwStage::Ps, [0x36, 0x43, 0x9c, 0xf9, 0x7d, 0x3c, 0x87, 0x2d, 0xa9, 0x9f, 0x1a, 0x40, 0x66, 0x10, 0x61, 0x1f]) => {
+            &[0x0eb4, 0x0f20, 0x0fd0, 0x1118]
+        }
+        _ => &[],
+    };
+    let l = if color_lut_sites.is_empty() {
+        lower::lower(&parts)
+    } else {
+        lower::lower_counted(&parts, false, color_lut_sites)
+    }?;
     let counted = match early {
         EarlyDepth::NotAsked => None,
         EarlyDepth::Given => Some(0),
