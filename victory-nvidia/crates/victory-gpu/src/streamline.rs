@@ -1086,7 +1086,9 @@ fn record(list: *mut c_void, textures: &Textures, camera: &plan::Camera, pre_exp
     inputs.extend(tags.iter_mut().map(|t| std::ptr::from_ref(&t.base)));
     // SAFETY: an open command list; inputs that live through the call.
     let code = unsafe { (sl.evaluate_feature)(abi::FEATURE_DLSS, token, inputs.as_ptr(), inputs.len() as u32, list) };
-    if code != 0 {
+    // Streamline checks the VRAM budget after a successful evaluation and
+    // logs the warning itself. The recorded DLSS output still needs tracking.
+    if code != 0 && code != abi::WARN_OUT_OF_VRAM {
         return Err(format!("slEvaluateFeature: {} ({code})", abi::result_name(code)));
     }
     if let Some(began) = began {
@@ -1500,10 +1502,10 @@ pub(crate) fn present_begins(frame: u64, planes: Planes<'_>) -> Option<Presentin
         // 39, "warning: out of VRAM": the options are set all the same, with the card's memory
         // past its budget. Taken as set: asked again at every present (1,828 times in one
         // run, after the menu's 3X on a full 12 GB card) it showed no generated frame at all.
-        if code == 39 {
+        if code == abi::WARN_OUT_OF_VRAM {
             tracing::warn!(times = generated + 1, "DLSS Frame Generation is on with the card's memory past its budget: frames may come unevenly (the launcher leaves it room when it is on from the start)");
         }
-        if code == 0 || code == 39 {
+        if code == 0 || code == abi::WARN_OUT_OF_VRAM {
             calls.framegen_on = on;
             // What was asked (the driver may give fewer): not set again until that changes.
             calls.framegen_times = times;

@@ -58,6 +58,9 @@ pub const REFLEX_OPTIONS: StructType = guid(0xf03a_f81a, 0x6d0b, 0x4902, [0xa6, 
 /// `sl::kSDKVersion` of the headers mirrored here (2.14.16).
 pub const SDK_VERSION: u64 = (2 << 48) | (14 << 32) | (16 << 16) | 0xfedc;
 
+/// `sl::Result::eWarnOutOfVRAM`.
+pub const WARN_OUT_OF_VRAM: i32 = 39;
+
 // Features (`sl::Feature`).
 pub const FEATURE_DLSS: u32 = 0;
 pub const FEATURE_REFLEX: u32 = 3;
@@ -673,7 +676,7 @@ mod tests {
         assert_eq!(SDK_VERSION & 0xffff, 0xfedc);
         assert_eq!(result_name(0), "ok");
         assert_eq!(result_name(26), "missing constants");
-        assert_eq!(result_name(39), "warning: out of VRAM");
+        assert_eq!(result_name(WARN_OUT_OF_VRAM), "warning: out of VRAM");
         assert_eq!(result_name(-1), "unknown result");
     }
 }
