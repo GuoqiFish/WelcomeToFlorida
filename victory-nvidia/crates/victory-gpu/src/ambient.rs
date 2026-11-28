@@ -29,6 +29,8 @@
 //! - `constant:<level>`: the constant, as beloooo's fork has it.
 //!
 //! `VICTORY_AMBIENT_SHADE=<strength>,<radius in metres>` sets the creases.
+//! `VICTORY_AMBIENT_SETTLE=<milliseconds>[,<jump factor>]` controls how fast
+//! the mean adapts when the lighting changes.
 //! `VICTORY_AMBIENT_ONCE=1`: one bounce of the title's own light, without the
 //! stand-in's light coming back to it ([`once`]).
 //!
@@ -49,6 +51,7 @@
 use std::sync::atomic::{AtomicU64, Ordering as AtomicOrdering};
 
 use std::sync::{Mutex, OnceLock};
+use std::time::Instant;
 
 use windows::Win32::Graphics::Direct3D12::*;
 use windows::core::s;
@@ -206,8 +209,35 @@ fn shade() -> [f32; 2] {
     })
 }
 
+/// Clock-based adaptation from DoubleGhosty's cool_fox (53f23cf). The jump
+/// factor allows immediate adaptation across large changes in luminance.
+fn parse_settle_time(value: &str) -> Option<(f32, f32)> {
+    let mut parts = value.split(',').map(|part| part.trim().parse::<f32>().ok());
+    let time_ms = parts.next().flatten().filter(|v| v.is_finite() && *v > 0.0)?;
+    let jump = parts.next().flatten().filter(|v| v.is_finite() && (*v == 0.0 || *v >= 1.0)).unwrap_or(3.0);
+    Some((time_ms, jump))
+}
+
+fn mean_follow(elapsed_ms: f32, time_ms: f32) -> f32 {
+    -(-elapsed_ms / time_ms).exp_m1()
+}
+
+fn radiance_adaptation() -> (f32, f32) {
+    static SETTING: OnceLock<Option<(f32, f32)>> = OnceLock::new();
+    static LAST: Mutex<Option<Instant>> = Mutex::new(None);
+    let Some((time_ms, jump)) = *SETTING.get_or_init(|| {
+        parse_settle_time(&std::env::var("VICTORY_AMBIENT_SETTLE").unwrap_or_default())
+    }) else {
+        return (0.04, 0.0);
+    };
+    let mut last = LAST.lock().unwrap_or_else(|e| e.into_inner());
+    let now = Instant::now();
+    let elapsed_ms = last.replace(now).map_or(1000.0 / 30.0, |before| now.duration_since(before).as_secs_f32() * 1000.0);
+    (mean_follow(elapsed_ms, time_ms), jump)
+}
+
 const SOURCE: &str = r#"
-#define RS "RootConstants(num32BitConstants=12, b0), DescriptorTable(SRV(t0)), DescriptorTable(UAV(u0)), UAV(u1), UAV(u2)"
+#define RS "RootConstants(num32BitConstants=13, b0), DescriptorTable(SRV(t0)), DescriptorTable(UAV(u0)), UAV(u1), UAV(u2)"
 #define CX 64
 #define CY 36
 #define CELLS (CX * CY)
@@ -217,6 +247,7 @@ cbuffer Set : register(b0) {
     float level; float constant; float strength; float radius;
     float near; float tan_y; uint width; uint height;
     float follow; float most; float air; float once;
+    float jump;
 };
 Texture2D<float> depth : register(t0);
 // Cells: the light they send out (then, at CELLS, the slow mean), from
@@ -263,7 +294,13 @@ void mean() {
     for (uint i = 0; i < CELLS; i++) sum += cells[i].rgb;
     float4 was = cells[CELLS];
     float3 now = sum / CELLS;
-    cells[CELLS] = float4(was.a > 0.0 ? lerp(was.rgb, now, follow) : now, 1.0);
+    float share = follow;
+    if (jump > 0.0) {
+        float current = max(dot(now, LUMA), 1e-5);
+        float previous = max(dot(was.rgb, LUMA), 1e-5);
+        if (max(current, previous) > jump * min(current, previous)) share = 1.0;
+    }
+    cells[CELLS] = float4(was.a > 0.0 ? lerp(was.rgb, now, share) : now, 1.0);
 }
 #endif
 
@@ -715,13 +752,17 @@ pub(crate) fn after(list: &HostList, role: Role, views: &Views) -> bool {
     list.keep(&pass.points);
     let [strength, radius] = shade();
     let floats = [level, constant, strength, radius, 0.1, 0.45];
-    let mut words = [0u32; 12];
+    let mut words = [0u32; 13];
     for (to, v) in words.iter_mut().zip(floats) {
         *to = v.to_bits();
     }
     words[6] = views.depth_size[0];
     words[7] = views.depth_size[1];
-    words[8] = 0.04f32.to_bits();
+    if role == Role::Radiance {
+        let (follow, jump) = radiance_adaptation();
+        words[8] = follow.to_bits();
+        words[12] = jump.to_bits();
+    }
     words[9] = 4.0f32.to_bits();
     words[10] = air().to_bits();
     words[11] = if once() { 1.0f32 } else { 0.0 }.to_bits();
@@ -732,7 +773,7 @@ pub(crate) fn after(list: &HostList, role: Role, views: &Views) -> bool {
     unsafe {
         uav_barrier(l);
         l.SetComputeRootSignature(&pass.root);
-        l.SetComputeRoot32BitConstants(0, 12, words.as_ptr().cast(), 0);
+        l.SetComputeRoot32BitConstants(0, words.len() as u32, words.as_ptr().cast(), 0);
         l.SetComputeRootDescriptorTable(1, views.depth);
         l.SetComputeRootDescriptorTable(2, views.image);
         l.SetComputeRootUnorderedAccessView(3, pass.cells.GetGPUVirtualAddress());
@@ -780,6 +821,20 @@ mod tests {
         assert_eq!(parse("0.8"), Set::Estimate(0.8));
         assert_eq!(parse("constant:0.3"), Set::Constant(0.3));
         assert_eq!(parse("constant:nan"), Set::Off);
+        assert_eq!(parse_settle_time(""), None);
+        assert_eq!(parse_settle_time("0"), None);
+        assert_eq!(parse_settle_time("250"), Some((250.0, 3.0)));
+        assert_eq!(parse_settle_time("250,0"), Some((250.0, 0.0)));
+    }
+
+    #[test]
+    fn mean_follows_elapsed_time_at_different_frame_rates() {
+        let error_at_one_second = (-4.0f32).exp();
+        for fps in [8, 10, 20, 30] {
+            let error = (1.0 - mean_follow(1000.0 / fps as f32, 250.0)).powi(fps);
+            assert!((error - error_at_one_second).abs() < 1e-6);
+        }
+        assert_eq!(mean_follow(0.0, 250.0), 0.0);
     }
 
     #[test]

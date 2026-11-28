@@ -1055,11 +1055,19 @@ struct Waiting {
     /// Bytes of its memory that were mapped when it was last uploaded
     /// without all of it there; 0: not uploaded yet.
     mapped: u64,
-    /// For a slot uploaded whole and looked at again
-    /// ([`TextureQueue::recheck`]): where its memory is (address, bytes),
-    /// the fingerprint it had at the upload, how many looks found it
-    /// unchanged, and the frame of the upload. A fingerprint of 0: none.
-    checked: (u64, u64, u64, u8, u64),
+    checked: Checked,
+}
+
+/// The last whole upload of a texture picked by index. A zero fingerprint
+/// means the slot has no recheck scheduled.
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
+pub(crate) struct Checked {
+    pub(crate) span: (u64, u64),
+    pub(crate) fingerprint: u64,
+    pub(crate) uploaded: u64,
+    pub(crate) unchanged_looks: u8,
+    /// The bytes changed without a descriptor write or memory notification.
+    pub(crate) changed_in_place: bool,
 }
 
 /// Which title slots the queue of textures picked by index holds, readable
@@ -1219,7 +1227,7 @@ impl TextureQueue {
         }
         self.writes += 1;
         let write = self.writes;
-        self.put(index, Waiting { due, written: frame, write, looks: 0, mapped: 0, checked: (0, 0, 0, 0, 0) });
+        self.put(index, Waiting { due, written: frame, write, looks: 0, mapped: 0, checked: Checked::default() });
     }
 
     fn remove(&mut self, index: u32) {
@@ -1253,7 +1261,7 @@ impl TextureQueue {
         let mut due = Due::default();
         let mut c = [self.slots.len() as u64, 0, 0, 0, 0, 0];
         for (&index, w) in &self.slots {
-            let again = w.checked.2 != 0;
+            let again = w.checked.fingerprint != 0;
             if w.mapped > 0 {
                 c[3] += 1;
             } else if again {
@@ -1269,7 +1277,7 @@ impl TextureQueue {
                 if w.looks > 0 || w.mapped > 0 {
                     // (Only these can wait for a look again: `recheck`
                     // leaves a look, `partly` some bytes mapped.)
-                    due.again.push((w.written, index, w.write, Some(w.checked).filter(|c| c.2 != 0)));
+                    due.again.push((w.written, index, w.write, again.then_some(w.checked)));
                 } else {
                     due.fresh.push((w.written, index, w.write));
                 }
@@ -1279,11 +1287,6 @@ impl TextureQueue {
     }
 }
 
-/// What [`TextureQueue::recheck`] noted of a slot uploaded whole: where its
-/// memory is (address, bytes), its fingerprint, the looks that found it
-/// unchanged, the frame of the upload.
-pub(crate) type Checked = (u64, u64, u64, u8, u64);
-
 /// What the pass over textures picked by index found of a slot it took, as
 /// told to the queue ([`HostHeap::texture_slots_told`]).
 #[derive(Clone, Copy, Debug)]
@@ -1292,8 +1295,8 @@ pub(crate) enum Told {
     /// `.0` with `.1` bytes of its memory there, or not until written.
     Done(Option<(u64, u64)>),
     /// Uploaded whole, looked at again ([`HostHeap::texture_slot_recheck`]):
-    /// from frame, memory (address, bytes), fingerprint, looks, upload frame.
-    Recheck(u64, (u64, u64), u64, u8, u64),
+    /// from the given frame, with its upload and recheck history.
+    Recheck(u64, Checked),
     /// Nothing to upload now ([`HostHeap::texture_slot_later`]): frame, most.
     Later(u64, u64),
     /// No room on the card ([`HostHeap::texture_slot_held`]): until frame.
@@ -1401,22 +1404,19 @@ impl TextureQueue {
         }
     }
 
-    /// Slot `index` was uploaded whole from memory `at` (address, bytes)
-    /// with fingerprint `print`: looked at again from frame `due`, for a
-    /// title that fills a texture's memory after it wrote the view (the
-    /// `looks`-th such look; `uploaded` is the upload's frame).
-    #[allow(clippy::too_many_arguments)]
-    fn recheck(&mut self, index: u32, write: u64, due: u64, at: (u64, u64), print: u64, looks: u8, uploaded: u64) {
+    /// Schedule another check of a whole upload from frame `due` if the
+    /// queue still holds the same descriptor write.
+    fn recheck(&mut self, index: u32, write: u64, due: u64, checked: Checked) {
         if let Some(w) = self.same(index, write) {
             (w.due, w.looks, w.mapped) = (due, 1, 0);
-            w.checked = (at.0, at.1, print, looks, uploaded);
+            w.checked = checked;
         }
     }
 
     /// What [`TextureQueue::recheck`] noted of slot `index`, if it is
     /// waiting for such a look.
-    fn checked(&self, index: u32) -> Option<(u64, u64, u64, u8, u64)> {
-        self.slots.get(&index).map(|w| w.checked).filter(|c| c.2 != 0)
+    fn checked(&self, index: u32, write: u64) -> Option<Checked> {
+        self.slots.get(&index).filter(|w| w.write == write && w.checked.fingerprint != 0).map(|w| w.checked)
     }
 
     /// The memory slot `index`'s texture lies in was mapped, unmapped or
@@ -1427,7 +1427,7 @@ impl TextureQueue {
         self.writes += 1;
         let write = self.writes;
         let due = self.slots.get(&index).map_or(due, |w| w.due.min(due));
-        self.put(index, Waiting { due, written: frame, write, looks: 0, mapped: 0, checked: (0, 0, 0, 0, 0) });
+        self.put(index, Waiting { due, written: frame, write, looks: 0, mapped: 0, checked: Checked::default() });
     }
 
     /// Bytes of slot `index`'s memory that were mapped at its last upload
@@ -1450,7 +1450,7 @@ impl TextureQueue {
     fn census(&self, frame: u64) -> [u64; 6] {
         let mut c = [self.slots.len() as u64, 0, 0, 0, 0, 0];
         for w in self.slots.values() {
-            let again = w.checked.2 != 0;
+            let again = w.checked.fingerprint != 0;
             if w.mapped > 0 {
                 c[3] += 1;
             } else if again {
@@ -1478,7 +1478,7 @@ impl TextureQueue {
         let Some(w) = self.slots.get(&index).filter(|w| w.write == write) else {
             return;
         };
-        if w.mapped > 0 || w.checked.2 != 0 {
+        if w.mapped > 0 || w.checked.fingerprint != 0 {
             return;
         }
         let (which, frames) = if w.looks == 0 {
@@ -2360,9 +2360,9 @@ impl HostHeap {
                         None => textures.done(index, write),
                     }
                 }
-                Told::Recheck(due, at, print, looks, uploaded) => {
+                Told::Recheck(due, checked) => {
                     textures.note_served(index, write, frame);
-                    textures.recheck(index, write, due, at, print, looks, uploaded);
+                    textures.recheck(index, write, due, checked);
                 }
                 Told::Later(at, most) => textures.later(index, write, at, most),
                 Told::Held(due) => textures.hold(index, write, due),
@@ -2388,7 +2388,7 @@ impl HostHeap {
             .slots
             .iter()
             .filter(|(_, w)| w.due <= frame)
-            .map(|(&index, w)| (index, w.mapped > 0 || w.checked.2 != 0))
+            .map(|(&index, w)| (index, w.mapped > 0 || w.checked.fingerprint != 0))
             .collect()
     }
 
@@ -2406,25 +2406,15 @@ impl HostHeap {
     }
 
     /// Title slot `index` was uploaded whole: see [`TextureQueue::recheck`].
-    #[allow(clippy::too_many_arguments)]
-    pub(crate) fn texture_slot_recheck(
-        &self,
-        index: u32,
-        write: u64,
-        due: u64,
-        at: (u64, u64),
-        print: u64,
-        looks: u8,
-        uploaded: u64,
-    ) {
+    pub(crate) fn texture_slot_recheck(&self, index: u32, write: u64, due: u64, checked: Checked) {
         let mut textures = self.queue(super::queue_site::TELL);
         textures.note_served(index, write, crate::frame::current());
-        textures.recheck(index, write, due, at, print, looks, uploaded);
+        textures.recheck(index, write, due, checked);
     }
 
     /// See [`TextureQueue::checked`].
-    pub(crate) fn texture_slot_checked(&self, index: u32) -> Option<(u64, u64, u64, u8, u64)> {
-        self.queue(super::queue_site::TELL).checked(index)
+    pub(crate) fn texture_slot_checked(&self, index: u32, write: u64) -> Option<Checked> {
+        self.queue(super::queue_site::TELL).checked(index, write)
     }
 
     /// Nothing to upload at title slot `index` now (its memory is not
@@ -2562,7 +2552,7 @@ impl HostHeap {
         slots.dedup();
         slots.retain(|&slot| !self.tabled_lately(slot, frame));
         let mut textures = self.queue(super::queue_site::MADE_DUE);
-        slots.retain(|slot| textures.slots.get(slot).is_none_or(|w| w.mapped > 0 || w.checked.2 != 0));
+        slots.retain(|slot| textures.slots.get(slot).is_none_or(|w| w.mapped > 0 || w.checked.fingerprint != 0));
         for &slot in &slots {
             textures.changed(slot, frame, frame);
         }
@@ -2585,7 +2575,7 @@ impl HostHeap {
         let mut textures = self.queue(super::queue_site::MADE_DUE);
         // Uploaded before: out of the queue, or in it after an upload (in
         // part, or whole and being looked at again).
-        slots.retain(|slot| textures.slots.get(slot).is_none_or(|w| w.mapped > 0 || w.checked.2 != 0));
+        slots.retain(|slot| textures.slots.get(slot).is_none_or(|w| w.mapped > 0 || w.checked.fingerprint != 0));
         PAGE_WRITES[2].fetch_add(held as u64, Relaxed);
         PAGE_WRITES[3].fetch_add(slots.len() as u64, Relaxed);
         if !due {
@@ -4076,7 +4066,7 @@ impl HostHeap {
                 w.written,
                 w.looks,
                 w.mapped,
-                w.checked.2 != 0
+                w.checked.fingerprint != 0
             ),
         }
     }
@@ -6222,7 +6212,7 @@ mod tests {
         let (w1, w2) = (write(&q, 1), write(&q, 2));
         // Slot 1 uploaded whole at frame 10, looked at again from frame 14;
         // slot 2's memory not there at frame 10.
-        q.recheck(1, w1, 14, (0x1_0000, 4096), 7, 0, 10);
+        q.recheck(1, w1, 14, Checked { span: (0x1_0000, 4096), fingerprint: 7, uploaded: 10, ..Checked::default() });
         q.later(2, w2, 10, 4);
         let c = q.census(20);
         assert_eq!((c[2], c[5]), (1, 1));
@@ -6634,18 +6624,46 @@ mod tests {
         }
         let write = |q: &TextureQueue, index: u32| q.due(u64::MAX, 100).iter().find(|d| d.0 == index).unwrap().1;
         let w31 = write(&q, 31);
-        q.recheck(31, w31, 5, (0x2000, 4096), 9, 0, 2);
+        q.recheck(31, w31, 5, Checked { span: (0x2000, 4096), fingerprint: 9, uploaded: 2, ..Checked::default() });
         let w32 = write(&q, 32);
         q.later(32, w32, 2, 4);
         let (order, known) = q.due_and_census(u64::MAX).0.ordered(100);
         assert_eq!(order, q.due(u64::MAX, 100));
         assert_eq!(known.len(), order.len());
-        for (&(index, _), knew) in order.iter().zip(&known) {
-            assert_eq!(*knew, q.checked(index));
+        for (&(index, write), knew) in order.iter().zip(&known) {
+            assert_eq!(*knew, q.checked(index, write));
         }
         assert_eq!(known.iter().filter(|k| k.is_some()).count(), 1);
         let (order, known) = q.due_and_census(u64::MAX).0.ordered(1);
         assert_eq!((order.len(), known.len()), (1, 1));
+    }
+
+    #[test]
+    fn texture_rechecks_follow_the_descriptor_write_that_scheduled_them() {
+        let mut queue = TextureQueue::default();
+        let checked = Checked {
+            span: (0x1000, 4096),
+            fingerprint: 7,
+            uploaded: 1,
+            unchanged_looks: 4,
+            changed_in_place: true,
+        };
+        queue.written(1, 1, 1, false);
+        let old = queue.due(1, 1)[0].1;
+        queue.recheck(1, old, 401, checked);
+        assert!(queue.due(400, 1).is_empty());
+        assert_eq!(queue.checked(1, old), Some(checked));
+
+        queue.written(1, 402, 402, false);
+        let new = queue.due(402, 1)[0].1;
+        assert_ne!(new, old);
+        assert_eq!(queue.checked(1, new), None);
+        queue.recheck(1, old, 801, checked);
+        assert_eq!(queue.due(402, 1), [(1, new)]);
+        let next = Checked { fingerprint: 9, uploaded: 402, ..Checked::default() };
+        queue.recheck(1, new, 406, next);
+        assert_eq!(queue.checked(1, old), None);
+        assert_eq!(queue.checked(1, new), Some(next));
     }
 
     /// What the pass tells of several slots under one take of the lock ends
@@ -6664,10 +6682,11 @@ mod tests {
         let handed = due(&a, u64::MAX);
         assert_eq!(handed, due(&b, u64::MAX));
         let w = |i: u32| handed.iter().find(|d| d.0 == i).unwrap().1;
+        let checked = Checked { span: (0x1000, 64), fingerprint: 7, uploaded: 10, changed_in_place: true, ..Checked::default() };
         let what = [
             (0, Told::Done(None)),
             (1, Told::Done(Some((12, 4096)))),
-            (2, Told::Recheck(14, (0x1000, 64), 7, 0, 10)),
+            (2, Told::Recheck(14, checked)),
             (3, Told::Later(10, 4)),
             (4, Told::Held(30)),
             // A write the queue does not hold any more: dropped.
@@ -6678,7 +6697,7 @@ mod tests {
         assert!(told.is_empty());
         b.texture_slot_done(0, w(0), None);
         b.texture_slot_done(1, w(1), Some((12, 4096)));
-        b.texture_slot_recheck(2, w(2), 14, (0x1000, 64), 7, 0, 10);
+        b.texture_slot_recheck(2, w(2), 14, checked);
         b.texture_slot_later(3, w(3), 10, 4);
         b.texture_slot_held(4, w(4), 30);
         b.texture_slot_done(5, 0, None);
@@ -6686,7 +6705,7 @@ mod tests {
             assert_eq!(due(&a, at), due(&b, at), "due at {at}");
         }
         for i in 0..6 {
-            assert_eq!(a.texture_slot_checked(i), b.texture_slot_checked(i));
+            assert_eq!(a.texture_slot_checked(i, w(i)), b.texture_slot_checked(i, w(i)));
             assert_eq!(a.texture_slot_mapped(i), b.texture_slot_mapped(i));
             assert_eq!(a.texture_slot_write(i).map(|w| w != 0), b.texture_slot_write(i).map(|w| w != 0));
         }
@@ -6722,7 +6741,7 @@ mod tests {
         let w2 = write(&q, 2);
         q.later(2, w2, 4, 4);
         q.partly(2, w2, 6, 4096);
-        q.recheck(2, w2, 8, (0x1000, 4096), 7, 0, 6);
+        q.recheck(2, w2, 8, Checked { span: (0x1000, 4096), fingerprint: 7, uploaded: 6, ..Checked::default() });
         q.hold(2, w2, 9);
         assert_eq!(marks.get(2), Some(w2));
         q.remove(2);

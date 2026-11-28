@@ -8733,12 +8733,34 @@ impl Batch {
             let started = std::time::Instant::now();
             let before = PREPARING[0].load(Ordering::Relaxed);
             FLUSHES[3].fetch_add(self.refreshes.len() as u64, Ordering::Relaxed);
-            if light {
+            let large = self.refreshes.len() > FEW;
+            if light && large && crate::asked_for!("VICTORY_REFRESH_BATCH") {
+                // Share the large heap sweep in small batches. Most ranges in
+                // it are already current, so claiming and counting them one
+                // by one contends on two shared counters.
+                const BATCH_SIZE: usize = 16;
+                let refreshes = std::mem::take(&mut self.refreshes);
+                crate::shadow::wide_each(refreshes.len().div_ceil(BATCH_SIZE), move |i| {
+                    let from = i * BATCH_SIZE;
+                    let to = (from + BATCH_SIZE).min(refreshes.len());
+                    let mut current = 0;
+                    for (shadow, from, to) in &refreshes[from..to] {
+                        if shadow.nothing_new(*from, *to - *from) {
+                            current += 1;
+                        } else {
+                            Self::update(shadow, *from, *to);
+                        }
+                    }
+                    if current != 0 {
+                        FLUSHES[2].fetch_add(current, Ordering::Relaxed);
+                    }
+                });
+            } else if light {
                 // A number to a free thread, not a job to each copy.
                 let refreshes = std::mem::take(&mut self.refreshes);
                 crate::shadow::wide_each(refreshes.len(), move |i| {
                     let (shadow, from, to) = &refreshes[i];
-                    if refreshes.len() > FEW && shadow.nothing_new(*from, *to - *from) {
+                    if large && shadow.nothing_new(*from, *to - *from) {
                         FLUSHES[2].fetch_add(1, Ordering::Relaxed);
                         return;
                     }

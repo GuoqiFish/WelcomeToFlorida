@@ -14,6 +14,7 @@ use victory_shader::resource::RootIndexedView;
 use victory_shader::{ResourceType, RootType, UsedResource};
 
 use crate::descriptor::View;
+use crate::descriptor::host::Checked;
 use windows::Win32::Foundation::RECT;
 use windows::Win32::Graphics::Direct3D::D3D_PRIMITIVE_TOPOLOGY;
 use windows::Win32::Graphics::Direct3D12::*;
@@ -841,6 +842,16 @@ pub(crate) static HEAP_TEXTURES_FULL: AtomicU64 = AtomicU64::new(0);
 /// memory is looked at again, each counted from the look before.
 const RECHECK_FRAMES: [u64; 5] = [4, 12, 40, 120, 400];
 
+fn next_texture_recheck(checked: &mut Checked) -> Option<u64> {
+    let next = usize::from(checked.unchanged_looks) + 1;
+    if let Some(&wait) = RECHECK_FRAMES.get(next) {
+        checked.unchanged_looks = next as u8;
+        Some(wait)
+    } else {
+        checked.changed_in_place.then_some(RECHECK_FRAMES[RECHECK_FRAMES.len() - 1])
+    }
+}
+
 /// Looks at uploaded textures picked by index that found the memory as it
 /// was, and that found it changed (uploaded again), since the start.
 pub(crate) static HEAP_TEXTURES_RECHECKED: [AtomicU64; 2] = [AtomicU64::new(0), AtomicU64::new(0)];
@@ -1004,9 +1015,7 @@ impl Tells<'_> {
         if !queue_batch() {
             rest(0, || match what {
                 Told::Done(again) => host.texture_slot_done(index, write, again),
-                Told::Recheck(due, at, print, looks, uploaded) => {
-                    host.texture_slot_recheck(index, write, due, at, print, looks, uploaded);
-                }
+                Told::Recheck(due, checked) => host.texture_slot_recheck(index, write, due, checked),
                 Told::Later(frame, most) => host.texture_slot_later(index, write, frame, most),
                 Told::Held(due) => host.texture_slot_held(index, write, due),
             });
@@ -2818,7 +2827,9 @@ impl State {
         // frame has several, and together they get `bake_ms`.
         static BAKED_MS: AtomicU64 = AtomicU64::new(0);
         let frame = crate::frame::current();
-        let first = FRAME.swap(frame, Ordering::Relaxed) != frame;
+        // As in cool_fox (ca7e76a), avoid writing the shared cache line on
+        // every draw. The swap still selects one winner among recording threads.
+        let first = FRAME.load(Ordering::Relaxed) != frame && FRAME.swap(frame, Ordering::Relaxed) != frame;
         if first {
             BAKED_MS.store(0, Ordering::Relaxed);
         }
@@ -3248,6 +3259,8 @@ impl State {
             // it. The host copy then kept what the memory held at the
             // first look for the rest of the run. The look reads 48 KiB;
             // only a changed texture is uploaded again.
+            // Keep checking a texture known to change in place, as in
+            // cool_fox (8c23f18), even after the initial checks have ended.
             // `VICTORY_HEAP_RECHECK=0`: uploaded once, as before.
             // One found changed by such a look is looked at in the next frame
             // again: the textures left that change unnoticed are ones the
@@ -3255,24 +3268,29 @@ impl State {
             // (all their blocks are shown at other addresses too), and each
             // was shown four frames late, over and over.
             let mut again_in = RECHECK_FRAMES[0];
+            let mut changed_in_place = false;
             // What the queue knew of it when the slots due were taken, while
             // its marks say it holds the write handed out still; else (or with
             // `VICTORY_QUEUE_BATCH=0`) asked now.
-            let checked = match knew {
-                knew if queue_batch() && host.texture_slot_write(index) == Some(write) => knew,
-                _ => rest(0, || host.texture_slot_checked(index)),
+            let checked = match host.texture_slot_write(index) {
+                Some(current) if current != write => continue,
+                Some(_) if queue_batch() => knew,
+                _ => rest(0, || host.texture_slot_checked(index, write)),
             };
-            if let Some((at, len, print, looks, uploaded)) = checked {
+            if let Some(mut checked) = checked {
+                let (at, len) = checked.span;
                 let looked = timed(0, || crate::texture::fingerprint(at, len));
-                if looked == print {
+                if looked == checked.fingerprint {
                     HEAP_TEXTURES_RECHECKED[0].fetch_add(1, Ordering::Relaxed);
                     outcome(slot_outcome::UNCHANGED);
-                    tells.tell(index, write, match RECHECK_FRAMES.get(usize::from(looks) + 1) {
-                        Some(wait) => Told::Recheck(frame + wait, (at, len), print, looks + 1, uploaded),
+                    let what = match next_texture_recheck(&mut checked) {
+                        Some(wait) => Told::Recheck(frame + wait, checked),
                         None => Told::Done(None),
-                    });
+                    };
+                    tells.tell(index, write, what);
                     continue;
                 }
+                changed_in_place = true;
                 if recheck_soon() {
                     again_in = 1;
                 }
@@ -3291,13 +3309,21 @@ impl State {
                         slot = index,
                         address = format_args!("{at:#x}"),
                         bytes = len,
-                        frames_after_upload = frame.saturating_sub(uploaded),
-                        looks,
+                        frames_after_upload = frame.saturating_sub(checked.uploaded),
+                        looks = checked.unchanged_looks,
                         changed = n + 1,
                         "a texture picked by index changed after its upload with nothing to tell of it: uploaded again"
                     );
                 }
             }
+            let after_upload = |again: Option<(u64, u64)>, span: Option<(u64, u64)>| match span {
+                Some(span) => {
+                    let fingerprint = crate::texture::fingerprint(span.0, span.1);
+                    let checked = Checked { span, fingerprint, uploaded: frame, unchanged_looks: 0, changed_in_place };
+                    Told::Recheck(frame + again_in, checked)
+                }
+                None => Told::Done(again),
+            };
             let mut partly = None;
             let mut there = None;
             // The view the slot holds now, read once for the looks below.
@@ -3492,14 +3518,11 @@ impl State {
                     }
                 }
                 let again = partly.map(|mapped| (frame + 1, mapped));
-                let memory = rest(2, || {
-                    let memory = if again.is_none() && heap_recheck() { crate::texture::title_span(resource, first) } else { None };
-                    memory.map(|(at, len)| (at, len, crate::texture::fingerprint(at, len)))
+                let what = rest(2, || {
+                    let span = if again.is_none() && heap_recheck() { crate::texture::title_span(resource, first) } else { None };
+                    after_upload(again, span)
                 });
-                tells.tell(index, write, match memory {
-                    Some((at, len, print)) => Told::Recheck(frame + again_in, (at, len), print, 0, frame),
-                    None => Told::Done(again),
-                });
+                tells.tell(index, write, what);
                 continue;
             }
             // The first upload of a texture no list has used: on a queue of
@@ -3615,9 +3638,9 @@ impl State {
             // streamed texture of the heap held a staging buffer of its full
             // size for good.)
             outcome(if ahead.is_some() { slot_outcome::AHEAD } else { slot_outcome::LISTED });
-            let memory = rest(2, || {
-                let memory = if again.is_none() && heap_recheck() { crate::texture::staged_memory(resource) } else { None };
-                memory.map(|(at, len)| (at, len, crate::texture::fingerprint(at, len)))
+            let what = rest(2, || {
+                let span = if again.is_none() && heap_recheck() { crate::texture::staged_memory(resource) } else { None };
+                after_upload(again, span)
             });
             rest(6, || crate::texture::unstage(resource));
             SPENT.fetch_add(bytes, Ordering::Relaxed);
@@ -3628,11 +3651,7 @@ impl State {
             }
             HEAP_TEXTURE_BYTES.fetch_add(bytes, Ordering::Relaxed);
             HEAP_TEXTURES.fetch_add(1, Ordering::Relaxed);
-            tells.tell(index, write, match memory {
-                // Whole and uploaded: looked at again (see above).
-                Some((at, len, print)) => Told::Recheck(frame + again_in, (at, len), print, 0, frame),
-                None => Told::Done(again),
-            });
+            tells.tell(index, write, what);
         }
         // Told before anything after the loop looks at the queue.
         tells.flush();
@@ -5863,7 +5882,21 @@ fn staging_budget_per_frame(vram_budget: Option<u64>) -> u64 {
 
 #[cfg(test)]
 mod tests {
-    use super::staging_budget_per_frame;
+    use super::{Checked, next_texture_recheck, staging_budget_per_frame};
+
+    #[test]
+    fn only_textures_that_changed_in_place_keep_the_last_recheck_interval() {
+        for changed_in_place in [false, true] {
+            let mut checked = Checked { changed_in_place, ..Checked::default() };
+            for wait in [12, 40, 120, 400] {
+                assert_eq!(next_texture_recheck(&mut checked), Some(wait));
+            }
+            let ongoing = changed_in_place.then_some(400);
+            assert_eq!(next_texture_recheck(&mut checked), ongoing);
+            assert_eq!(next_texture_recheck(&mut checked), ongoing);
+            assert_eq!(checked.unchanged_looks, 4);
+        }
+    }
 
     #[test]
     fn staging_budget_scales_with_vram_budget() {
